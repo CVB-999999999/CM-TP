@@ -6,6 +6,10 @@
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_sign_up2.xml" value="0.17074275362318841" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/activity_sign_up2.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/activity_student_list.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/student_line.xml" value="0.3500905797101449" />
       </map>
     </option>
   </component>
