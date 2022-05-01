@@ -1,5 +1,6 @@
 package com.example.bd.adapters
 
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,12 @@ class studentListAdapter(
         holder.title.text = currentList.title
         holder.address.text = currentList.address
         holder.rent.text = currentList.rent.toString() + "€/mês"
+
+        if (currentList.rooms == 1) {
+            holder.rooms.text = currentList.rooms.toString() + " Quarto"
+        } else {
+            holder.rooms.text = currentList.rooms.toString() + " Quartos"
+        }
 
         if (currentList.shared) {
             holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
@@ -79,5 +86,6 @@ class StudentListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
     val accessible: ImageView = itemView.findViewById(R.id.accessible)
     val male: ImageView = itemView.findViewById(R.id.male)
     val female: ImageView = itemView.findViewById(R.id.female)
+    val rooms: TextView = itemView.findViewById(R.id.roooms)
 
 }

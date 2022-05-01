@@ -7,6 +7,7 @@ data class studentList(
     val shared: Boolean,
     val smoke: Boolean,
     val accessible: Boolean,
-    val sex: Int
+    val sex: Int,
+    val rooms: Int
 ) {
 }

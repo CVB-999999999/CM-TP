@@ -5,4 +5,6 @@
     <string name="shared">Partilhado</string>
     <string name="notShared">Não Partilhado</string>
     <string name="filter">Filtrar</string>
+    <string name="room">Quarto</string>
+    <string name="rooms">Quartos</string>
 </resources>

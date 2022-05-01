@@ -31,6 +31,7 @@ class StudentList : AppCompatActivity() {
                 false,
                 false,
                 true,
+                1,
                 1
             )
         )
@@ -42,6 +43,7 @@ class StudentList : AppCompatActivity() {
                 false,
                 true,
                 false,
+                2,
                 2
             )
         )
@@ -53,7 +55,8 @@ class StudentList : AppCompatActivity() {
                 true,
                 false,
                 true,
-                0
+                0,
+                3
             )
         )
         StdListAdapter.addTodo(
@@ -64,7 +67,8 @@ class StudentList : AppCompatActivity() {
                 true,
                 true,
                 true,
-                1
+                1,
+                4
             )
         )
         StdListAdapter.addTodo(
@@ -75,7 +79,8 @@ class StudentList : AppCompatActivity() {
                 false,
                 false,
                 false,
-                2
+                2,
+                5
             )
         )
     }
