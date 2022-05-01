@@ -25,9 +25,8 @@ class studentListAdapter(
         val currentList = studentL[position]
 
         holder.title.text = currentList.title
-        holder.description.text = currentList.description
+        holder.address.text = currentList.address
         holder.rent.text = currentList.rent.toString() + "€/mês"
-        holder.distance.text = currentList.distance.toString() + "min"
 
         if (currentList.shared) {
             holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
@@ -46,6 +45,18 @@ class studentListAdapter(
         } else {
             holder.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
         }
+
+        // Both
+        if (currentList.sex == 0) {
+            holder.male.setImageResource(R.drawable.ic_baseline_male_24)
+            holder.female.setImageResource(R.drawable.ic_baseline_female_24)
+            // Male only
+        } else if (currentList.sex == 1) {
+            holder.male.setImageResource(R.drawable.ic_baseline_male_24)
+            // Female only
+        } else {
+            holder.female.setImageResource(R.drawable.ic_baseline_female_24)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -61,11 +72,12 @@ class studentListAdapter(
 class StudentListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val title: TextView = itemView.findViewById(R.id.title)
-    val description: TextView = itemView.findViewById(R.id.description)
+    val address: TextView = itemView.findViewById(R.id.address)
     val rent: TextView = itemView.findViewById(R.id.price)
     val shared: ImageView = itemView.findViewById(R.id.shared)
     val smoke: ImageView = itemView.findViewById(R.id.smoke)
     val accessible: ImageView = itemView.findViewById(R.id.accessible)
-    val distance: TextView = itemView.findViewById(R.id.time)
+    val male: ImageView = itemView.findViewById(R.id.male)
+    val female: ImageView = itemView.findViewById(R.id.female)
 
 }

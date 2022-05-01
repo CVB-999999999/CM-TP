@@ -26,12 +26,12 @@ class StudentList : AppCompatActivity() {
         StdListAdapter.addTodo(
             studentList(
                 "Casa perto da ESTG",
-                "Quarto com cama de casal, cozinha e casa de banho privativa",
+                "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
                 200F,
                 false,
                 false,
                 true,
-                12F
+                1
             )
         )
         StdListAdapter.addTodo(
@@ -42,7 +42,18 @@ class StudentList : AppCompatActivity() {
                 false,
                 true,
                 false,
-                30F
+                2
+            )
+        )
+        StdListAdapter.addTodo(
+            studentList(
+                "Casa perto da ESTG",
+                "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
+                200F,
+                true,
+                false,
+                true,
+                0
             )
         )
         StdListAdapter.addTodo(
@@ -51,31 +62,20 @@ class StudentList : AppCompatActivity() {
                 "Quarto com cama de casal, cozinha e casa de banho privativa",
                 200F,
                 true,
-                false,
                 true,
-                120F
+                true,
+                1
             )
         )
         StdListAdapter.addTodo(
             studentList(
                 "Casa perto da ESTG",
-                "Quarto com cama de casal, cozinha e casa de banho privativa",
-                200F,
-                true,
-                true,
-                true,
-                2F
-            )
-        )
-        StdListAdapter.addTodo(
-            studentList(
-                "Casa perto da ESTG",
-                "Quarto com cama de casal, cozinha e casa de banho privativa",
+                "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
                 200F,
                 false,
                 false,
                 false,
-                5F
+                2
             )
         )
     }

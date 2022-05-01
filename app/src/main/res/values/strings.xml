@@ -4,4 +4,5 @@
     <string name="lorem" translatable="false">Qui quidem vero ab omnis provident. At ullam facilis illo aperiam magni voluptatum quisquam id. Saepe veritatis voluptates corrupti voluptatem eos maiores.</string>
     <string name="shared">Shared</string>
     <string name="notShared">Not Shared</string>
+    <string name="filter">Filter</string>
 </resources>

@@ -4,4 +4,5 @@
     <string name="noAccount">Não tem conta? <b>Registar.</b></string>
     <string name="shared">Partilhado</string>
     <string name="notShared">Não Partilhado</string>
+    <string name="filter">Filtrar</string>
 </resources>
