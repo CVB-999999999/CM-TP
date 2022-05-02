@@ -17,6 +17,9 @@
         <activity
             android:name=".StudentList"
             android:exported="false" />
+      <activity
+            android:name=".EditarPerfil"
+            android:exported="false" />
         <activity
             android:name=".Profile"
             android:exported="false" />

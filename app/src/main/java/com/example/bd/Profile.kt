@@ -38,6 +38,11 @@ class Profile : AppCompatActivity() {
             firebaseAuth.signOut()
             checkUser()
         }
+
+        //btn editar Perfil
+        binding.btnEditar.setOnClickListener {
+            startActivity(Intent(this, EditarPerfil::class.java))
+        }
     }
 
     private fun checkUser() {
