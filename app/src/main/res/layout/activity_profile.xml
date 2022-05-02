@@ -9,6 +9,13 @@
     android:gravity="center"
     tools:context=".Profile">
 
+    <ImageButton
+        android:id="@+id/btnEditar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/lapis"
+        android:background="@android:color/transparent"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
