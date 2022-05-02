@@ -7,4 +7,6 @@
     <string name="filter">Filter</string>
     <string name="room">Room</string>
     <string name="rooms">Rooms</string>
+    <string name="landlordList">Landlord Ad List</string>
+    <string name="studentAdList">Avaiable Rooms List</string>
 </resources>

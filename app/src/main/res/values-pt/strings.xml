@@ -7,4 +7,6 @@
     <string name="filter">Filtrar</string>
     <string name="room">Quarto</string>
     <string name="rooms">Quartos</string>
+    <string name="landlordList">Lista de Anúncios do Senhorio</string>
+    <string name="studentAdList">Lista de Quartos Disponiveis</string>
 </resources>

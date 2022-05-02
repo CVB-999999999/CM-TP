@@ -5,12 +5,12 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bd.adapters.studentListAdapter
+import com.example.bd.adapters.landlordListAdapter
 import com.example.bd.models.studentList
 
-class StudentList : AppCompatActivity() {
+class LandlordList : AppCompatActivity() {
 
-    private lateinit var StdListAdapter: studentListAdapter
+    private lateinit var landListAdapter: landlordListAdapter
     private lateinit var actionBar: ActionBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,16 +20,16 @@ class StudentList : AppCompatActivity() {
 
         //configure actionbar
         actionBar = supportActionBar!!
-        actionBar.title = getString(R.string.studentAdList)
+        actionBar.title = getString(R.string.landlordList)
 
 //  Show recycler on screen
-        StdListAdapter = studentListAdapter(ArrayList())
+        landListAdapter = landlordListAdapter(ArrayList())
         val recyclerView: RecyclerView = findViewById(R.id.stdLine)
-        recyclerView.adapter = StdListAdapter
+        recyclerView.adapter = landListAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 //  Data Filler
-        StdListAdapter.addTodo(
+        landListAdapter.addTodo(
             studentList(
                 "Casa perto da ESTG",
                 "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
@@ -41,7 +41,7 @@ class StudentList : AppCompatActivity() {
                 1
             )
         )
-        StdListAdapter.addTodo(
+        landListAdapter.addTodo(
             studentList(
                 "Casa perto da ESTG",
                 "Quarto com cama de casal, cozinha e casa de banho privativa",
@@ -53,7 +53,7 @@ class StudentList : AppCompatActivity() {
                 2
             )
         )
-        StdListAdapter.addTodo(
+        landListAdapter.addTodo(
             studentList(
                 "Casa perto da ESTG",
                 "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
@@ -65,7 +65,7 @@ class StudentList : AppCompatActivity() {
                 3
             )
         )
-        StdListAdapter.addTodo(
+        landListAdapter.addTodo(
             studentList(
                 "Casa perto da ESTG",
                 "Quarto com cama de casal, cozinha e casa de banho privativa",
@@ -77,7 +77,7 @@ class StudentList : AppCompatActivity() {
                 4
             )
         )
-        StdListAdapter.addTodo(
+        landListAdapter.addTodo(
             studentList(
                 "Casa perto da ESTG",
                 "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
