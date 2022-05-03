@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BD</string>
-<<<<<<< Updated upstream
     <string name="noAccount">Não tem conta? <b>Registar.</b></string>
+<<<<<<< HEAD
 =======
     <string name="noAccount">Don\'t have an account? <b>Register.</b></string>
     <string name="lorem" translatable="false">Qui quidem vero ab omnis provident. At ullam facilis illo aperiam magni voluptatum quisquam id. Saepe veritatis voluptates corrupti voluptatem eos maiores.</string>
@@ -34,4 +34,6 @@
     <string name="save">Saving...</string>
     <string name="registerSuc">New account with email: $email</string>
     >>>>>>> Stashed changes
+=======
+>>>>>>> parent of f3903de (atualização para suporte multi lingua)
 </resources>
