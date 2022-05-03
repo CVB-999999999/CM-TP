@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.example.bd.databinding.ActivitySignUp2Binding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 
 class SignUp : AppCompatActivity() {
     //viewBinding
@@ -27,7 +26,6 @@ class SignUp : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var email = ""
     private var password =""
-    private var nome = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +61,6 @@ class SignUp : AppCompatActivity() {
         //obter dados
         email = binding.emailEt.text.toString().trim()
         password = binding.passwordET.text.toString().trim()
-        nome = binding.nomeEt.text.toString().trim()
 
         //validar
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -75,9 +72,6 @@ class SignUp : AppCompatActivity() {
         }else if (password.length<6){
             //sem comprimento suficiente
             binding.passwordET.error = "Por favor insira uma palavra pass com pelo menos 6 caracteres"
-        }else if (TextUtils.isEmpty(nome)){
-            //sem nome
-            binding.emailEt.error = "Por favor insira um nome"
         }else{
             //dados validados
             firebaseRegistar()
@@ -92,50 +86,7 @@ class SignUp : AppCompatActivity() {
         //create account
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                ////sucesso registou
-                //progressDialog.dismiss()
-                ////get current user
-                //val firebaseUser = firebaseAuth.currentUser
-                //val email = firebaseUser!!.email
-//
-                //Toast.makeText(this, "Conta registada com o email: $email", Toast.LENGTH_SHORT).show()
-//
-                ////abre o perfil
-                //startActivity(Intent(this, Profile::class.java))
-                //finish()
-                updateUserInfo()
-            }
-            .addOnFailureListener {e->
-                //falhou
-                progressDialog.dismiss()
-                Toast.makeText(this, "O registou falhou no ${e.message}", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    private fun updateUserInfo() {
-        //guarda os restantes dados no real time database
-        progressDialog.setMessage("A guardar a informação...")
-
-        val timeStamp = System.currentTimeMillis()
-        val uId = firebaseAuth.uid
-
-        val hashMap: HashMap<String, Any?> = HashMap()
-        hashMap["idUtilizador"]=uId
-        hashMap["nome"]=nome
-        hashMap["email"]=email
-        hashMap["telemovel"]=933333333 //para já fica assim, depois muda-se os dados
-        hashMap["password"]=password
-        hashMap["localizacao"]="Viana do Castelo"
-        hashMap["fotoPerfil"]=" "
-        hashMap["timeStamp"]=timeStamp
-        hashMap["tipoUtilizador"]=0 //0-aluno | 1-anunciante
-
-        //guardar td
-        val ref = FirebaseDatabase.getInstance().getReference("Utilizadores")
-        ref.child(uId!!)
-            .setValue(hashMap)
-            .addOnSuccessListener {
-                //caso de sucesso
+                //sucesso registou
                 progressDialog.dismiss()
                 //get current user
                 val firebaseUser = firebaseAuth.currentUser
@@ -143,12 +94,12 @@ class SignUp : AppCompatActivity() {
 
                 Toast.makeText(this, "Conta registada com o email: $email", Toast.LENGTH_SHORT).show()
 
-                ////abre o perfil
+                //abre o perfil
                 startActivity(Intent(this, Profile::class.java))
                 finish()
             }
-            .addOnFailureListener { e->
-                //caso de fail
+            .addOnFailureListener {e->
+                //falhou
                 progressDialog.dismiss()
                 Toast.makeText(this, "O registou falhou no ${e.message}", Toast.LENGTH_SHORT).show()
             }

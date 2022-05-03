@@ -23,23 +23,6 @@
         android:layout_below="@id/titleLabelTV"
         style="@style/TextAppearance.AppCompat.Caption"/>
 
-    <!-- Nome -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nomeTil"
-        android:layout_above="@id/emailTil"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/nomeEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Insira o seu nome"
-            android:inputType="textPersonName"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <!-- Email -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTil"
