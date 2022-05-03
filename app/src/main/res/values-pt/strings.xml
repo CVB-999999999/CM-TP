@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BD</string>
+    <string name="noAccount">Não tem conta? <b>Registar.</b></string>
+    <string name="shared">Partilhado</string>
+    <string name="notShared">Não Partilhado</string>
+    <string name="filter">Filtrar</string>
+    <string name="room">Quarto</string>
+    <string name="rooms">Quartos</string>
+    <string name="landlordList">Lista de Anúncios do Senhorio</string>
+    <string name="studentAdList">Lista de Quartos Disponiveis</string>
+    <string name="wait">Por favor aguarde...</string>
+    <string name="emailInvalidF">Email em formato inválido</string>
+    <string name="nameInvalidF">Nome em formato inválido</string>
+    <string name="phoneInvalidF">Telemóvel em formato inválido</string>
+    <string name="phoneInvalidFEmpty">Por favor insira um contacto válido</string>
+    <string name="erroImage">Erro: Não foi possivel guardar a imagem</string>
+    <string name="updateProfile">A atualizar...</string>
+    <string name="profileUpdate">Perfil atualizado</string>
+    <string name="erroProfileUp">Erro, não foi possivel atualizar o perfil</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Galeria</string>
+    <string name="erroImpCon">Erro: Impossivel continuar</string>
+    <string name="login">A entrar...</string>
+    <string name="passFE">Por favor insira uma password</string>
+    <string name="loginEmail">Login com o email: $email</string>
+    <string name="loginFail">O login falho ao fazer:  ${e.message}</string>
+</resources>

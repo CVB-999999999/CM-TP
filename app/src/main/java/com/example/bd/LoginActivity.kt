@@ -42,8 +42,8 @@ class LoginActivity : AppCompatActivity() {
 
         //configure progressDialog
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Por favor aguarde...")
-        progressDialog.setMessage("A entrar ....")
+        progressDialog.setTitle(R.string.wait)
+        progressDialog.setMessage(R.string.login.toString())
         progressDialog.setCanceledOnTouchOutside(false)
 
         //init FirebaseAuth
@@ -70,10 +70,10 @@ class LoginActivity : AppCompatActivity() {
         //validação
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             //email invalido
-            binding.emailEt.error = "Email no formato inválido"
+            binding.emailEt.error = R.string.emailInvalidF.toString()
         }else if (TextUtils.isEmpty(password)){
             //sem pass
-            binding.passwordET.error = "Por favor insira uma palavra pass"
+            binding.passwordET.error = R.string.passFE.toString()
         }else{
             //dados validados, proceder ao login
             firebaseLogin()
@@ -92,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
 
-                Toast.makeText(this, "Login com o email: $email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.loginEmail, Toast.LENGTH_SHORT).show()
 
                 //abre o perfil
                 startActivity(Intent(this, Profile::class.java))
@@ -102,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnFailureListener{ e->
                 //Login Falha
                 progressDialog.dismiss()
-                Toast.makeText(this, "O Login falhou ao fazer ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.loginFail, Toast.LENGTH_SHORT).show()
 
             }
     }
