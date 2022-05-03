@@ -21,8 +21,13 @@
     <string name="camera">Camera</string>
     <string name="gallery">Galeria</string>
     <string name="erroImpCon">Erro: Impossivel continuar</string>
-    <string name="login">A entrar...</string>
+    <string name="login">A iniciar sessão...</string>
     <string name="passFE">Por favor insira uma password</string>
     <string name="loginEmail">Login com o email: $email</string>
     <string name="loginFail">O login falho ao fazer:  ${e.message}</string>
+    <string name="register">A registar...</string>
+    <string name="passF">Password em formato inválido</string>
+    <string name="registerFail">O registo falhou ao fazer:  ${e.message}</string>
+    <string name="save">A guardar...</string>
+    <string name="registerSuc">Nova conta registada com o email: $email</string>
 </resources>

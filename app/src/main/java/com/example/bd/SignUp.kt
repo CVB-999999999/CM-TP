@@ -45,8 +45,8 @@ class SignUp : AppCompatActivity() {
         //configure ProgressDialog
         //configure progressDialog
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Por favor aguarde...")
-        progressDialog.setMessage("A registar ....")
+        progressDialog.setTitle(R.string.wait)
+        progressDialog.setMessage(R.string.register.toString())
         progressDialog.setCanceledOnTouchOutside(false)
 
         //init FirebaseAuth
@@ -68,16 +68,16 @@ class SignUp : AppCompatActivity() {
         //validar
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             //email invalido
-            binding.emailEt.error = "Email no formato inválido"
+            binding.emailEt.error = R.string.emailInvalidF.toString()
         }else if (TextUtils.isEmpty(password)){
             //sem pass
-            binding.passwordET.error = "Por favor insira uma palavra pass"
+            binding.passwordET.error = R.string.passFE.toString()
         }else if (password.length<6){
             //sem comprimento suficiente
-            binding.passwordET.error = "Por favor insira uma palavra pass com pelo menos 6 caracteres"
+            binding.passwordET.error = R.string.passF.toString()
         }else if (TextUtils.isEmpty(nome)){
             //sem nome
-            binding.emailEt.error = "Por favor insira um nome"
+            binding.emailEt.error = R.string.nameInvalidF.toString()
         }else{
             //dados validados
             firebaseRegistar()
@@ -108,13 +108,13 @@ class SignUp : AppCompatActivity() {
             .addOnFailureListener {e->
                 //falhou
                 progressDialog.dismiss()
-                Toast.makeText(this, "O registou falhou no ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.registerFail, Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun updateUserInfo() {
         //guarda os restantes dados no real time database
-        progressDialog.setMessage("A guardar a informação...")
+        progressDialog.setMessage(R.string.save.toString())
 
         val timeStamp = System.currentTimeMillis()
         val uId = firebaseAuth.uid
@@ -141,7 +141,7 @@ class SignUp : AppCompatActivity() {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
 
-                Toast.makeText(this, "Conta registada com o email: $email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.registerSuc, Toast.LENGTH_SHORT).show()
 
                 ////abre o perfil
                 startActivity(Intent(this, Profile::class.java))
@@ -150,7 +150,7 @@ class SignUp : AppCompatActivity() {
             .addOnFailureListener { e->
                 //caso de fail
                 progressDialog.dismiss()
-                Toast.makeText(this, "O registou falhou no ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.registerFail, Toast.LENGTH_SHORT).show()
             }
     }
 
