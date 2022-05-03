@@ -32,6 +32,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <string name="register">Registered</string>
     <string name="passF">Invalid Password format</string>
     <string name="registerFail">Register fail in ${e.message}</string>
@@ -42,6 +43,9 @@
 >>>>>>> parent of f3903de (atualização para suporte multi lingua)
 =======
 >>>>>>> parent of f3903de (atualização para suporte multi lingua)
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 2b40990 (Atualização)
 =======
 >>>>>>> Stashed changes
 >>>>>>> parent of 2b40990 (Atualização)
