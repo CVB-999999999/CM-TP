@@ -25,10 +25,11 @@
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="erroImpCon">Error: Unable to continue</string>
-    <string name="login">Logging in...</string>
+    <string name="login">Logining...</string>
     <string name="passFE">Please insert a password number</string>
     <string name="loginEmail">Login with email: $email</string>
     <string name="loginFail">Login fail in: ${e.message}</string>
+<<<<<<< HEAD
     <string name="register">Registered</string>
     <string name="passF">Invalid Password format</string>
     <string name="registerFail">Register fail in ${e.message}</string>
@@ -39,4 +40,7 @@
 >>>>>>> parent of f3903de (atualização para suporte multi lingua)
 =======
 >>>>>>> parent of f3903de (atualização para suporte multi lingua)
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 2b40990 (Atualização)
 </resources>
