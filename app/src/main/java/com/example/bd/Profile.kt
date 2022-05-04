@@ -41,7 +41,8 @@ class Profile : AppCompatActivity() {
 
         //btn editar Perfil
         binding.btnEditar.setOnClickListener {
-            startActivity(Intent(this, EditarPerfil::class.java))
+            //startActivity(Intent(this, EditarPerfil::class.java))
+            startActivity(Intent(this, CriarQuarto::class.java))
         }
     }
 
