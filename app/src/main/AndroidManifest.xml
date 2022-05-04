@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BD">
         <activity
+            android:name=".PrimeiraActivity"
+            android:exported="false"/>
+        <activity
             android:name=".EditarPerfil"
             android:exported="false" />
         <activity
@@ -28,7 +31,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
     </application>
 
 </manifest>
