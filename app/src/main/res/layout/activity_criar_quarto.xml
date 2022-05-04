@@ -134,7 +134,7 @@
                         android:layout_height="20dp" />
                 </LinearLayout>
                 <TextView
-                    android:id="@+id/resrvado"
+                    android:id="@+id/reservado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -200,7 +200,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="8"
                         android:layout_marginBottom="8dp"
-                        android:text="Animais"
+                        android:text="É permitido Animais"
                         android:textSize="12sp" />
                     <CheckBox
                         android:id="@+id/check2"
@@ -218,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="8"
                         android:layout_marginBottom="8dp"
-                        android:text="Acessível"
+                        android:text="É Acessível"
                         android:textSize="12sp" />
                     <CheckBox
                         android:id="@+id/check3"

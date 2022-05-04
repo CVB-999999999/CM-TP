@@ -116,6 +116,8 @@ class CriarQuarto : AppCompatActivity() {
         }else if (TextUtils.isEmpty(morada)){
             //sem morada
             binding.moradaEt.error = "Por favor insira uma morada"
+        }else if(binding.masculino.isChecked==false && binding.feminino.isChecked==false && binding.indiferente.isChecked==false){
+            binding.indiferente.error = "Por favor selecione uma das opcções"
         }else{
             if (pub==0){  //submter os dados para a bd
                 guardaInfo()
