@@ -1,4 +1,3 @@
 <resources>
-    <string name="app_name">BD</string>
-    <string name="noAccount">Não tem conta? <b>Registar.</b></string>
+    <string name="app_name">CriarQuarto</string>
 </resources>
