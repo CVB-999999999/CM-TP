@@ -18,4 +18,7 @@
     <string name="registerFail">Could not register</string>
     <string name="save">Saving...</string>
     <string name="registeredAccount">Registered account</string>
+    <string name="login">Logging in...</string>
+    <string name="welcome">Welcome</string>
+    <string name="loginFail">Could not logging in</string>
 </resources>

@@ -18,4 +18,7 @@
     <string name="registerFail">Não foi possivel registar</string>
     <string name="save">A guardar...</string>
     <string name="registeredAccount">Conta registada</string>
+    <string name="login">A entrar...</string>
+    <string name="welcome">Bem vindo</string>
+    <string name="loginFail">Não foi possivel entrar</string>
 </resources>
