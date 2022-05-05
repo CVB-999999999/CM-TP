@@ -1,5 +1,6 @@
 package com.example.bd
 
+import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
@@ -8,14 +9,19 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.bd.databinding.ActivityCriarQuartoBinding
 import com.example.bd.databinding.ActivityEditarPerfilBinding
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -30,6 +36,13 @@ class CriarQuarto : AppCompatActivity() {
 
     //Progress Dialog
     private lateinit var progressDialog: ProgressDialog
+
+    //image uri
+    private var imagegeUri:Uri ?= null
+
+    private var imagem = 0
+
+    private val codAnuncio = UUID.randomUUID().toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +68,14 @@ class CriarQuarto : AppCompatActivity() {
         //binding.profileIv.setOnClickListener {
         //    showimageMenu()
         //}
+
+        //quando clica no btn de escolher imagens
+        binding.addImgBtn.setOnClickListener {
+            //escolhe da galeria
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            galeriaActivity.launch(intent)
+        }
 
         //quando clica no btn de guardar
         binding.publicar.setOnClickListener {
@@ -133,7 +154,6 @@ class CriarQuarto : AppCompatActivity() {
 
         val timeStamp = System.currentTimeMillis()
         val uId = firebaseAuth.uid
-        val codAnuncio = UUID.randomUUID().toString()
 
         val hashMap: HashMap<String, Any?> = HashMap()
         hashMap["codAnuncio"]=codAnuncio
@@ -148,6 +168,7 @@ class CriarQuarto : AppCompatActivity() {
         hashMap["rPreco"]=rPreco
         hashMap["reservado"]=reservado
         hashMap["morada"]=morada
+        hashMap["visiblidade"]="1" // visiblidade do anuncio 0-oculto || 1-visivel
         hashMap["dataCriacao"]=timeStamp
         hashMap["dataAtualizacao"]=timeStamp
 
@@ -191,4 +212,80 @@ class CriarQuarto : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
             })
     }
+
+    //Utilizar imagens da galeria
+    private val galeriaActivity = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+        ActivityResultCallback<ActivityResult>{result ->
+            //obter o uri da imagem
+            if (result.resultCode == Activity.RESULT_OK){
+                var codImagem = UUID.randomUUID().toString()
+
+                val data = result.data
+                imagegeUri = data!!.data
+
+                //coloca a imagem
+                //binding.profileIv.setImageURI(imagegeUri)
+
+                progressDialog.setMessage("A registar...")
+                progressDialog.show()
+
+                // Pasta + codImagem | imagem
+                val filePath = "imagensAnuncios/" + codImagem
+
+                //referencia de armazenamento
+                val reference = FirebaseStorage.getInstance().getReference(filePath)
+                reference.putFile(imagegeUri!!)
+                    .addOnSuccessListener { taskSnapshot ->
+                        progressDialog.dismiss()
+                        //Sucesso obtem a url da imagem
+                        val uriTask: Task<Uri> = taskSnapshot.storage.downloadUrl
+                        while (!uriTask.isSuccessful);
+
+                        val uploadedImageUrl = "${uriTask.result}"
+                        //atualizarPerfil(uploadedImageUrl)
+                        imagem=1
+
+                        gravaImagemRealTime(codImagem, uploadedImageUrl)
+                    }
+                    .addOnFailureListener{
+                        progressDialog.dismiss()
+
+                        //Envia um toast de erro
+                        Toast.makeText(this, "ERRO, não foi possivel enviar a imagem", Toast.LENGTH_SHORT).show()
+                    }
+
+            }else{
+                //Cancela
+                Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
+            }
+        }
+    )
+
+    private fun gravaImagemRealTime(codImagem: String, imageUrl: String) {
+        //envia informação para a BD
+        val hashMap: HashMap<String, Any> = HashMap()
+        hashMap["codImagem"] = codImagem
+        hashMap["codAnuncio"] = codAnuncio
+        hashMap["imagemURL"] = imageUrl
+
+
+        //update
+        val reference = FirebaseDatabase.getInstance().getReference("ImagensAnuncios")
+        reference.child(codImagem!!)
+            .updateChildren(hashMap)
+            .addOnSuccessListener {
+
+                //Envia um toast de erro
+                Toast.makeText(this, "Imagem Guardada", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                progressDialog.dismiss()
+
+                //Envia um toast de erro
+                Toast.makeText(this, "ERRO, não foi possivel guardar a imagem", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
 }

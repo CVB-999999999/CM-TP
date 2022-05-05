@@ -69,6 +69,15 @@
                     android:layout_marginBottom="8dp"
                     android:text="A primeira imagem é a foto principal do teu anúncio."
                     android:textSize="12sp" />
+
+                <!-- Imagem BTN -->
+                <Button
+                    android:id="@+id/addImgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img2"
+                    android:layout_marginTop="10dp"
+                    android:text="Upload de Imagem" />
             </RelativeLayout>
 
             <!-- Descrição -->
