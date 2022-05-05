@@ -9,4 +9,13 @@
     <string name="rooms">Rooms</string>
     <string name="landlordList">Landlord Ad List</string>
     <string name="studentAdList">Avaiable Rooms List</string>
+    <string name="wait">Please Wait...</string>
+    <string name="registe">Creating account</string>
+    <string name="fomatInvalid">in invalid format</string>
+    <string name="insertPass">Please enter a password</string>
+    <string name="insertName">Please enter a name</string>
+    <string name="insertPassCaracter">Please enter a password with at least 6 characters</string>
+    <string name="registerFail">Could not register</string>
+    <string name="save">Saving...</string>
+    <string name="registeredAccount">Registered account</string>
 </resources>

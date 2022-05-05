@@ -9,4 +9,13 @@
     <string name="rooms">Quartos</string>
     <string name="landlordList">Lista de Anúncios do Senhorio</string>
     <string name="studentAdList">Lista de Quartos Disponiveis</string>
+    <string name="wait">Por favor Aguarde...</string>
+    <string name="registe">A criar conta</string>
+    <string name="fomatInvalid">no formato inválido</string>
+    <string name="insertPass">Por favor insira uma password</string>
+    <string name="insertPassCaracter">Por favor insira uma password com pelo menos 6 caracteres</string>
+    <string name="insertName">Por favor insira um nome</string>
+    <string name="registerFail">Não foi possivel registar</string>
+    <string name="save">A guardar...</string>
+    <string name="registeredAccount">Conta registada</string>
 </resources>
