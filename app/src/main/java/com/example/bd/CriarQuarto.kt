@@ -52,7 +52,7 @@ class CriarQuarto : AppCompatActivity() {
 
         //progress
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Por favor aguarde")
+        progressDialog.setTitle(R.string.wait)
         progressDialog.setCanceledOnTouchOutside(false)
 
         //Iniciar o firebase
@@ -121,24 +121,24 @@ class CriarQuarto : AppCompatActivity() {
         //validar
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             //email invalido
-            binding.emailEt.error = "Email no formato inválido"
+            binding.emailEt.error = "Email " + R.string.fomatInvalid
         }else if (TextUtils.isEmpty(telemovel)){
             //sem telemovel
-            binding.telemovelEt.error = "Por favor insira um contacto"
+            binding.telemovelEt.error = R.string.insertPhoneNumber.toString()
         }else if (telemovel.length<6){
             //sem comprimento suficiente
-            binding.telemovelEt.error = "Por favor insira um numero válido"
+            binding.telemovelEt.error = R.string.insertPhoneNumber.toString()
         }else if (TextUtils.isEmpty(titulo)){
             //sem titulo
-            binding.tituloEt.error = "Por favor insira um titulo"
+            binding.tituloEt.error = R.string.insertTitle.toString()
         }else if (TextUtils.isEmpty(descricao)){
             //sem descricao
-            binding.descricaoEt.error = "Por favor insira uma descricao"
+            binding.descricaoEt.error = R.string.insertDescription.toString()
         }else if (TextUtils.isEmpty(morada)){
             //sem morada
-            binding.moradaEt.error = "Por favor insira uma morada"
+            binding.moradaEt.error = R.string.insertAddress.toString()
         }else if(binding.masculino.isChecked==false && binding.feminino.isChecked==false && binding.indiferente.isChecked==false){
-            binding.indiferente.error = "Por favor selecione uma das opcções"
+            binding.indiferente.error = R.string.selectOp.toString()
         }else{
             if (pub==0){  //submter os dados para a bd
                 guardaInfo()
@@ -150,7 +150,7 @@ class CriarQuarto : AppCompatActivity() {
 
     private fun guardaInfo() {
         //guarda os dados no real time database
-        progressDialog.setMessage("A guardar a informação...")
+        progressDialog.setMessage(R.string.save.toString())
 
         val timeStamp = System.currentTimeMillis()
         val uId = firebaseAuth.uid
@@ -179,16 +179,16 @@ class CriarQuarto : AppCompatActivity() {
             .addOnSuccessListener {
                 //caso de sucesso
                 progressDialog.dismiss()
-                Toast.makeText(this, "Anuncio $codAnuncio registado com sucesso", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.anuncioRegistado, Toast.LENGTH_SHORT).show()
 
                 //volta para a pagina inicial, neste momento vai para o perfil novamente
                 startActivity(Intent(this, Profile::class.java))
                 finish()
             }
-            .addOnFailureListener { e->
+            .addOnFailureListener {
                 //caso de fail
                 progressDialog.dismiss()
-                Toast.makeText(this, "O registou falhou no ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.registerFail, Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -227,7 +227,7 @@ class CriarQuarto : AppCompatActivity() {
                 //coloca a imagem
                 //binding.profileIv.setImageURI(imagegeUri)
 
-                progressDialog.setMessage("A registar...")
+                progressDialog.setMessage(R.string.save.toString())
                 progressDialog.show()
 
                 // Pasta + codImagem | imagem
@@ -252,12 +252,12 @@ class CriarQuarto : AppCompatActivity() {
                         progressDialog.dismiss()
 
                         //Envia um toast de erro
-                        Toast.makeText(this, "ERRO, não foi possivel enviar a imagem", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, R.string.erroImageSave, Toast.LENGTH_SHORT).show()
                     }
 
             }else{
                 //Cancela
-                Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.erroG, Toast.LENGTH_SHORT).show()
             }
         }
     )
@@ -276,14 +276,14 @@ class CriarQuarto : AppCompatActivity() {
             .updateChildren(hashMap)
             .addOnSuccessListener {
 
-                //Envia um toast de erro
-                Toast.makeText(this, "Imagem Guardada", Toast.LENGTH_SHORT).show()
+                //Envia um toast
+                Toast.makeText(this, R.string.imageSave, Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 progressDialog.dismiss()
 
                 //Envia um toast de erro
-                Toast.makeText(this, "ERRO, não foi possivel guardar a imagem", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.erroImageSave, Toast.LENGTH_SHORT).show()
             }
     }
 

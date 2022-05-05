@@ -29,4 +29,10 @@
     <string name="camera">Camera</string>
     <string name="galeria">Galeria</string>
     <string name="erroG">Erro</string>
+    <string name="insertTitle">Por favor insira um titulo</string>
+    <string name="insertDescription">Por favor uma descrição</string>
+    <string name="insertAddress">Por favor insira uma morada</string>
+    <string name="selectOp">Por favor selecione uma opção</string>
+    <string name="anuncioRegistado">Anúncio registado com sucesso</string>
+    <string name="imageSave">Imagem Guardada</string>
 </resources>
