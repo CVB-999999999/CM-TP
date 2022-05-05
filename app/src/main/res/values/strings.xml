@@ -21,4 +21,12 @@
     <string name="login">Logging in...</string>
     <string name="welcome">Welcome</string>
     <string name="loginFail">Could not logging in</string>
+    <string name="insertPhoneNumber">Please enter a correct phone number</string>
+    <string name="erroImageSave">Error could not send the image</string>
+    <string name="atualizar">Updating</string>
+    <string name="perfilAtualizado">Profile updated</string>
+    <string name="erroPerfilAtualizado">Error unable to update profile</string>
+    <string name="camera">Camera</string>
+    <string name="galeria">Gallery</string>
+    <string name="erroG">Error</string>
 </resources>

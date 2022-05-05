@@ -21,4 +21,12 @@
     <string name="login">A entrar...</string>
     <string name="welcome">Bem vindo</string>
     <string name="loginFail">Não foi possivel entrar</string>
+    <string name="insertPhoneNumber">Por favor insira um número válido</string>
+    <string name="erroImageSave">Erro não foi possivel guardar a imagem</string>
+    <string name="atualizar">A atualizar</string>
+    <string name="perfilAtualizado">Perfil atualizado</string>
+    <string name="erroPerfilAtualizado">Erro não foi possivel atualizar o perfil</string>
+    <string name="camera">Camera</string>
+    <string name="galeria">Galeria</string>
+    <string name="erroG">Erro</string>
 </resources>
