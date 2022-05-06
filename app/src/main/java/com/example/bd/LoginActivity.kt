@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding:ActivityLoginBinding
 
     //Action Bar
-    private lateinit var actionBar: ActionBar
+    //private lateinit var actionBar: ActionBar
 
     //Progress Dialog
     private lateinit var progressDialog:ProgressDialog
@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //configure actionbar
-        actionBar = supportActionBar!!
-        actionBar.title = "Login"
+      //  actionBar = supportActionBar!!
+        // actionBar.title = "Login"
 
         //configure progressDialog
         progressDialog = ProgressDialog(this)
@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
         //ao clicar na tv de registar
         binding.noAccountTv.setOnClickListener{
-            startActivity(Intent(this, SignUp::class.java))
+            startActivity(Intent(this, ForgetActivity::class.java))
         }
 
         //ao clicar no btn login

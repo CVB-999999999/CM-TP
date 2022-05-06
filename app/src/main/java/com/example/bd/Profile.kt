@@ -13,7 +13,7 @@ class Profile : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
 
     //Action Bar
-    private lateinit var actionBar: ActionBar
+   // private lateinit var actionBar: ActionBar
 
     //Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
@@ -25,8 +25,8 @@ class Profile : AppCompatActivity() {
         setContentView(binding.root)
 
         //configure action bar
-        actionBar = supportActionBar!!
-        actionBar.title="Perfil"
+       // actionBar = supportActionBar!!
+        //actionBar.title="Perfil"
 
         //init firebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
