@@ -1,4 +1,38 @@
 <resources>
     <string name="app_name">BD</string>
-    <string name="noAccount">Esqueceu-se da password? <b>Recuperar</b></string>
+    <string name="noAccount">Don\'t have an account? <b>Register.</b></string>
+    <string name="lorem" translatable="false">Qui quidem vero ab omnis provident. At ullam facilis illo aperiam magni voluptatum quisquam id. Saepe veritatis voluptates corrupti voluptatem eos maiores.</string>
+    <string name="shared">Shared</string>
+    <string name="notShared">Not Shared</string>
+    <string name="filter">Filter</string>
+    <string name="room">Room</string>
+    <string name="rooms">Rooms</string>
+    <string name="landlordList">Landlord Ad List</string>
+    <string name="studentAdList">Avaiable Rooms List</string>
+    <string name="wait">Please Wait...</string>
+    <string name="registe">Creating account</string>
+    <string name="fomatInvalid">in invalid format</string>
+    <string name="insertPass">Please enter a password</string>
+    <string name="insertName">Please enter a name</string>
+    <string name="insertPassCaracter">Please enter a password with at least 6 characters</string>
+    <string name="registerFail">Could not register</string>
+    <string name="save">Saving...</string>
+    <string name="registeredAccount">Registered account</string>
+    <string name="login">Logging in...</string>
+    <string name="welcome">Welcome</string>
+    <string name="loginFail">Could not logging in</string>
+    <string name="insertPhoneNumber">Please enter a correct phone number</string>
+    <string name="erroImageSave">Error could not send the image</string>
+    <string name="atualizar">Updating</string>
+    <string name="perfilAtualizado">Profile updated</string>
+    <string name="erroPerfilAtualizado">Error unable to update profile</string>
+    <string name="camera">Camera</string>
+    <string name="galeria">Gallery</string>
+    <string name="erroG">Error</string>
+    <string name="insertTitle">Please insert a title</string>
+    <string name="insertDescription">Please insert a description</string>
+    <string name="insertAddress">Please insert a address</string>
+    <string name="selectOp">Please select a option</string>
+    <string name="anuncioRegistado">Ad successfully registered</string>
+    <string name="imageSave">Saved image</string>
 </resources>

@@ -53,7 +53,7 @@ class EditarPerfil : AppCompatActivity() {
 
         //progress
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Por favor aguarde")
+        progressDialog.setTitle(R.string.wait)
         progressDialog.setCanceledOnTouchOutside(false)
 
         //Iniciar o firebase
@@ -87,16 +87,16 @@ class EditarPerfil : AppCompatActivity() {
         //validar
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             //email invalido
-            binding.emailEt.error = "Email no formato inválido"
+            binding.emailEt.error = "Email " + R.string.fomatInvalid
         }else if (TextUtils.isEmpty(telemovel)){
             //sem pass
-            binding.telemovelEt.error = "Por favor insira um ontacto"
+            binding.telemovelEt.error = R.string.insertPhoneNumber.toString()
         }else if (telemovel.length<6){
             //sem comprimento suficiente
-            binding.telemovelEt.error = "Por favor insira um numero válido"
+            binding.telemovelEt.error = R.string.insertPhoneNumber.toString()
         }else if (TextUtils.isEmpty(nome)){
             //sem nome
-            binding.nomeEt.error = "Por favor insira um nome"
+            binding.nomeEt.error = R.string.insertName.toString()
         }else{
             //dados validados validar imagem
             if (imagegeUri == null){
@@ -113,7 +113,7 @@ class EditarPerfil : AppCompatActivity() {
     }
 
     private fun atualizarImagem() {
-        progressDialog.setMessage("A registar...")
+        progressDialog.setMessage(R.string.save.toString())
         progressDialog.show()
 
         // Pasta + uid do utilizador | imagem
@@ -135,13 +135,13 @@ class EditarPerfil : AppCompatActivity() {
                 progressDialog.dismiss()
 
                 //Envia um toast de erro
-                Toast.makeText(this, "ERRO, não foi possivel enviar a imagem", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.erroImageSave, Toast.LENGTH_SHORT).show()
             }
 
     }
 
     private fun atualizarPerfil(imagemUrl: String) {
-        progressDialog.setMessage("A atualizar Perfil..")
+        progressDialog.setMessage(R.string.atualizar.toString())
 
         //envia informação para a BD
         val hashMap: HashMap<String, Any> = HashMap()
@@ -161,13 +161,13 @@ class EditarPerfil : AppCompatActivity() {
                 progressDialog.dismiss()
 
                 //Envia um toast de erro
-                Toast.makeText(this, "Perfil atualizado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.perfilAtualizado, Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 progressDialog.dismiss()
 
                 //Envia um toast de erro
-                Toast.makeText(this, "ERRO, não foi possivel atualizar o perfil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.erroPerfilAtualizado, Toast.LENGTH_SHORT).show()
             }
 
     }
@@ -211,8 +211,8 @@ class EditarPerfil : AppCompatActivity() {
 
         //Popup
         val popupMenu = PopupMenu(this, binding.profileIv)
-        popupMenu.menu.add(Menu.NONE, 0, 0, "Camera")
-        popupMenu.menu.add(Menu.NONE, 1, 1, "Galeria")
+        popupMenu.menu.add(Menu.NONE, 0, 0, R.string.camera)
+        popupMenu.menu.add(Menu.NONE, 1, 1, R.string.galeria)
         popupMenu.show()
 
         //ao clicar
@@ -263,8 +263,8 @@ class EditarPerfil : AppCompatActivity() {
                 //coloca a imagem
                 binding.profileIv.setImageURI(imagegeUri)
             }else{
-                //deu merda cancela
-                Toast.makeText(this, "Deu MERDA", Toast.LENGTH_SHORT).show()
+                //Cancela
+                Toast.makeText(this, R.string.erroG, Toast.LENGTH_SHORT).show()
             }
         }
     )
@@ -281,8 +281,8 @@ class EditarPerfil : AppCompatActivity() {
                 //coloca a imagem
                 binding.profileIv.setImageURI(imagegeUri)
             }else{
-                //deu merda cancela
-                Toast.makeText(this, "Deu MERDA", Toast.LENGTH_SHORT).show()
+                //Cancela
+                Toast.makeText(this, R.string.erroG, Toast.LENGTH_SHORT).show()
             }
         }
     )
