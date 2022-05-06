@@ -15,7 +15,7 @@ class PrimeiraActivity : AppCompatActivity() {
         setContentView(R.layout.activity_primeira)
 
         //configure actionbar
-        actionBar = supportActionBar!!
-        actionBar.title = "Rental Student"
+       // actionBar = supportActionBar!!
+       // actionBar.title = "Rental Student"
     }
 }

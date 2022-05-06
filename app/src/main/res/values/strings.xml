@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">BD</string>
-    <string name="noAccount">Não tem conta? <b>Registar.</b></string>
+    <string name="noAccount">Esqueceu-se da password? <b>Recuperar</b></string>
 </resources>
