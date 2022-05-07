@@ -23,47 +23,89 @@ class studentListAdapter(
     }
 
     override fun onBindViewHolder(holder: StudentListViewHolder, position: Int) {
+        //array com a listagem
         val currentList = studentL[position]
 
-        holder.title.text = currentList.title
-        holder.address.text = currentList.address
-        holder.rent.text = currentList.rent.toString() + "€/mês"
+        holder.title.text = currentList.titulo
+        holder.address.text = currentList.morada
+        holder.rent.text = currentList.preco.toString() + "€/mês"
 
-        if (currentList.rooms == 1) {
-            holder.rooms.text = currentList.rooms.toString() + " Quarto"
-        } else {
-            holder.rooms.text = currentList.rooms.toString() + " Quartos"
-        }
+        //if (currentList.rooms == 1) {
+        //    holder.rooms.text = currentList.rooms.toString() + " Quarto"
+        //} else {
+        //    holder.rooms.text = currentList.rooms.toString() + " Quartos"
+        //}
 
-        if (currentList.shared) {
+        if (currentList.rAnimais) {
             holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
         } else {
             holder.shared.setImageResource(R.drawable.ic_baseline_person_24)
         }
 
-        if (currentList.smoke) {
+        if (currentList.rFumadores) {
             holder.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
         } else {
             holder.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
         }
 
-        if (currentList.accessible) {
+        if (currentList.rAcessivel) {
             holder.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
         } else {
             holder.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
         }
 
         // Both
-        if (currentList.sex == 0) {
+        if (currentList.reservado.equals("0")) {
             holder.male.setImageResource(R.drawable.ic_baseline_male_24)
             holder.female.setImageResource(R.drawable.ic_baseline_female_24)
             // Male only
-        } else if (currentList.sex == 1) {
+        } else if (currentList.reservado.equals("1")) {
             holder.male.setImageResource(R.drawable.ic_baseline_male_24)
             // Female only
         } else {
             holder.female.setImageResource(R.drawable.ic_baseline_female_24)
         }
+
+
+        //holder.title.text = currentList.title
+        //holder.address.text = currentList.address
+        //holder.rent.text = currentList.rent.toString() + "€/mês"
+//
+        //if (currentList.rooms == 1) {
+        //    holder.rooms.text = currentList.rooms.toString() + " Quarto"
+        //} else {
+        //    holder.rooms.text = currentList.rooms.toString() + " Quartos"
+        //}
+//
+        //if (currentList.shared) {
+        //    holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
+        //} else {
+        //    holder.shared.setImageResource(R.drawable.ic_baseline_person_24)
+        //}
+//
+        //if (currentList.smoke) {
+        //        holder.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
+        //} else {
+        //    holder.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
+        //}
+//
+        //if (currentList.accessible) {
+        //    holder.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
+        //} else {
+        //    holder.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
+        //}
+//
+        //// Both
+        //if (currentList.sex == 0) {
+        //    holder.male.setImageResource(R.drawable.ic_baseline_male_24)
+        //    holder.female.setImageResource(R.drawable.ic_baseline_female_24)
+        //    // Male only
+        //} else if (currentList.sex == 1) {
+        //    holder.male.setImageResource(R.drawable.ic_baseline_male_24)
+        //    // Female only
+        //} else {
+        //    holder.female.setImageResource(R.drawable.ic_baseline_female_24)
+        //}
     }
 
     override fun getItemCount(): Int {

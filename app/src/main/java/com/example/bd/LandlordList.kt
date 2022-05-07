@@ -29,65 +29,65 @@ class LandlordList : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 //  Data Filler
-        landListAdapter.addTodo(
-            studentList(
-                "Casa perto da ESTG",
-                "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
-                200F,
-                false,
-                false,
-                true,
-                1,
-                1
-            )
-        )
-        landListAdapter.addTodo(
-            studentList(
-                "Casa perto da ESTG",
-                "Quarto com cama de casal, cozinha e casa de banho privativa",
-                200F,
-                false,
-                true,
-                false,
-                2,
-                2
-            )
-        )
-        landListAdapter.addTodo(
-            studentList(
-                "Casa perto da ESTG",
-                "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
-                200F,
-                true,
-                false,
-                true,
-                0,
-                3
-            )
-        )
-        landListAdapter.addTodo(
-            studentList(
-                "Casa perto da ESTG",
-                "Quarto com cama de casal, cozinha e casa de banho privativa",
-                200F,
-                true,
-                true,
-                true,
-                1,
-                4
-            )
-        )
-        landListAdapter.addTodo(
-            studentList(
-                "Casa perto da ESTG",
-                "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
-                200F,
-                false,
-                false,
-                false,
-                2,
-                5
-            )
-        )
+        //landListAdapter.addTodo(
+        //    studentList(
+        //        "Casa perto da ESTG",
+        //        "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
+        //        200F,
+        //        false,
+        //        false,
+        //        true,
+        //        1,
+        //        1
+        //    )
+        //)
+        //landListAdapter.addTodo(
+        //    studentList(
+        //        "Casa perto da ESTG",
+        //        "Quarto com cama de casal, cozinha e casa de banho privativa",
+        //        200F,
+        //        false,
+        //        true,
+        //        false,
+        //        2,
+        //        2
+        //    )
+        //)
+        //landListAdapter.addTodo(
+        //    studentList(
+        //        "Casa perto da ESTG",
+        //        "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
+        //        200F,
+        //        true,
+        //        false,
+        //        true,
+        //        0,
+        //        3
+        //    )
+        //)
+        //landListAdapter.addTodo(
+        //    studentList(
+        //        "Casa perto da ESTG",
+        //        "Quarto com cama de casal, cozinha e casa de banho privativa",
+        //        200F,
+        //        true,
+        //        true,
+        //        true,
+        //        1,
+        //        4
+        //    )
+        //)
+        //landListAdapter.addTodo(
+        //    studentList(
+        //        "Casa perto da ESTG",
+        //        "Avenida do Altantico nº123 1234-567 - Viana do Castelo",
+        //        200F,
+        //        false,
+        //        false,
+        //        false,
+        //        2,
+        //        5
+        //    )
+        //)
     }
 }

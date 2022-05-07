@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import com.example.bd.databinding.ActivityProfileBinding
+import com.example.bd.models.studentList
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -42,7 +43,8 @@ class Profile : AppCompatActivity() {
         //btn editar Perfil
         binding.btnEditar.setOnClickListener {
             //startActivity(Intent(this, EditarPerfil::class.java))
-            startActivity(Intent(this, CriarQuarto::class.java))
+            //startActivity(Intent(this, CriarQuarto::class.java))
+            startActivity(Intent(this, StudentList::class.java))
         }
     }
 

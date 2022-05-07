@@ -93,6 +93,7 @@ class CriarQuarto : AppCompatActivity() {
     private var rPreco = false
     private var reservado = ""
     private var morada = ""
+    private var preco = ""
 
     //valida dos dados antes de publicar
     private fun validarDados(pub: Int) {
@@ -105,6 +106,7 @@ class CriarQuarto : AppCompatActivity() {
         rAcessivel = binding.check3.isChecked
         rPreco = binding.check4.isChecked
         morada = binding.moradaEt.text.toString().trim()
+        preco = binding.precoET.text.toString().trim()
 
         //Define se o quarto é especifico para algum tipo de sexo
         //0 - Masculino
@@ -171,6 +173,7 @@ class CriarQuarto : AppCompatActivity() {
         hashMap["visiblidade"]="1" // visiblidade do anuncio 0-oculto || 1-visivel
         hashMap["dataCriacao"]=timeStamp
         hashMap["dataAtualizacao"]=timeStamp
+        hashMap["preco"]=preco
 
         //guardar td
         val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
