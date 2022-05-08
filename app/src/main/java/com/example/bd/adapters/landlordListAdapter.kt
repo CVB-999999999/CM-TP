@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.R
 import com.example.bd.models.studentList
 
-class landlordListAdapter(
+/*class landlordListAdapter(
     private val studentL: ArrayList<studentList>
 ) : RecyclerView.Adapter<StudentListViewHolder>() {
 
@@ -88,4 +88,4 @@ class LandlordListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     val female: ImageView = itemView.findViewById(R.id.female)
     val rooms: TextView = itemView.findViewById(R.id.roooms)
 
-}
+}*/

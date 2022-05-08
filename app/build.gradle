@@ -63,4 +63,7 @@ dependencies {
     //Picasso Assitente de fotos
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    //Material from google
+    implementation 'com.google.android.material:material:1.7.0-alpha01'
+
 }
