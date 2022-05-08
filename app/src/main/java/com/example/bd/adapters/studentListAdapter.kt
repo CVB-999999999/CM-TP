@@ -7,8 +7,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.bd.R
 import com.example.bd.models.studentList
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 
 class studentListAdapter(
     private val studentL: ArrayList<studentList>
@@ -106,6 +112,25 @@ class studentListAdapter(
         //} else {
         //    holder.female.setImageResource(R.drawable.ic_baseline_female_24)
         //}
+
+        //atraves do codigo do anuncio vou buscar uma imagem "aleatoria" possivel a BD
+        val ref = FirebaseDatabase.getInstance().getReference("ImagensAnuncios")
+        ref.child(currentList.codAnuncio!!)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val imagem = "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2Fvazio.jpg?alt=media&token=18b47cd5-7b63-43d2-964f-35f69008848a"
+                    if (snapshot.exists()) {
+                        val imagem = "${snapshot.child("imagemURL").value}"
+                    }
+
+                    Picasso.get().load(imagem).into(holder.imagemA)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+
     }
 
     override fun getItemCount(): Int {
@@ -129,5 +154,6 @@ class StudentListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
     val male: ImageView = itemView.findViewById(R.id.male)
     val female: ImageView = itemView.findViewById(R.id.female)
     val rooms: TextView = itemView.findViewById(R.id.roooms)
+    val imagemA: ImageView = itemView.findViewById(R.id.imagemA)
 
 }
