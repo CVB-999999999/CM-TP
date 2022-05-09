@@ -74,7 +74,7 @@ class Profile : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.favourite -> {
-                    startActivity(Intent(this, StudentList::class.java))
+                    startActivity(Intent(this, StdFavoritosList::class.java))
                     overridePendingTransition(0, 0)
                     return@setOnNavigationItemSelectedListener true
                 }

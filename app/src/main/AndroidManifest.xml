@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BD">
         <activity
+            android:name=".StdFavoritosList"
+            android:exported="false" />
+        <activity
             android:name=".VerAnuncio"
             android:exported="false" />
         <activity

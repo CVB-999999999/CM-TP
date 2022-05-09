@@ -5,12 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.R
-import com.example.bd.StudentList
-import com.example.bd.VerAnuncio
+import com.example.bd.app.OnStudentClickCodListener
 import com.example.bd.app.OnStudentClickListener
 import com.example.bd.models.studentList
 import com.google.firebase.database.DataSnapshot
@@ -19,20 +16,20 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
-class studentListAdapter(
-    private val studentL: ArrayList<studentList>, private val onStudentClickListener: OnStudentClickListener) :
-    RecyclerView.Adapter<StudentListViewHolder>() {
+class studentFavListAdapter(
+    private val studentL: ArrayList<studentList>, private val onStudentClickCodListener: OnStudentClickCodListener
+) :
+    RecyclerView.Adapter<StudentFavListViewHolder>() {
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentListViewHolder {
-        return StudentListViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentFavListViewHolder {
+        return StudentFavListViewHolder(
             LayoutInflater
                 .from(parent.context)
                 .inflate(R.layout.student_line, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: StudentListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: StudentFavListViewHolder, position: Int) {
         //array com a listagem
         val currentList = studentL[position]
 
@@ -95,9 +92,8 @@ class studentListAdapter(
                 }
             })
 
-
         holder.itemView.setOnClickListener {
-            onStudentClickListener.onStudentClickItem(position)
+            onStudentClickCodListener.onStudentClickCodItem(currentList.codAnuncio!!)
         }
     }
 
@@ -111,7 +107,7 @@ class studentListAdapter(
     }
 }
 
-class StudentListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class StudentFavListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val title: TextView = itemView.findViewById(R.id.title)
     val address: TextView = itemView.findViewById(R.id.address)

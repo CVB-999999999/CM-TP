@@ -1,15 +1,17 @@
 package com.example.bd
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bd.adapters.studentFavListAdapter
 import com.example.bd.adapters.studentListAdapter
-import com.example.bd.app.OnStudentClickListener
+import com.example.bd.app.OnStudentClickCodListener
 import com.example.bd.models.studentList
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -18,13 +20,14 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class StudentList : AppCompatActivity() , OnStudentClickListener{
 
-    private lateinit var StdListAdapter: studentListAdapter
+class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
+    private lateinit var StdListAdapter: studentFavListAdapter
     private lateinit var actionBar: ActionBar
 
+    private var TAG = "onChange"
     //arraylist para o holder
-    private lateinit var anunciosArrayList:ArrayList<studentList>
+    private lateinit var anunciosArrayList: ArrayList<studentList>
 
     private lateinit var bottomNavigationView: BottomNavigationView
 
@@ -33,26 +36,15 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_student_list)
+        setContentView(R.layout.activity_std_favoritos_list)
 
-        //configure actionbar
-        //actionBar = supportActionBar!!
-        //actionBar.title = getString(R.string.studentAdList)
+        firebaseAuth = FirebaseAuth.getInstance()
 
-//  Show recycler on screen
-        //StdListAdapter = studentListAdapter(ArrayList())
-        //val recyclerView: RecyclerView = findViewById(R.id.stdLine)
-        //recyclerView.adapter = StdListAdapter
-        //recyclerView.layoutManager = LinearLayoutManager(this)
-
-
-        StdListAdapter = studentListAdapter(ArrayList(), this)
+        StdListAdapter = studentFavListAdapter(ArrayList(), this)
         val recyclerView: RecyclerView = findViewById(R.id.stdLine)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = StdListAdapter
         StdListAdapter.notifyDataSetChanged()
-
-        firebaseAuth = FirebaseAuth.getInstance()
 
         //carrega os anuncios
         anunciosArrayList = arrayListOf<studentList>()
@@ -62,11 +54,11 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
         bottomNavigationView = findViewById(R.id.bottom_navigation)
 
         //seleciona o item do menu
-        bottomNavigationView.setSelectedItemId(R.id.home)
+        bottomNavigationView.setSelectedItemId(R.id.favourite)
 
         //ao clicar em um item
         bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.dashboard -> {
                     startActivity(Intent(this, Profile::class.java))
                     overridePendingTransition(0, 0)
@@ -98,38 +90,53 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
 
         //Ativa o modo imersivo
         window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+            systemUiVisibility =
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
+
     }
 
     private fun loadList() {
-        //carrega o anuncio
-        val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
-        ref.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-               if (snapshot.exists()) {
-                       for (anuncioSnap in snapshot.children) {
-                           val anuncio = anuncioSnap.getValue(studentList::class.java)
-                           anunciosArrayList.add(anuncio!!)
-                       }
-                        //carrega para view
-                       anunciosArrayList.forEach{
-                           StdListAdapter.addTodo(it)
-                       }
-               }
-            }
+        val codigos = ArrayList<String>()
 
-            override fun onCancelled(error: DatabaseError) {
+        val referencia = FirebaseDatabase.getInstance().getReference("Utilizadores")
+        referencia.child(firebaseAuth.uid!!).child("Favoritos")
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        for (anuncioSnap in snapshot.children) {
+                            val cod = "${anuncioSnap.child("codAnuncio").value}"
+                            codigos.add(cod)
+                        }
+                    }
 
-            }
-        })
+                    for (i in codigos) {
+                        val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
+                        ref.child(i)
+                            .addValueEventListener(object : ValueEventListener {
+                                override fun onDataChange(snapshot: DataSnapshot) {
+
+                                    val anuncio = snapshot.getValue(studentList::class.java)
+                                    //anunciosArrayList.add(anuncio!!)
+                                    Log.d(TAG, "onDataChange: entra" + anunciosArrayList.size)
+
+                                    StdListAdapter.addTodo(anuncio!!)
+                                }
+
+                                override fun onCancelled(error: DatabaseError) {
+                                    Log.d(TAG, "onDataChange: cancela")
+                                }
+                            })
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
     }
 
-    override fun onStudentClickItem(position: Int) {
-        val anuncioNome = anunciosArrayList[position].titulo
-        val codA = anunciosArrayList[position].codAnuncio
-
-        Toast.makeText(this, "Anúncio: " + anuncioNome, Toast.LENGTH_LONG).show()
+    override fun onStudentClickCodItem(codA: String) {
 
         val intent = Intent(this, VerAnuncio::class.java)
         intent.putExtra("codAnuncio", codA)

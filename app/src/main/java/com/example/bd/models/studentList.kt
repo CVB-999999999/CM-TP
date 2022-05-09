@@ -10,22 +10,23 @@ data class studentList(
     //val sex: Int ?= null,
     //val rooms: Int ?= null
 
-val codAnuncio: String ?= null,
-val dataAtualizacao: Long ?= null,
-val dataCriacao: Long ?= null,
-val descricao: String ?= null,
-val email: String ?= null,
-val idUtilizador: String ?= null,
-val morada : String ?= null,
-val preco: String ?= null,
-val rAcessivel: Boolean = false,
-val rAnimais: Boolean = false,
-val rFumadores: Boolean = false,
-val rPreco: Boolean = false,
-val reservado: String ?= null,
-val telemovel: String ?= null,
-val titulo: String ?= null,
-val visiblidade: String ?= null
+    var codAnuncio: String ?= null,
+    val dataAtualizacao: Long ?= null,
+    val dataCriacao: Long ?= null,
+    val descricao: String ?= null,
+    val email: String ?= null,
+    val idUtilizador: String ?= null,
+    var morada : String ?= null,
+    var preco: String ?= null,
+    val rAcessivel: Boolean = false,
+    val rAnimais: Boolean = false,
+    val rFumadores: Boolean = false,
+    val rPreco: Boolean = false,
+    val reservado: String ?= null,
+    val telemovel: String ?= null,
+    var titulo: String ?= null,
+    val visiblidade: String ?= null,
+    var favorito: Boolean = false
 ){
 
 }
