@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.adapters.studentListAdapter
 import com.example.bd.app.OnStudentClickListener
 import com.example.bd.models.studentList
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -22,6 +23,8 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
 
     //arraylist para o holder
     private lateinit var anunciosArrayList:ArrayList<studentList>
+
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,6 +74,44 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
         //        "1"
         //    )
         //)
+
+        //Bottom menu
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        //seleciona o item do menu
+        bottomNavigationView.setSelectedItemId(R.id.home)
+
+        //ao clicar em um item
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.dashboard -> {
+                    startActivity(Intent(this, Profile::class.java))
+                    overridePendingTransition(0, 0)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.home -> {
+                    startActivity(Intent(this, StudentList::class.java))
+                    overridePendingTransition(0, 0)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.favourite -> {
+                    startActivity(Intent(this, StudentList::class.java))
+                    overridePendingTransition(0, 0)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.qrCode -> {
+                    startActivity(Intent(this, StudentList::class.java))
+                    overridePendingTransition(0, 0)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.search -> {
+                    startActivity(Intent(this, StudentList::class.java))
+                    overridePendingTransition(0, 0)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                else -> return@setOnNavigationItemSelectedListener false
+            }
+        }
     }
 
     private fun loadList() {
