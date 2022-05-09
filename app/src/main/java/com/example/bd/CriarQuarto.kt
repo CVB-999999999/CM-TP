@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.bd.databinding.ActivityCriarQuartoBinding
-import com.example.bd.databinding.ActivityEditarPerfilBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -80,6 +80,11 @@ class CriarQuarto : AppCompatActivity() {
         //quando clica no btn de guardar
         binding.publicar.setOnClickListener {
             validarDados(0) // 0 - Publicar || 1 - Previsualizar
+        }
+
+        //Ativa o modo imersivo (Para mais Info Ide pesquisar na documentação do androi studio)
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
     }
 

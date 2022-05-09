@@ -2,6 +2,7 @@ package com.example.bd
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import com.example.bd.databinding.ActivityProfileBinding
 import com.example.bd.databinding.ActivityVerAnuncioBinding
@@ -25,6 +26,11 @@ class VerAnuncio : AppCompatActivity() {
         val codAnuncio = intent.getStringExtra("codAnuncio")
 
         loadAnuncio(codAnuncio!!)
+
+        //Ativa o modo imersivo
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
 
     }
 

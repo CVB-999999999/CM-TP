@@ -8,6 +8,7 @@ import android.os.PatternMatcher
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.example.bd.databinding.ActivityLoginBinding
@@ -59,6 +60,11 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             //validar a informação
             validateData()
+        }
+
+        //Ativa o modo imersivo
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
     }
 
