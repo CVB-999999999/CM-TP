@@ -116,21 +116,21 @@
                         android:id="@+id/male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"/>
 
                     <ImageView
                         android:id="@+id/female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"/>
 
                     <ImageView
-                        android:id="@+id/shared"
+                        android:id="@+id/negociavel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_baseline_people_24" />
+                        android:src="@drawable/ic_baseline_attach_money_24" />
 
                     <ImageView
                         android:id="@+id/smoke"
@@ -146,6 +146,13 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:src="@drawable/ic_baseline_accessible_24" />
+
+                    <ImageView
+                        android:id="@+id/pet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"/>
 
                 </LinearLayout>
             </LinearLayout>
