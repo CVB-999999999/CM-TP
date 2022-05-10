@@ -121,8 +121,12 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                if (snapshot.exists()) {
                        for (anuncioSnap in snapshot.children) {
-                           val anuncio = anuncioSnap.getValue(studentList::class.java)
-                           anunciosArrayList.add(anuncio!!)
+                           val visiblidade = "${anuncioSnap.child("visiblidade").value}"
+
+                           if(visiblidade.equals("1")){ //verifica se o anuncio está no estado 1
+                               val anuncio = anuncioSnap.getValue(studentList::class.java)
+                               anunciosArrayList.add(anuncio!!)
+                           }
                        }
                         //carrega para view
                        anunciosArrayList.forEach{
