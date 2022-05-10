@@ -60,7 +60,7 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.dashboard -> {
-                    startActivity(Intent(this, Profile::class.java))
+                    startActivity(Intent(this, Defenicoes::class.java))
                     overridePendingTransition(0, 0)
                     return@setOnNavigationItemSelectedListener true
                 }
