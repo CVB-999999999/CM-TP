@@ -46,7 +46,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:text="email@ipvc.pt"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <View
@@ -90,8 +90,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -106,11 +106,11 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
                     android:text="Editar Perfil"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -129,8 +129,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -144,11 +144,11 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
                     android:text="Localização"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -160,15 +160,15 @@
             <LinearLayout
                 android:id="@+id/notLL"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/locLL"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -182,11 +182,11 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.6"
                     android:text="Notificações"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="0.3"
                     android:checked="true" />
@@ -217,8 +217,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -232,11 +232,11 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
                     android:text="Linguagem"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -248,15 +248,15 @@
             <LinearLayout
                 android:id="@+id/darkLL"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/linguaLL"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -270,15 +270,14 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.6"
                     android:text="Modo Escuro"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="0.3"
                     android:checked="true" />
-
             </LinearLayout>
 
             <!-- Outros -->
@@ -305,8 +304,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -320,11 +319,11 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
                     android:text="Termos e Condições"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -343,8 +342,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -358,11 +357,11 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
                     android:text="Politica de Privacidade"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -381,8 +380,9 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="30dp"
+                    android:layout_width="15dp"
+                    android:layout_height="20dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -396,12 +396,13 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
                     android:text="Apoio"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
+                    android:layout_centerHorizontal="true"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
                     android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
