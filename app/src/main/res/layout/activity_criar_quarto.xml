@@ -46,6 +46,37 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </RelativeLayout>
 
+            <!-- Preço -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/preco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Preço apelativo"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/precoTil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/preco"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/precoET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Preço"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
             <!-- Imagens -->
             <RelativeLayout
                 android:layout_width="match_parent"

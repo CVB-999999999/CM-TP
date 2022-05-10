@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.example.bd.databinding.ActivitySignUp2Binding
@@ -56,6 +57,11 @@ class SignUp : AppCompatActivity() {
                 //valida a informação
                 validateData()
         }
+        //Ativa o modo imersivo
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
+
     }
 
     private fun validateData() {

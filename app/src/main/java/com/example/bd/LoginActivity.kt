@@ -8,6 +8,7 @@ import android.os.PatternMatcher
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.example.bd.databinding.ActivityLoginBinding
@@ -60,6 +61,11 @@ class LoginActivity : AppCompatActivity() {
             //validar a informação
             validateData()
         }
+
+        //Ativa o modo imersivo
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
     }
 
     private fun validateData() {
@@ -95,7 +101,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show()
 
                 //abre o perfil
-                startActivity(Intent(this, Profile::class.java))
+                startActivity(Intent(this, StudentList::class.java))
                 finish()
 
             }
@@ -113,7 +119,7 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null){
             //utilizador já logado
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, StudentList::class.java))
             finish()
         }
     }

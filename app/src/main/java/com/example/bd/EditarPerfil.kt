@@ -13,6 +13,7 @@ import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.Menu
+import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -73,6 +74,11 @@ class EditarPerfil : AppCompatActivity() {
         //quando clica no btn update
         binding.updateBtn.setOnClickListener {
             validarDados()
+        }
+
+        //Ativa o modo imersivo
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
     }
 

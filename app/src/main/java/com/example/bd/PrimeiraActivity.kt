@@ -37,7 +37,10 @@ class PrimeiraActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-
+        //Ativa o modo imersivo
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
     }
 
     private fun checkUser() {
@@ -46,7 +49,7 @@ class PrimeiraActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null){
             //utilizador já logado
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, StudentList::class.java))
             finish()
         }
     }

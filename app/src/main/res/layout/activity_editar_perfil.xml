@@ -10,13 +10,13 @@
     <RelativeLayout
         android:id="@+id/toolBarRl"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/back_arrow"
+            android:src="@drawable/ic_baseline_arrow_back_24"
             android:background="@android:color/transparent"/>
     </RelativeLayout>
 
@@ -25,10 +25,10 @@
         android:id="@+id/profileIv"
         android:layout_width="110dp"
         android:layout_height="110dp"
+        android:layout_below="@id/toolBarRl"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:src="@drawable/user"
-        android:layout_below="@id/toolBarRl" />
+        android:src="@drawable/user" />
 
 
     <!-- Nome -->
@@ -37,14 +37,16 @@
         android:layout_below="@id/profileIv"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
 
         <EditText
             android:id="@+id/nomeEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:background="@android:color/transparent"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:background="@android:color/transparent"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,15 +81,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:background="@android:color/transparent"
             android:hint="Telemovel"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Btn de update -->
-    <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/telemovelTil"
-        android:text="Update" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="Guardar" />
+
+    </RelativeLayout>
 </RelativeLayout>

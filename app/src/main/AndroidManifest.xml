@@ -5,12 +5,22 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BD">
+        <activity
+            android:name=".Defenicoes"
+            android:exported="false" />
+        <activity
+            android:name=".StdFavoritosList"
+            android:exported="false" />
+        <activity
+            android:name=".VerAnuncio"
+            android:exported="false" />
         <activity
             android:name=".ForgetActivity"
             android:exported="false" />
@@ -23,7 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-      <activity
+        <activity
             android:name=".CriarQuarto"
             android:exported="false" />
         <activity
