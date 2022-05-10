@@ -89,7 +89,7 @@ class Defenicoes : AppCompatActivity() {
         }
 
         binding.editContaLL.setOnClickListener {
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, EditarPerfil::class.java))
         }
 
         //Dark mode

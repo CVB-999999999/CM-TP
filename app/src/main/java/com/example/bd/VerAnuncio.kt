@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import com.example.bd.databinding.ActivityProfileBinding
+import android.widget.ViewFlipper
 import com.example.bd.databinding.ActivityVerAnuncioBinding
 import com.example.bd.models.studentList
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +25,9 @@ class VerAnuncio : AppCompatActivity() {
     private lateinit var binding: ActivityVerAnuncioBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
+
+    private lateinit var viewFlipper: ViewFlipper
+    private lateinit var imageView: ImageView
 
     //aramzena o valor se esta ou não nos favoritos, começa como falso
     private var isInMyFavorite = false
@@ -64,6 +67,12 @@ class VerAnuncio : AppCompatActivity() {
         window.decorView.apply {
             systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
+
+
+        var images = {R.drawable.back_arrow}
+        viewFlipper = binding.vFlipper
+
+        flipperImage(R.drawable.back_arrow)
     }
 
     private fun loadAnuncio(codAnuncio: String) {
@@ -219,5 +228,14 @@ class VerAnuncio : AppCompatActivity() {
                 Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
             }
 
+    }
+
+    public fun flipperImage(image: Int){
+        imageView = ImageView(this)
+        imageView.setBackgroundResource(image)
+
+        viewFlipper.addView(imageView)
+        viewFlipper.setFlipInterval(4000)
+        viewFlipper.setAutoStart(true)
     }
 }
