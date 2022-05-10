@@ -15,7 +15,7 @@
         android:id="@+id/search"
         android:title="Pesquisar"
         android:icon="@drawable/ic_baseline_search"/>
-    
+
     <item
         android:id="@+id/qrCode"
         android:title="QR Code"

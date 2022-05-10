@@ -23,8 +23,6 @@ class Profile : AppCompatActivity() {
     //Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private lateinit var bottomNavigationView: BottomNavigationView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,44 +51,6 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this, StudentList::class.java))
         }
 
-
-        //Bottom menu
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
-
-        //seleciona o item do menu
-        bottomNavigationView.setSelectedItemId(R.id.dashboard)
-
-        //ao clicar em um item
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.dashboard -> {
-                        startActivity(Intent(this, Profile::class.java))
-                        overridePendingTransition(0, 0)
-                        return@setOnNavigationItemSelectedListener true
-                    }
-                R.id.home -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.favourite -> {
-                    startActivity(Intent(this, StdFavoritosList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.qrCode -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.search -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                else -> return@setOnNavigationItemSelectedListener false
-            }
-        }
 
         //Ativa o modo imersivo (Para mais Info Ide pesquisar na documentação do androi studio)
         window.decorView.apply {

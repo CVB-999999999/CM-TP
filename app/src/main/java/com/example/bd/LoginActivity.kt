@@ -101,7 +101,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show()
 
                 //abre o perfil
-                startActivity(Intent(this, Profile::class.java))
+                startActivity(Intent(this, StudentList::class.java))
                 finish()
 
             }
@@ -119,7 +119,7 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null){
             //utilizador já logado
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, StudentList::class.java))
             finish()
         }
     }

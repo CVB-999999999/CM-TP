@@ -38,17 +38,4 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sair" />
-
-
-    <!-- Menu (tem de estar dentro de um relative layout) -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@color/azulInicio"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        app:menu="@menu/menu_navigation"
-        app:labelVisibilityMode="labeled"
-        android:layout_alignParentBottom="true"/>
 </RelativeLayout>
