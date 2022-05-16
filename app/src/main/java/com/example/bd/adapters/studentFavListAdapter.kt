@@ -89,7 +89,7 @@ class studentFavListAdapter(
                         }
                     }
                     if (conta==0){
-                        val imagem = "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2Fvazio.jpg?alt=media&token=18b47cd5-7b63-43d2-964f-35f69008848a"
+                        val imagem = "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2F0c31a1fea169f62723961552742988b3a97e8e12.jpg?alt=media&token=ee27cce2-f4be-4801-aa1a-b7ce98516852"
                         Picasso.get().load(imagem).into(holder.imagemA)
                     }
                 }
