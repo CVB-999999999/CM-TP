@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.adapters.studentListAdapter
+import com.example.bd.app.MyApplication
 import com.example.bd.app.OnStudentClickListener
 import com.example.bd.models.studentList
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -66,37 +67,7 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
         //seleciona o item do menu
         bottomNavigationView.setSelectedItemId(R.id.home)
 
-        //ao clicar em um item
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.dashboard -> {
-                    startActivity(Intent(this, Defenicoes::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.home -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.favourite -> {
-                    startActivity(Intent(this, StdFavoritosList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.qrCode -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.search -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                else -> return@setOnNavigationItemSelectedListener false
-            }
-        }
+        MyApplication.bottomMenu(bottomNavigationView, this)
 
         //Ativa o modo imersivo
         window.decorView.apply {

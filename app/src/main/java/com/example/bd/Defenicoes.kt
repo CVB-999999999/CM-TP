@@ -2,11 +2,14 @@ package com.example.bd
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
+import com.example.bd.app.MyApplication
+import com.example.bd.app.OnStudentClickListener
 import com.example.bd.databinding.ActivityDefenicoesBinding
 import com.example.bd.databinding.ActivityEditarPerfilBinding
 import com.example.bd.models.studentList
@@ -16,6 +19,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+
 
 class Defenicoes : AppCompatActivity() {
     private lateinit var binding: ActivityDefenicoesBinding
@@ -39,6 +43,7 @@ class Defenicoes : AppCompatActivity() {
         binding.sairLL.setOnClickListener {
             firebaseAuth.signOut()
             checkUser()
+            finish()
         }
 
         //Bottom menu
@@ -47,37 +52,7 @@ class Defenicoes : AppCompatActivity() {
         //seleciona o item do menu
         bottomNavigationView.setSelectedItemId(R.id.dashboard)
 
-        //ao clicar em um item
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.dashboard -> {
-                    startActivity(Intent(this, Defenicoes::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.home -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.favourite -> {
-                    startActivity(Intent(this, StdFavoritosList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.qrCode -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.search -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                else -> return@setOnNavigationItemSelectedListener false
-            }
-        }
+        MyApplication.bottomMenu(bottomNavigationView, this)
 
         //Ativa o modo imersivo
         window.decorView.apply {
@@ -90,6 +65,18 @@ class Defenicoes : AppCompatActivity() {
 
         binding.editContaLL.setOnClickListener {
             startActivity(Intent(this, EditarPerfil::class.java))
+        }
+
+        binding.termos.setOnClickListener {
+            val openURL = Intent(android.content.Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://www.ipvc.pt/")
+            startActivity(openURL)
+        }
+
+        binding.politicas.setOnClickListener {
+            val openURL = Intent(android.content.Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://www.ipvc.pt/")
+            startActivity(openURL)
         }
 
         //Dark mode
@@ -159,7 +146,7 @@ class Defenicoes : AppCompatActivity() {
 
         }else{
             //user logout
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, PrimeiraActivity::class.java))
         }
 
     }

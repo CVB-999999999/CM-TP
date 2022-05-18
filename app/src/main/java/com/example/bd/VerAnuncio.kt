@@ -1,5 +1,6 @@
 package com.example.bd
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -61,6 +62,7 @@ class VerAnuncio : AppCompatActivity() {
         binding.favorite.setOnClickListener {
             if (firebaseAuth.currentUser == null){
                 Toast.makeText(this, "Necessita de ter login efetuado!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, PrimeiraActivity::class.java))
             }else{
                 if (isInMyFavorite){
                     //remove

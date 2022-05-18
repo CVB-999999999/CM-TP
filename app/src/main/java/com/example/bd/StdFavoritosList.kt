@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.adapters.studentFavListAdapter
 import com.example.bd.adapters.studentListAdapter
+import com.example.bd.app.MyApplication
 import com.example.bd.app.OnStudentClickCodListener
 import com.example.bd.models.studentList
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,6 +40,10 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
         setContentView(R.layout.activity_std_favoritos_list)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser == null){
+            startActivity(Intent(this, PrimeiraActivity::class.java))
+        }
 
         StdListAdapter = studentFavListAdapter(ArrayList(), this)
         val recyclerView: RecyclerView = findViewById(R.id.stdLine)
@@ -57,36 +62,7 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
         bottomNavigationView.setSelectedItemId(R.id.favourite)
 
         //ao clicar em um item
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.dashboard -> {
-                    startActivity(Intent(this, Defenicoes::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.home -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.favourite -> {
-                    startActivity(Intent(this, StdFavoritosList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.qrCode -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.search -> {
-                    startActivity(Intent(this, StudentList::class.java))
-                    overridePendingTransition(0, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                else -> return@setOnNavigationItemSelectedListener false
-            }
-        }
+        MyApplication.bottomMenu(bottomNavigationView, this)
 
         //Ativa o modo imersivo
         window.decorView.apply {

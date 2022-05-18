@@ -128,7 +128,7 @@ class SignUp : AppCompatActivity() {
         hashMap["idUtilizador"]=uId
         hashMap["nome"]=nome
         hashMap["email"]=email
-        hashMap["telemovel"]=933333333 //para já fica assim, depois muda-se os dados
+        hashMap["telemovel"]= " " //para já fica assim, depois muda-se os dados
         hashMap["password"]=password
         hashMap["localizacao"]="Viana do Castelo"
         hashMap["fotoPerfil"]=" "
@@ -149,7 +149,7 @@ class SignUp : AppCompatActivity() {
                 Toast.makeText(this, R.string.registeredAccount, Toast.LENGTH_SHORT).show()
 
                 ////abre o perfil
-                startActivity(Intent(this, Profile::class.java))
+                startActivity(Intent(this, StudentList::class.java))
                 finish()
             }
             .addOnFailureListener {
