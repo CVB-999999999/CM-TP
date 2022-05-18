@@ -20,7 +20,9 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
 class studentListAdapter(
-    private val studentL: ArrayList<studentList>, private val onStudentClickListener: OnStudentClickListener) :
+    private val studentL: ArrayList<studentList>,
+    private val onStudentClickListener: OnStudentClickListener
+) :
     RecyclerView.Adapter<StudentListViewHolder>() {
 
 
@@ -78,22 +80,30 @@ class studentListAdapter(
 
         //atraves do codigo do anuncio vou buscar uma imagem a BD
         val ref = FirebaseDatabase.getInstance().getReference("ImagensAnuncios")
-        ref.child(currentList.codAnuncio!!)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val imagem = "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2Fvazio.jpg?alt=media&token=18b47cd5-7b63-43d2-964f-35f69008848a"
-                    if (snapshot.exists()) {
-                        val imagem = "${snapshot.child("imagemURL").value}"
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    var conta = 0
+                    for (anuncioSnap in snapshot.children) {
+                        val codA = "${anuncioSnap.child("codAnuncio").value}"
+                        if (codA.equals(currentList.codAnuncio)) {
+                            val imagem = "${anuncioSnap.child("imagemURL").value}"
+                            Picasso.get().load(imagem).into(holder.imagemA)
+                            conta = conta + 1
+                        }
                     }
-
-                    //carrega a imagem no anuncio
-                    Picasso.get().load(imagem).into(holder.imagemA)
+                    if (conta == 0) {
+                        val imagem =
+                            "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2F0c31a1fea169f62723961552742988b3a97e8e12.jpg?alt=media&token=ee27cce2-f4be-4801-aa1a-b7ce98516852"
+                        Picasso.get().load(imagem).into(holder.imagemA)
+                    }
                 }
+            }
 
-                override fun onCancelled(error: DatabaseError) {
+            override fun onCancelled(error: DatabaseError) {
 
-                }
-            })
+            }
+        })
 
 
         holder.itemView.setOnClickListener {

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ViewFlipper
+import com.bumptech.glide.Glide
 import com.example.bd.databinding.ActivityVerAnuncioBinding
 import com.example.bd.models.studentList
 import com.google.firebase.auth.FirebaseAuth
@@ -27,7 +28,10 @@ class VerAnuncio : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     private lateinit var viewFlipper: ViewFlipper
+    private lateinit var viewFlipperCapa: ViewFlipper
+
     private lateinit var imageView: ImageView
+    private lateinit var imageVC: ImageView
 
     //aramzena o valor se esta ou não nos favoritos, começa como falso
     private var isInMyFavorite = false
@@ -40,6 +44,11 @@ class VerAnuncio : AppCompatActivity() {
         setContentView(binding.root)
 
         val codAnuncio = intent.getStringExtra("codAnuncio")
+
+        viewFlipper = binding.vFlipper
+        viewFlipperCapa = binding.imagemA
+
+        carregaImgCapa(codAnuncio!!)
 
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth.currentUser != null){
@@ -63,16 +72,15 @@ class VerAnuncio : AppCompatActivity() {
             }
         }
 
+        //quando para voltar para tras
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         //Ativa o modo imersivo
         window.decorView.apply {
             systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
-
-
-        var images = {R.drawable.back_arrow}
-        viewFlipper = binding.vFlipper
-
-        flipperImage(R.drawable.back_arrow)
     }
 
     private fun loadAnuncio(codAnuncio: String) {
@@ -141,7 +149,7 @@ class VerAnuncio : AppCompatActivity() {
                     binding.female.setImageResource(R.drawable.ic_baseline_female_24)
                 }
 
-                carregaImagemCapa(codAnuncio)
+                //carregaImagemCapa(codAnuncio)
 
             }
 
@@ -151,26 +159,34 @@ class VerAnuncio : AppCompatActivity() {
         })
     }
 
-    private fun carregaImagemCapa(codAnuncio: String) {
-
-        //atraves do codigo do anuncio vou buscar uma imagem a BD
+    private fun carregaImgCapa(codAnuncio: String){
         val ref = FirebaseDatabase.getInstance().getReference("ImagensAnuncios")
-        ref.child(codAnuncio!!)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val imagem = "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2Fvazio.jpg?alt=media&token=18b47cd5-7b63-43d2-964f-35f69008848a"
-                    if (snapshot.exists()) {
-                        val imagem = "${snapshot.child("imagemURL").value}"
+        ref.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    var conta = 0
+                    for (anuncioSnap in snapshot.children) {
+                        val codA = "${anuncioSnap.child("codAnuncio").value}"
+                        if (codA.equals(codAnuncio)){
+                            val imagem = "${anuncioSnap.child("imagemURL").value}"
+                            //Picasso.get().load(imagem).into(imageView)
+                            flipperImage(imagem)
+                            flipperImageCapa(imagem)
+                            conta=conta+1
+                        }
                     }
-
-                    //carrega a imagem no anuncio
-                    Picasso.get().load(imagem).into(binding.imagemA)
+                    if (conta==0){
+                        val imagem = "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2F0c31a1fea169f62723961552742988b3a97e8e12.jpg?alt=media&token=ee27cce2-f4be-4801-aa1a-b7ce98516852"
+                        flipperImage(imagem)
+                        flipperImageCapa(imagem)
+                    }
                 }
+            }
 
-                override fun onCancelled(error: DatabaseError) {
+            override fun onCancelled(error: DatabaseError) {
 
-                }
-            })
+            }
+        })
     }
 
     private fun checkFav(codAnuncio: String){
@@ -230,12 +246,33 @@ class VerAnuncio : AppCompatActivity() {
 
     }
 
-    public fun flipperImage(image: Int){
+    private fun flipperImage(imagem: String){
+
         imageView = ImageView(this)
-        imageView.setBackgroundResource(image)
+        Picasso.get().load(imagem).into(imageView)
+        //imageView.setBackgroundResource(imagem)
+
 
         viewFlipper.addView(imageView)
         viewFlipper.setFlipInterval(4000)
         viewFlipper.setAutoStart(true)
+
+        viewFlipper.setInAnimation(this, android.R.anim.slide_in_left)
+        viewFlipper.setOutAnimation(this, android.R.anim.slide_out_right)
+    }
+
+    private fun flipperImageCapa(imagem: String){
+
+        imageVC = ImageView(this)
+        Picasso.get().load(imagem).into(imageVC)
+        //imageView.setBackgroundResource(imagem)
+
+
+        viewFlipperCapa.addView(imageVC)
+        viewFlipperCapa.setFlipInterval(2000)
+        viewFlipperCapa.setAutoStart(true)
+
+        viewFlipperCapa.setInAnimation(this, android.R.anim.slide_in_left)
+        viewFlipperCapa.setOutAnimation(this, android.R.anim.slide_out_right)
     }
 }

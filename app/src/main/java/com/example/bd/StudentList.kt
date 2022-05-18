@@ -138,6 +138,10 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
             override fun onCancelled(error: DatabaseError) {
 
             }
+
+            fun onComplete() {
+                finish()
+            }
         })
     }
 
