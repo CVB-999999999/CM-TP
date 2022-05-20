@@ -109,6 +109,11 @@ class studentListAdapter(
         studentL.add(sl)
         notifyDataSetChanged()
     }
+
+    fun rmAll() {
+        studentL.clear()
+        notifyDataSetChanged()
+    }
 }
 
 class StudentListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

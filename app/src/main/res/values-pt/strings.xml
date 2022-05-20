@@ -35,4 +35,6 @@
     <string name="selectOp">Por favor selecione uma opção</string>
     <string name="anuncioRegistado">Anúncio registado com sucesso</string>
     <string name="imageSave">Imagem Guardada</string>
+    <string name="search_hint">Procurar por quartos</string>
+    <string name="search">Pesquisar</string>
 </resources>

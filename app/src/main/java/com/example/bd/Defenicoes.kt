@@ -71,7 +71,7 @@ class Defenicoes : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.search -> {
-                    startActivity(Intent(this, StudentList::class.java))
+                    startActivity(Intent(this, SearchActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@setOnNavigationItemSelectedListener true
                 }
