@@ -20,13 +20,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class StudentList : AppCompatActivity() , OnStudentClickListener{
+class StudentList : AppCompatActivity(), OnStudentClickListener {
 
     private lateinit var StdListAdapter: studentListAdapter
     private lateinit var actionBar: ActionBar
 
     //arraylist para o holder
-    private lateinit var anunciosArrayList:ArrayList<studentList>
+    private lateinit var anunciosArrayList: ArrayList<studentList>
 
     private lateinit var bottomNavigationView: BottomNavigationView
 
@@ -68,7 +68,7 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
 
         //ao clicar em um item
         bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.dashboard -> {
                     startActivity(Intent(this, Defenicoes::class.java))
                     overridePendingTransition(0, 0)
@@ -90,7 +90,7 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.search -> {
-                    startActivity(Intent(this, StudentList::class.java))
+                    startActivity(Intent(this, SearchActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@setOnNavigationItemSelectedListener true
                 }
@@ -100,41 +100,46 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
 
         //Ativa o modo imersivo
         window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+            systemUiVisibility =
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
 
         //Dark mode
         val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
         val isNightModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
 
-        if (isNightModeOn){
+        if (isNightModeOn) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }else{
+        } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
 
     private fun loadList() {
         //carrega o anuncio
+
+        // Seleciona a tabela
         val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
-        ref.addValueEventListener(object : ValueEventListener{
+        // Live Update
+        ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-               if (snapshot.exists()) {
-                       for (anuncioSnap in snapshot.children) {
-                           val visiblidade = "${anuncioSnap.child("visiblidade").value}"
+                if (snapshot.exists()) {
+                    // Vai carregar todos os dados
+                    for (anuncioSnap in snapshot.children) {
+                        val visiblidade = "${anuncioSnap.child("visiblidade").value}"
 
-                           if(visiblidade.equals("1")){ //verifica se o anuncio está no estado 1
-                               val anuncio = anuncioSnap.getValue(studentList::class.java)
-                               anunciosArrayList.add(anuncio!!)
-                           }
-                       }
-                        //carrega para view
-                       anunciosArrayList.forEach{
-                           StdListAdapter.addTodo(it)
-                       }
-               }
+                        if (visiblidade.equals("1")) { //verifica se o anuncio está no estado 1
+                            val anuncio = anuncioSnap.getValue(studentList::class.java)
+                            anunciosArrayList.add(anuncio!!)
+                        }
+                    }
+                    //carrega para view
+                    anunciosArrayList.forEach {
+                        StdListAdapter.addTodo(it)
+                    }
+                }
             }
-
+            //  ERRO
             override fun onCancelled(error: DatabaseError) {
 
             }
