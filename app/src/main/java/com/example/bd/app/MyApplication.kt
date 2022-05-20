@@ -4,10 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.text.format.DateFormat
-import com.example.bd.Defenicoes
-import com.example.bd.R
-import com.example.bd.StdFavoritosList
-import com.example.bd.StudentList
+import com.example.bd.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
@@ -54,7 +51,7 @@ class MyApplication: Application() {
                         return@setOnNavigationItemSelectedListener true
                     }
                     R.id.search -> {
-                        val intent = Intent(context, StudentList::class.java)
+                        val intent = Intent(context, SearchActivity::class.java)
                         context.startActivity(intent)
                         return@setOnNavigationItemSelectedListener true
                     }
