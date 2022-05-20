@@ -1,5 +1,8 @@
 package com.example.bd
 
+import android.content.Intent
+import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -61,6 +64,7 @@ class VerAnuncio : AppCompatActivity() {
         binding.favorite.setOnClickListener {
             if (firebaseAuth.currentUser == null){
                 Toast.makeText(this, "Necessita de ter login efetuado!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, PrimeiraActivity::class.java))
             }else{
                 if (isInMyFavorite){
                     //remove
@@ -81,6 +85,21 @@ class VerAnuncio : AppCompatActivity() {
         window.decorView.apply {
             systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
+
+        binding.voltarIMG.setOnClickListener {
+            viewFlipper.showPrevious()
+        }
+
+        binding.proximaIMG.setOnClickListener {
+            viewFlipper.showNext()
+        }
+
+        binding.ligarBt.setOnClickListener {
+            startActivity(
+                Intent(Intent.ACTION_DIAL)
+                    .setData(Uri.parse("tel:"+binding.contactoTelET.text)))
+        }
+
     }
 
     private fun loadAnuncio(codAnuncio: String) {
@@ -254,8 +273,9 @@ class VerAnuncio : AppCompatActivity() {
 
 
         viewFlipper.addView(imageView)
-        viewFlipper.setFlipInterval(4000)
+        viewFlipper.setFlipInterval(10000)
         viewFlipper.setAutoStart(true)
+        viewFlipper.startFlipping()
 
         viewFlipper.setInAnimation(this, android.R.anim.slide_in_left)
         viewFlipper.setOutAnimation(this, android.R.anim.slide_out_right)

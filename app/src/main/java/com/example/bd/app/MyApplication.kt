@@ -1,7 +1,14 @@
 package com.example.bd.app
 
 import android.app.Application
+import android.content.Context
+import android.content.Intent
 import android.text.format.DateFormat
+import com.example.bd.Defenicoes
+import com.example.bd.R
+import com.example.bd.StdFavoritosList
+import com.example.bd.StudentList
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
 class MyApplication: Application() {
@@ -21,6 +28,39 @@ class MyApplication: Application() {
             return DateFormat.format("dd/MM/yyyy", cal).toString()
         }
 
+        fun bottomMenu(bottomNavigationView: BottomNavigationView, context: Context){
 
+            //ao clicar em um item
+            bottomNavigationView.setOnNavigationItemSelectedListener {
+                when(it.itemId){
+                    R.id.dashboard -> {
+                        val intent = Intent(context, Defenicoes::class.java)
+                        context.startActivity(intent)
+                        return@setOnNavigationItemSelectedListener true
+                    }
+                    R.id.home -> {
+                        val intent = Intent(context, StudentList::class.java)
+                        context.startActivity(intent)
+                        return@setOnNavigationItemSelectedListener true
+                    }
+                    R.id.favourite -> {
+                        val intent = Intent(context, StdFavoritosList::class.java)
+                        context.startActivity(intent)
+                        return@setOnNavigationItemSelectedListener true
+                    }
+                    R.id.qrCode -> {
+                        val intent = Intent(context, StudentList::class.java)
+                        context.startActivity(intent)
+                        return@setOnNavigationItemSelectedListener true
+                    }
+                    R.id.search -> {
+                        val intent = Intent(context, StudentList::class.java)
+                        context.startActivity(intent)
+                        return@setOnNavigationItemSelectedListener true
+                    }
+                    else -> return@setOnNavigationItemSelectedListener false
+                }
+            }
+        }
     }
 }

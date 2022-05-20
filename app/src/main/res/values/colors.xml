@@ -12,10 +12,13 @@
     <color name="grey">#999999</color>
     <color name="greyLight">#c1c1c1</color>
     <color name="blackDiscord">#363940</color>
-
-
-
-
+    <color name="bottomBlack">#808083</color>
+    <color name="bottomWhite">#EBEDEF</color>
+    <color name="backgroundDiscordBlack">#36393F</color>
+    <color name="backgroundDiscordWhite">#F2F3F5</color>
+    <color name="cardDiscordWhite">#DBDEE1</color>
+    <color name="cardDiscordBlack">#2F3136</color>
+    <color name="green">#4CAF50</color>
 
 
 </resources>

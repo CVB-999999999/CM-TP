@@ -28,7 +28,7 @@
             android:name=".ForgetActivity"
             android:exported="false" />
         <activity
-            android:name=".PrimeiraActivity"
+            android:name=".StudentList"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +43,7 @@
             android:name=".LandlordList"
             android:exported="false" />
         <activity
-            android:name=".StudentList"
+            android:name=".PrimeiraActivity"
             android:exported="false" />
         <activity
             android:name=".EditarPerfil"

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".VerAnuncio">
 
@@ -18,7 +19,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/inicio"
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="400dp"
+                app:strokeColor="?android:windowBackground"
+                android:background="@android:color/transparent">
 
                 <ImageButton
                     android:id="@+id/backBtn"
@@ -31,7 +34,7 @@
                     android:id="@+id/imagemA"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/titulo"
@@ -39,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginStart="20dp"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="90dp"
                     android:text="Titulo"
                     android:textColor="@color/grey"
                     android:textSize="40sp" />
@@ -50,12 +53,33 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginStart="20sp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="65dp"
                     android:text="Localização"
                     android:textSize="20sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/rentangulo"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="right">
+
+                    <Button
+                        android:id="@+id/favorite"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="30dp"
+                        android:layout_gravity="center"
+                        android:drawableTop="@drawable/ic_outline_favorite_border_24"
+                        android:background="@drawable/btn_redondo" />
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 1º linha de detalhe -->
+            <!-- 1º linha de detalhe -
             <LinearLayout
                 android:id="@+id/detalhes1"
                 android:layout_width="match_parent"
@@ -79,16 +103,30 @@
 
                     <Button
                         android:id="@+id/favorite"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
                         android:layout_gravity="center"
-                        android:layout_marginEnd="15dp"
                         android:drawableTop="@drawable/ic_outline_favorite_border_24"
-                        android:backgroundTint="@android:color/transparent" />
-
-
+                        android:background="@drawable/btn_redondo" />
                 </LinearLayout>
-            </LinearLayout>
+            </LinearLayout-->
+
+            <LinearLayout
+                    android:id="@+id/myRectangleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/rentangulo">
+
+                    <Button
+                        android:id="@+id/preco"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="200€" />
+                </LinearLayout>
 
             <!-- 2º linha de detalhe -->
             <LinearLayout
@@ -192,42 +230,6 @@
             </RelativeLayout>
 
             <!-- Imagem -->
-            <RelativeLayout
-                android:id="@+id/imagemTil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/descricaoTil"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <TextView
-                    android:id="@+id/imagemTXT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Galeria"
-                    android:textSize="20sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imagemTXT"
-                    android:layout_marginTop="15dp">
-
-                    <!--ImageView
-                        android:id="@+id/imagemG"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_home_azul" /-->
-
-                    <ViewFlipper
-                        android:id="@+id/vFlipper"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"/>
-                </LinearLayout>
-            </RelativeLayout>
 
             <!-- Contacto -->
             <RelativeLayout
@@ -278,6 +280,67 @@
 
             <!-- Avaliacoes -->
             <RelativeLayout
+                android:id="@+id/imagemTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descricaoTil"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/imagemTXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Galeria"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imagemTXT"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <!--ImageView
+                        android:id="@+id/imagemG"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_home_azul" /-->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ViewFlipper
+                            android:id="@+id/vFlipper"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp" />
+
+                        <ImageButton
+                            android:id="@+id/voltarIMG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+                        <ImageButton
+                            android:id="@+id/proximaIMG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/avaliacoesTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -296,6 +359,54 @@
 
 
             </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ligarBt"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_gravity="bottom"
+                android:text="Ligar"
+                android:textColor="@color/white"
+                android:drawableLeft="@drawable/ic_baseline_phone_24"
+                android:drawableTint="@color/white"
+                android:background="@color/green"
+                android:drawablePadding="2dip"
+                android:paddingLeft="30dip"
+                android:paddingRight="26dip"
+                android:singleLine="true"
+                android:gravity="center"
+                android:layout_weight="0.5"/>
+            <Button
+                android:id="@+id/mensagemBt"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_gravity="bottom"
+                android:text="Mensagem"
+                android:drawableLeft="@drawable/ic_baseline_message_24"
+                android:drawableTint="@color/white"
+                android:background="#4CAF50"
+                android:drawablePadding="2dip"
+                android:paddingLeft="30dip"
+                android:paddingRight="26dip"
+                android:singleLine="true"
+                android:gravity="center"
+                android:layout_weight="0.5"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
