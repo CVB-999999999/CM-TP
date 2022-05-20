@@ -59,6 +59,7 @@ class StudentList : AppCompatActivity() , OnStudentClickListener{
 
         //carrega os anuncios
         anunciosArrayList = arrayListOf<studentList>()
+        StdListAdapter.rmAll()
         loadList()
 
         //Bottom menu

@@ -113,6 +113,11 @@ class studentFavListAdapter(
         studentL.add(sl)
         notifyDataSetChanged()
     }
+
+    fun rmAll() {
+        studentL.clear()
+        notifyDataSetChanged()
+    }
 }
 
 class StudentFavListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

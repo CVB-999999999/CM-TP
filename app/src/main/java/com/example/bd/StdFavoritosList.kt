@@ -43,16 +43,19 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser == null){
             startActivity(Intent(this, PrimeiraActivity::class.java))
+            finish()
         }
 
         StdListAdapter = studentFavListAdapter(ArrayList(), this)
         val recyclerView: RecyclerView = findViewById(R.id.stdLine)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = StdListAdapter
+        StdListAdapter.rmAll()
         StdListAdapter.notifyDataSetChanged()
 
         //carrega os anuncios
         anunciosArrayList = arrayListOf<studentList>()
+        StdListAdapter.rmAll()
         loadList()
 
         //Bottom menu
@@ -73,6 +76,7 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
     }
 
     private fun loadList() {
+        StdListAdapter.rmAll()
         val codigos = ArrayList<String>()
 
         val referencia = FirebaseDatabase.getInstance().getReference("Utilizadores")

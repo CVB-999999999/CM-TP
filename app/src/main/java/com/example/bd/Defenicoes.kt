@@ -43,7 +43,6 @@ class Defenicoes : AppCompatActivity() {
         binding.sairLL.setOnClickListener {
             firebaseAuth.signOut()
             checkUser()
-            finish()
         }
 
         //Bottom menu
@@ -147,6 +146,7 @@ class Defenicoes : AppCompatActivity() {
         }else{
             //user logout
             startActivity(Intent(this, PrimeiraActivity::class.java))
+            finish()
         }
 
     }

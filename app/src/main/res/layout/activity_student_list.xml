@@ -6,29 +6,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".StudentList">
 
-    <Button
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/filterBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_baseline_filter_list_24"
-        android:layout_marginStart="8dp"
-        android:text="@string/filter" />
+        android:layout_alignParentTop="true"
+        android:background="?android:navigationBarColor"
+        app:itemBackground="?android:navigationBarColor"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/menu_top_navigation" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stdLine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/filterBtn" />
+        android:layout_below="@id/filterBtn"
+        android:layout_marginTop="10dp" />
 
     <!-- Menu (tem de estar dentro de um relative layout) -->
+    <View
+        android:id="@+id/linhaBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_marginTop="15dp"
+        android:background="#A8A1A1" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@color/azulInicio"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="?android:navigationBarColor"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:menu="@menu/menu_navigation"
         app:labelVisibilityMode="labeled"
-        android:layout_alignParentBottom="true"/>
+        app:menu="@menu/menu_navigation" />
 </RelativeLayout>

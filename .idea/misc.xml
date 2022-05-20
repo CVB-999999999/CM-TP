@@ -4,18 +4,24 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/pedro/.gradle/caches/transforms-3/ddee711d241c007476ba897c05feeccf/transformed/play-services-base-18.0.1/res/drawable/common_google_signin_btn_icon_dark.xml" value="0.169" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/btn_redondo.xml" value="0.1115" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_accessible_24.xml" value="0.169" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1115" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1805" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.1805" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1805" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_home_azul.xml" value="0.1805" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_home_minimal.xml" value="0.1805" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.169" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_outline_favorite_border_24.xml" value="0.1115" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/rentangulo.xml" value="0.1115" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/round_btn.xml" value="0.1805" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/selector.xml" value="0.1805" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout-v23/activity_ver_anuncio.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_criar_quarto.xml" value="0.22" />
-        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_defenicoes.xml" value="0.33" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_defenicoes.xml" value="0.22" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_editar_perfil.xml" value="0.22" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_forget.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_landlord_list.xml" value="0.17255434782608695" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -24,10 +30,11 @@
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_sign_up2.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_std_favoritos_list.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_student_list.xml" value="0.17255434782608695" />
-        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_ver_anuncio.xml" value="0.22" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/activity_ver_anuncio.xml" value="0.25" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/menu_bottom_layout.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/layout/student_line.xml" value="0.40488431876606684" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/menu/menu_navigation.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/menu/menu_top_navigation.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_landlord_list.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/activity_sign_up2.xml" value="0.35260416666666666" />
