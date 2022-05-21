@@ -54,8 +54,6 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
         StdListAdapter.notifyDataSetChanged()
 
         //carrega os anuncios
-        anunciosArrayList = arrayListOf<studentList>()
-        StdListAdapter.rmAll()
         loadList()
 
         //Bottom menu
@@ -76,13 +74,15 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
     }
 
     private fun loadList() {
-        StdListAdapter.rmAll()
         val codigos = ArrayList<String>()
 
         val referencia = FirebaseDatabase.getInstance().getReference("Utilizadores")
         referencia.child(firebaseAuth.uid!!).child("Favoritos")
             .addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    anunciosArrayList = arrayListOf<studentList>()
+                    StdListAdapter.rmAll()
+
                     if (snapshot.exists()) {
                         for (anuncioSnap in snapshot.children) {
                             val cod = "${anuncioSnap.child("codAnuncio").value}"
