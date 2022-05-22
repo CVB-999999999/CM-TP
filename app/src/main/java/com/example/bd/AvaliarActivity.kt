@@ -35,18 +35,18 @@ class AvaliarActivity : AppCompatActivity() {
         }
     }
 
+    private var codAvaliacao = UUID.randomUUID().toString()
+    private var coment = ""
+
     private fun enviarAvaliacao(codAnuncio: String) {
 
         val timeStamp = System.currentTimeMillis()
         val uId = firebaseAuth.uid
-        val codAvaliacao = UUID.randomUUID().toString()
 
-        val geral = binding.geralRT.rating
-        val espaco = binding.espacoRT.rating
-        val proprietario = binding.proprietarioRT.rating
-        val coment = binding.comentariosEt.text.trim()
-
-
+        var geral = binding.geralRT.rating
+        var espaco = binding.espacoRT.rating
+        var proprietario = binding.proprietarioRT.rating
+        coment = binding.comentariosEt.text.toString().trim()
 
         val hashMap: HashMap<String, Any?> = HashMap()
         hashMap["codAvaliacao"]= codAvaliacao
@@ -67,13 +67,12 @@ class AvaliarActivity : AppCompatActivity() {
             .setValue(hashMap)
             .addOnSuccessListener {
                 //caso de sucesso
-                Toast.makeText(this, R.string.anuncioRegistado, Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(this, R.string.avaliacaoRegistada, Toast.LENGTH_SHORT).show()
+                onBackPressed()
             }
             .addOnFailureListener {
                 //caso de fail
-                Toast.makeText(this, R.string.registerFail, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.avaliacaoFail, Toast.LENGTH_SHORT).show()
             }
-
     }
 }

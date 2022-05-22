@@ -38,4 +38,6 @@
     <string name="search_hint">Search for rooms</string>
     <string name="search">Search</string>
     <string name="avaliar">Assess</string>
+    <string name="avaliacaoRegistada" >Ad successfully registered</string>
+    <string name="avaliacaoFail" >Unable to register your review</string>
 </resources>

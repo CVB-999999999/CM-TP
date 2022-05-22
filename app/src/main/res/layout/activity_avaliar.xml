@@ -113,26 +113,19 @@
     </RelativeLayout>
 
     <!-- Comentário -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/comentariosTil"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@+id/espacoRL"
+    <EditText
+        android:id="@+id/comentariosEt"
+        android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Comentários (Opcional)"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/espacoRL"
         android:padding="8dp"
-        android:background="@android:color/transparent">
-
-        <EditText
-            android:id="@+id/comentariosEt"
-            android:inputType="textMultiLine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Comentários (Opcional)"
-            android:lines="8"
-            android:gravity="top|start"
-            android:background="@android:color/transparent"/>
-    </com.google.android.material.textfield.TextInputLayout>
+        android:lines="8"
+        android:gravity="top|start"
+        android:background="@android:color/transparent"/>
 
     <!-- Btn de avaliar -->
     <RelativeLayout
