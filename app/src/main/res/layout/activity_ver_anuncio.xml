@@ -22,14 +22,19 @@
                 android:layout_height="400dp"
                 app:strokeColor="?android:windowBackground"
                 android:background="@android:color/transparent">
-
                 <ImageButton
                     android:id="@+id/backBtn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_baseline_arrow_back_24" />
-
+                <ImageButton
+                    android:id="@+id/editarBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_filter_list_24" />
                 <ViewFlipper
                     android:id="@+id/imagemA"
                     android:layout_width="match_parent"

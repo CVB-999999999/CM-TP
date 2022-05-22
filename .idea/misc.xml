@@ -3,6 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_accessible_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_boy_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_brightness_4_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_directions_walk_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_edit_location_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_female_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_file_copy_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_filter_list_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_girl_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_home.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/layout/activity_forget.xml" value="0.2953125" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/layout/activity_landlord_list.xml" value="0.2953125" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/layout/activity_student_list.xml" value="0.2953125" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/layout/activity_ver_anuncio.xml" value="0.1" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/layout/student_line.xml" value="0.2953125" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/menu/menu_editar.xml" value="0.2953125" />
+        <entry key="..\:/Users/Paulo Garrido/Documents/GitHub/CM-TP/app/src/main/res/menu/menu_navigation.xml" value="0.2953125" />
         <entry key="..\:/Users/pedro/.gradle/caches/transforms-3/ddee711d241c007476ba897c05feeccf/transformed/play-services-base-18.0.1/res/drawable/common_google_signin_btn_icon_dark.xml" value="0.169" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/btn_redondo.xml" value="0.1115" />
         <entry key="..\:/Users/pedro/OneDrive/Documentos/GitHub/CM-TP/app/src/main/res/drawable/ic_baseline_accessible_24.xml" value="0.169" />
