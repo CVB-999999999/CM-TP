@@ -41,9 +41,9 @@ class AvaliarActivity : AppCompatActivity() {
         val uId = firebaseAuth.uid
         val codAvaliacao = UUID.randomUUID().toString()
 
-        val geral = binding.geralRT.rating.toString()
-        val espaco = binding.espacoRT.rating.toString()
-        val proprietario = binding.proprietarioRT.rating.toString()
+        val geral = binding.geralRT.rating
+        val espaco = binding.espacoRT.rating
+        val proprietario = binding.proprietarioRT.rating
         val coment = binding.comentariosEt.text.trim()
 
 
@@ -59,7 +59,7 @@ class AvaliarActivity : AppCompatActivity() {
         hashMap["visiblidade"]="1" // visiblidade do anuncio 0-oculto || 1-visivel
         hashMap["dataPublicacao"]=timeStamp
 
-        val es = hashMap["espaco"]
+
         Toast.makeText(this, hashMap.toString(), Toast.LENGTH_SHORT).show()
         //guardar td
         val ref = FirebaseDatabase.getInstance().getReference("Avaliacoes")
