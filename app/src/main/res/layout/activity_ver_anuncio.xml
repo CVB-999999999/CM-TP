@@ -357,7 +357,12 @@
                     android:text="Avaliações:"
                     android:textSize="20sp" />
 
-
+                <Button
+                    android:id="@+id/avaliacoesBtn"
+                    android:layout_below="@+id/AvaliacoesTXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Avaliar (Não Mexer)"/>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"

@@ -37,4 +37,5 @@
     <string name="imageSave">Saved image</string>
     <string name="search_hint">Search for rooms</string>
     <string name="search">Search</string>
+    <string name="avaliar">Assess</string>
 </resources>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AvaliarActivity">
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
+
+    <TextView
+        android:id="@+id/avaliarTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/avaliar"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Geral -->
+    <RelativeLayout
+        android:id="@+id/geralRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/avaliarTV"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/geralTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Geral"
+            android:textSize="15sp" />
+
+        <RatingBar
+            android:id="@+id/geralRT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/geralTV"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="0.5" />
+    </RelativeLayout>
+
+    <!-- Proprietario -->
+    <RelativeLayout
+        android:id="@+id/proprietarioRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/geralRL"
+        android:layout_marginTop="5dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/proprietarioTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Proprietário"
+            android:textSize="15sp" />
+
+        <RatingBar
+            android:id="@+id/proprietarioRT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/proprietarioTV"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="0.5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+    <!-- Condições do espaço -->
+    <RelativeLayout
+        android:id="@+id/espacoRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/proprietarioRL"
+        android:layout_marginTop="5dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/espacoTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Condições do espaço"
+            android:textSize="15sp" />
+
+        <RatingBar
+            android:id="@+id/espacoRT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/espacoTV"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="0.5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+    <!-- Comentário -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/comentariosTil"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/espacoRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        android:background="@android:color/transparent">
+
+        <EditText
+            android:id="@+id/comentariosEt"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Comentários (Opcional)"
+            android:lines="8"
+            android:gravity="top|start"
+            android:background="@android:color/transparent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Btn de avaliar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/avaliarBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="Enviar" />
+
+    </RelativeLayout>
+</RelativeLayout>
