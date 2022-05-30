@@ -35,4 +35,5 @@
     <string name="selectOp">Please select a option</string>
     <string name="anuncioRegistado">Ad successfully registered</string>
     <string name="imageSave">Saved image</string>
+    <string name="passForget">Forget the password?</string>
 </resources>
