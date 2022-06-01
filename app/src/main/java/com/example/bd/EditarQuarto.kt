@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
@@ -69,6 +70,9 @@ class EditarQuarto : AppCompatActivity() {
         //binding.profileIv.setOnClickListener {
         //    showimageMenu()
         //}
+        binding.Guardar.setOnClickListener {
+            validarDados(0)
+        }
 
 
 
@@ -80,7 +84,7 @@ class EditarQuarto : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
                     //carrega os dados
-                   
+
                     val descricao = "${snapshot.child("descricao").value}"
                     val email = "${snapshot.child("email").value}"
                     val morada = "${snapshot.child("morada").value}"
@@ -95,49 +99,29 @@ class EditarQuarto : AppCompatActivity() {
 
 
                     //coloca os dados
-                    binding.titulo.text = titulo
-                    binding.localizacao.text = morada
-                    binding.preco.text = preco + " €"
-                    binding.descricaoEt.text = descricao
-                    binding.contactoEmailET.text = "Email: " + email
-                    binding.contactoTelET.text = "Telemóvel: " + telemovel
-
-                    //coloca as regras
-                    if (rAnimais.equals(true)) {
-                        binding.pet.setImageResource(R.drawable.ic_baseline_people_24)
-                    }
-
-                    if (rFumadores.equals(true)) {
-                        binding.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
-                    } else {
-                        binding.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
-                    }
-                    if (rAcessivel.equals(true)) {
-                        binding.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
-                    } else {
-                        binding.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
-                    }
-                    if (rPreco.equals(true)) {
-                        binding.negociavel.setImageResource(R.drawable.ic_baseline_attach_money_24)
-                    } else {
-                        binding.negociavel.setImageResource(R.drawable.ic_baseline_money_off_24)
-                    }
-
-                    // Male only
+                    //binding.titulo.text = titulo
+                    //binding.preco.text = preco + " €"
+                    binding.tituloEtesp.setText(titulo)
+                    binding.precoET.setText(preco)
+                    binding.descricaoEt.setText(descricao)
+                    binding.moradaEt.setText(morada)
+                    binding.check1.setChecked(rFumadores.toBoolean())
+                    binding.check2.setChecked(rAnimais.toBoolean())
+                    binding.check3.setChecked(rAcessivel.toBoolean())
+                    binding.check4.setChecked(rPreco.toBoolean())
+                    binding.partilhadoCheck.setChecked(reservado.toBoolean())
                     if (reservado.equals("0")) {
-                        binding.male.setImageResource(R.drawable.ic_baseline_male_24)
+                        binding.masculino.setChecked(true)
 
                         // Female only
                     } else if (reservado.equals("1")) {
-                        binding.male.setImageResource(R.drawable.ic_baseline_male_24)
+                        binding.feminino.setChecked(true)
 
                         // Both
                     } else {
-                        binding.male.setImageResource(R.drawable.ic_baseline_male_24)
-                        binding.female.setImageResource(R.drawable.ic_baseline_female_24)
+                        binding.indiferente.setChecked(true)
                     }
-
-                    //carregaImagemCapa(codAnuncio)
+                    Log.d("TAG", reservado)
 
                 }
 
@@ -160,7 +144,7 @@ class EditarQuarto : AppCompatActivity() {
 
     //valida dos dados antes de publicar
     private fun validarDados(pub: Int) {
-        titulo = binding.tituloEt.text.toString().trim()
+        titulo = binding.tituloEtesp.text.toString().trim()
         descricao = binding.descricaoEt.text.toString().trim()
         email = binding.emailEt.text.toString().trim()
         telemovel = binding.telemovelEt.text.toString().trim()
@@ -195,7 +179,7 @@ class EditarQuarto : AppCompatActivity() {
             binding.telemovelEt.error = R.string.insertPhoneNumber.toString()
         }else if (TextUtils.isEmpty(titulo)){
             //sem titulo
-            binding.tituloEt.error = R.string.insertTitle.toString()
+            binding.tituloEtesp.error = R.string.insertTitle.toString()
         }else if (TextUtils.isEmpty(descricao)){
             //sem descricao
             binding.descricaoEt.error = R.string.insertDescription.toString()

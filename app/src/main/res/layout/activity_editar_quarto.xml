@@ -23,7 +23,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/titulo"
+                    android:id="@+id/tituloEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -31,16 +31,17 @@
                     android:textSize="18sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tituloTil"
+                    android:id="@+id/tituloTilEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/titulo"
+                    android:layout_below="@+id/tituloEdit"
                     android:layout_marginBottom="8dp">
 
                     <EditText
-                        android:id="@+id/tituloEt"
+                        android:id="@+id/tituloEtesp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="..."
                         android:hint="Titulo"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -380,17 +381,17 @@
                 android:padding="8dp">
 
                 <Button
-                    android:id="@+id/preVisualizar"
+                    android:id="@+id/Cancelar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pré-Visualizar" />
+                    android:text="Cancelar" />
 
                 <Button
-                    android:id="@+id/publicar"
+                    android:id="@+id/Guardar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/preVisualizar"
-                    android:text="Publicar" />
+                    android:layout_below="@+id/Cancelar"
+                    android:text="Guardar" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
