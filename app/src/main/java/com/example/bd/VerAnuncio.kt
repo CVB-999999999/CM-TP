@@ -87,8 +87,12 @@ class VerAnuncio : AppCompatActivity() {
             popupMenu.menuInflater.inflate(R.menu.menu_editar,popupMenu.menu)
             popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                 when(item.itemId) {
-                    R.id.editar ->
+                    R.id.editar -> {
                         Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, EditarQuarto::class.java)
+                        intent.putExtra("codAnuncio", codAnuncio)
+                        startActivity(intent)
+                    }
                     R.id.eliminar ->
                         Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show()
                 }
