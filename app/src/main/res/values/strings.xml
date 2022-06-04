@@ -38,4 +38,8 @@
     <string name="search_hint">Search for rooms</string>
     <string name="search">Search</string>
     <string name="passForget">Forget the password?</string>
+    <string name="forget_password">Password Recovery</string>
+    <string name="login1">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
 </resources>
