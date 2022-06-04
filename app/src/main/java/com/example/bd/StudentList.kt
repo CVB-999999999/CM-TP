@@ -70,12 +70,6 @@ class StudentList : AppCompatActivity(), OnStudentClickListener {
 
         MyApplication.bottomMenu(bottomNavigationView, this)
 
-        //Ativa o modo imersivo
-        window.decorView.apply {
-            systemUiVisibility =
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
-        }
-
         //Dark mode
         val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
         val isNightModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)

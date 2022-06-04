@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 //import com.example.bd.adapters.landlordListAdapter
 import com.example.bd.models.studentList
-/*
-class LandlordList : AppCompatActivity() {
 
+class LandlordList : AppCompatActivity() {
+/*
     private lateinit var landListAdapter: landlordListAdapter
     private lateinit var actionBar: ActionBar
 
@@ -89,5 +89,5 @@ class LandlordList : AppCompatActivity() {
         //        5
         //    )
         //)
-    }
-}*/
+    }*/
+}

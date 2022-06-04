@@ -50,13 +50,6 @@ class Profile : AppCompatActivity() {
             //startActivity(Intent(this, CriarQuarto::class.java))
             startActivity(Intent(this, StudentList::class.java))
         }
-
-
-        //Ativa o modo imersivo (Para mais Info Ide pesquisar na documentação do androi studio)
-        window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
-        }
-
     }
 
     //Funçao a testar (ao sair e voltar a entrar, caso não ative o modo imersivo auto, descomentar isto)

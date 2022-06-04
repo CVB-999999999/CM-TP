@@ -37,7 +37,7 @@
             android:name=".LandlordList"
             android:exported="false" />
         <activity
-            android:name=".PrimeiraActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".EditarPerfil"
@@ -49,7 +49,7 @@
             android:name=".SignUp"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".PrimeiraActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
