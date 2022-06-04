@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BD</string>
-    <string name="noAccount">Não tem conta? <b>Registar.</b></string>
+    <string name="noAccount">Não tem conta? <b>Registe-se</b></string>
     <string name="shared">Partilhado</string>
     <string name="notShared">Não Partilhado</string>
     <string name="filter">Filtrar</string>
@@ -38,4 +38,5 @@
     <string name="search_hint">Procurar por quartos</string>
     <string name="search">Pesquisar</string>
     <string name="passForget">Esqueceu a password?</string>
+    <string name="forget_password">Recuperar Palavra Passe</string>
 </resources>
