@@ -81,11 +81,6 @@ class CriarQuarto : AppCompatActivity() {
         binding.publicar.setOnClickListener {
             validarDados(0) // 0 - Publicar || 1 - Previsualizar
         }
-
-        //Ativa o modo imersivo (Para mais Info Ide pesquisar na documentação do androi studio)
-        window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
-        }
     }
 
     private var titulo = ""
