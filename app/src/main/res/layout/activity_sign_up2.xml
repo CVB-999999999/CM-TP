@@ -83,6 +83,24 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <RadioButton android:id="@+id/aluno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Aluno"/>
+                <RadioButton android:id="@+id/anunciante"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Anunciante"/>
+            </RadioGroup>
+
             <Button
                 android:id="@+id/SignBtn"
                 android:layout_width="match_parent"

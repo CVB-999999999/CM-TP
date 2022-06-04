@@ -64,11 +64,23 @@ class SignUp : AppCompatActivity() {
 
     }
 
+    private var tipoUtilizador = " "
+
     private fun validateData() {
         //obter dados
         email = binding.emailEt.text.toString().trim()
         password = binding.passwordET.text.toString().trim()
         nome = binding.nomeEt.text.toString().trim()
+
+        //Define se o utilizador é especifico para anunciante ou aluno
+        //0 - Aluno
+        //1 - Anunciante
+
+        if (binding.aluno.isChecked){
+            tipoUtilizador = "0"
+        }else if (binding.anunciante.isChecked){
+            tipoUtilizador = "1"
+        }
 
         //validar
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -133,7 +145,7 @@ class SignUp : AppCompatActivity() {
         hashMap["localizacao"]="Viana do Castelo"
         hashMap["fotoPerfil"]=" "
         hashMap["timeStamp"]=timeStamp
-        hashMap["tipoUtilizador"]=0 //0-aluno | 1-anunciante
+        hashMap["tipoUtilizador"]=tipoUtilizador //0-aluno | 1-anunciante
 
         //guardar td
         val ref = FirebaseDatabase.getInstance().getReference("Utilizadores")
