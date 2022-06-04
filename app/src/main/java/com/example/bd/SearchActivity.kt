@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.adapters.studentListAdapter
+import com.example.bd.app.MyApplication
 import com.example.bd.app.OnStudentClickListener
 import com.example.bd.models.studentList
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,6 +29,7 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
     private lateinit var StdListAdapter: studentListAdapter
     private lateinit var anunciosArrayList: ArrayList<studentList>
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,14 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
         StdListAdapter.notifyDataSetChanged()
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        //Bottom menu
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        //seleciona o item do menu
+        bottomNavigationView.setSelectedItemId(R.id.search)
+
+        MyApplication.bottomMenu(bottomNavigationView, this)
     }
 
     fun pesquisa(view: View) {
@@ -60,7 +72,11 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
                         val morada = "${anuncioSnap.child("morada").value}"
 
                         // Verifica se o anuncio está no estado 1
-                        if (visiblidade.equals("1") && (titulo.contains(string, ignoreCase = true) || morada.contains(string, ignoreCase = true))) {
+                        if (visiblidade.equals("1") && (titulo.contains(
+                                string,
+                                ignoreCase = true
+                            ) || morada.contains(string, ignoreCase = true))
+                        ) {
                             val anuncio = anuncioSnap.getValue(studentList::class.java)
                             anunciosArrayList.add(anuncio!!)
                         }
@@ -88,5 +104,22 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
         val intent = Intent(this, VerAnuncio::class.java)
         intent.putExtra("codAnuncio", codA)
         startActivity(intent)
+    }
+
+    fun resize(view: View) {
+
+        var ll = findViewById<LinearLayout>(R.id.ll2)
+        var lp = ll.getLayoutParams()
+        lp.height = 0;
+
+        ll.setLayoutParams(lp)
+    }
+    fun resize2(view: View) {
+
+        var ll = findViewById<LinearLayout>(R.id.ll2)
+        var lp = ll.getLayoutParams()
+        lp.height = 100;
+
+        ll.setLayoutParams(lp)
     }
 }
