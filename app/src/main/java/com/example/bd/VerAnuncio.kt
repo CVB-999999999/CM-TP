@@ -7,11 +7,11 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import android.widget.ViewFlipper
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.example.bd.databinding.ActivityVerAnuncioBinding
 import com.example.bd.models.studentList
@@ -79,6 +79,26 @@ class VerAnuncio : AppCompatActivity() {
         //quando para voltar para tras
         binding.backBtn.setOnClickListener {
             onBackPressed()
+        }
+
+
+        binding.editarBtn.setOnClickListener{
+            val popupMenu: PopupMenu = PopupMenu(this,binding.editarBtn)
+            popupMenu.menuInflater.inflate(R.menu.menu_editar,popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                when(item.itemId) {
+                    R.id.editar -> {
+                        Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, EditarQuarto::class.java)
+                        intent.putExtra("codAnuncio", codAnuncio)
+                        startActivity(intent)
+                    }
+                    R.id.eliminar ->
+                        Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show()
+                }
+                true
+            })
+            popupMenu.show()
         }
 
         binding.voltarIMG.setOnClickListener {
@@ -290,4 +310,6 @@ class VerAnuncio : AppCompatActivity() {
         viewFlipperCapa.setInAnimation(this, android.R.anim.slide_in_left)
         viewFlipperCapa.setOutAnimation(this, android.R.anim.slide_out_right)
     }
+
+
 }
