@@ -3,6 +3,7 @@ package com.example.bd
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.ActionBar
@@ -49,38 +50,45 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
         MyApplication.bottomMenu(bottomNavigationView, this)
 
         // --- Dropdown Stuff   --- //
-        // --- --- Shared Room  --- --- //
-        // get reference to the string array that we just created
-        var languages = resources.getStringArray(R.array.sharedRoom)
-        // create an array adapter and pass the required parameter
-        // in our case pass the context, drop down layout , and array.
-        var arrayAdapter = ArrayAdapter(this, R.layout.filter_partilhado, languages)
-        // get reference to the autocomplete text view
-        val qp = findViewById<AutoCompleteTextView>(R.id.qp)
-        // set adapter to the autocomplete tv to the arrayAdapter
-        qp.setAdapter(arrayAdapter)
-
-        // --- --- Shared Room  --- --- //
-        // get reference to the string array that we just created
-        languages = resources.getStringArray(R.array.accessible)
-        // create an array adapter and pass the required parameter
-        // in our case pass the context, drop down layout , and array.
-        arrayAdapter = ArrayAdapter(this, R.layout.filter_partilhado, languages)
-        // get reference to the autocomplete text view
-        val a = findViewById<AutoCompleteTextView>(R.id.a)
-        // set adapter to the autocomplete tv to the arrayAdapter
-        a.setAdapter(arrayAdapter)
-
-        // --- --- Shared Room  --- --- //
-        // get reference to the string array that we just created
-        languages = resources.getStringArray(R.array.gender)
-        // create an array adapter and pass the required parameter
-        // in our case pass the context, drop down layout , and array.
-        arrayAdapter = ArrayAdapter(this, R.layout.filter_partilhado, languages)
-        // get reference to the autocomplete text view
-        val g = findViewById<AutoCompleteTextView>(R.id.g)
-        // set adapter to the autocomplete tv to the arrayAdapter
-        g.setAdapter(arrayAdapter)
+        // --- Shared Room
+        var spinner: Spinner = findViewById(R.id.shroom)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.sharedRoom,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+        // --- Accessible ---
+        spinner = findViewById(R.id.acc)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.accessible,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+        // --- Gender ---
+        spinner = findViewById(R.id.gender)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.gender,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
     }
 
     fun pesquisa(view: View) {
@@ -89,6 +97,10 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
 
         val et = findViewById<EditText>(R.id.pesquisa)
         val string = et.text.toString()
+
+        val spinner1 = findViewById<Spinner>(R.id.shroom)
+        val spinner2 = findViewById<Spinner>(R.id.acc)
+        val spinner3 = findViewById<Spinner>(R.id.gender)
 
         // Seleciona a tabela
         val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
@@ -101,15 +113,38 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
                         val visiblidade = "${anuncioSnap.child("visiblidade").value}"
                         val titulo = "${anuncioSnap.child("titulo").value}"
                         val morada = "${anuncioSnap.child("morada").value}"
+                        val g = "${anuncioSnap.child("reservado").value}"
+                        var a = "${anuncioSnap.child("rAcessivel").value}"
+                        val sh = "${anuncioSnap.child("rAcessivel").value}"
 
-                        // Verifica se o anuncio está no estado 1
-                        if (visiblidade.equals("1") && (titulo.contains(
+                        // TODO fix lina 120!!!!!
+
+                        // Bool para Int
+                        a = if (a == "true" || a == "1") {
+                            0.toString();
+                        } else {
+                            1.toString();
+                        }
+
+                        // Verifica se o anuncio está no estado 1 e se segue os criterios de pesquisa
+                        if (visiblidade == "1" && (titulo.contains(
                                 string,
                                 ignoreCase = true
-                            ) || morada.contains(string, ignoreCase = true))
+                            ) || morada.contains(
+                                string,
+                                ignoreCase = true
+                            ))
                         ) {
-                            val anuncio = anuncioSnap.getValue(studentList::class.java)
-                            anunciosArrayList.add(anuncio!!)
+                            // Verfica os filtros
+                            if (spinner2.selectedItemId.toString().trim().contains(
+                                    a.trim(),
+                                    ignoreCase = true
+                                ) &&
+                                spinner3.selectedItemId.toString() == g
+                            ) {
+                                val anuncio = anuncioSnap.getValue(studentList::class.java)
+                                anunciosArrayList.add(anuncio!!)
+                            }
                         }
                     }
                     //carrega para view
@@ -146,7 +181,7 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
 
         // Verifies the state of the dropdown
         if (lp.height == 0) {
-            lp.height = 650;
+            lp.height = 400;
         } else {
             lp.height = 0;
         }

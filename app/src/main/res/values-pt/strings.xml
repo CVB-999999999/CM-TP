@@ -53,4 +53,7 @@
         <item>Apenas Masculino</item>
         <item>Apenas Feminino</item>
     </string-array>
+    <string name="gender">Gênero</string>
+    <string name="accessible">Acessível</string>
+    <string name="shared_room">Quarto Partilhado</string>
 </resources>

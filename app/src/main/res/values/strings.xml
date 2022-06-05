@@ -43,6 +43,9 @@
     <string name="password" translatable="false">Password</string>
     <string name="email" translatable="false">Email</string>
     <string name="colapse">Colapse</string>
+    <string name="gender">Gender</string>
+    <string name="accessible">Accessible</string>
+    <string name="shared_room">Shared Room</string>
     <string-array name="sharedRoom">
         <item>Shared</item>
         <item>Not Shared</item>
