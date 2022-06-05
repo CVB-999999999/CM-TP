@@ -39,4 +39,18 @@
     <string name="search">Pesquisar</string>
     <string name="passForget">Esqueceu a password?</string>
     <string name="forget_password">Recuperar Palavra Passe</string>
+    <string name="colapse">Colapsar</string>
+    <string-array name="sharedRoom">
+        <item>Partilhado</item>
+        <item>Não Partilhado</item>
+    </string-array>
+    <string-array name="accessible">
+        <item>Acessível</item>
+        <item>Não Acessível</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Ambos</item>
+        <item>Apenas Masculino</item>
+        <item>Apenas Feminino</item>
+    </string-array>
 </resources>

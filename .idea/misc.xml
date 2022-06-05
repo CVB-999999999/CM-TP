@@ -51,9 +51,11 @@
         <entry key="app/src/main/res/layout/activity_sign_up2.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/activity_student_list.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/activity_ver_anuncio.xml" value="0.39637002341920374" />
+        <entry key="app/src/main/res/layout/filter_partilhado.xml" value="0.7996031746031746" />
         <entry key="app/src/main/res/layout/landlord_line.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/menu_bottom_layout.xml" value="0.3473731884057971" />
         <entry key="app/src/main/res/layout/student_line.xml" value="0.3500905797101449" />
+        <entry key="app/src/main/res/menu/filtro_quarto.xml" value="0.84375" />
         <entry key="app/src/main/res/menu/menu_navigation.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/xml/searchable.xml" value="0.3473731884057971" />
       </map>

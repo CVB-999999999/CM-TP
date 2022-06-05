@@ -39,7 +39,21 @@
     <string name="search">Search</string>
     <string name="passForget">Forget the password?</string>
     <string name="forget_password">Password Recovery</string>
-    <string name="login1">Login</string>
-    <string name="password">Password</string>
-    <string name="email">Email</string>
+    <string name="login1" translatable="false">Login</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="colapse">Colapse</string>
+    <string-array name="sharedRoom">
+        <item>Shared</item>
+        <item>Not Shared</item>
+    </string-array>
+    <string-array name="accessible">
+        <item>Accessible</item>
+        <item>Not Accessible</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Both</item>
+        <item>Male Only</item>
+        <item>Female Only</item>
+    </string-array>
 </resources>

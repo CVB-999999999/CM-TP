@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -50,6 +47,40 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
         bottomNavigationView.setSelectedItemId(R.id.search)
 
         MyApplication.bottomMenu(bottomNavigationView, this)
+
+        // --- Dropdown Stuff   --- //
+        // --- --- Shared Room  --- --- //
+        // get reference to the string array that we just created
+        var languages = resources.getStringArray(R.array.sharedRoom)
+        // create an array adapter and pass the required parameter
+        // in our case pass the context, drop down layout , and array.
+        var arrayAdapter = ArrayAdapter(this, R.layout.filter_partilhado, languages)
+        // get reference to the autocomplete text view
+        val qp = findViewById<AutoCompleteTextView>(R.id.qp)
+        // set adapter to the autocomplete tv to the arrayAdapter
+        qp.setAdapter(arrayAdapter)
+
+        // --- --- Shared Room  --- --- //
+        // get reference to the string array that we just created
+        languages = resources.getStringArray(R.array.accessible)
+        // create an array adapter and pass the required parameter
+        // in our case pass the context, drop down layout , and array.
+        arrayAdapter = ArrayAdapter(this, R.layout.filter_partilhado, languages)
+        // get reference to the autocomplete text view
+        val a = findViewById<AutoCompleteTextView>(R.id.a)
+        // set adapter to the autocomplete tv to the arrayAdapter
+        a.setAdapter(arrayAdapter)
+
+        // --- --- Shared Room  --- --- //
+        // get reference to the string array that we just created
+        languages = resources.getStringArray(R.array.gender)
+        // create an array adapter and pass the required parameter
+        // in our case pass the context, drop down layout , and array.
+        arrayAdapter = ArrayAdapter(this, R.layout.filter_partilhado, languages)
+        // get reference to the autocomplete text view
+        val g = findViewById<AutoCompleteTextView>(R.id.g)
+        // set adapter to the autocomplete tv to the arrayAdapter
+        g.setAdapter(arrayAdapter)
     }
 
     fun pesquisa(view: View) {
@@ -108,17 +139,17 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
 
     fun resize(view: View) {
 
-        var ll = findViewById<LinearLayout>(R.id.ll2)
-        var lp = ll.getLayoutParams()
-        lp.height = 0;
+        val ll = findViewById<LinearLayout>(R.id.ll2)
+        val lp = ll.getLayoutParams()
 
-        ll.setLayoutParams(lp)
-    }
-    fun resize2(view: View) {
+//        Toast.makeText(this, lp.height.toString(), Toast.LENGTH_SHORT).show()
 
-        var ll = findViewById<LinearLayout>(R.id.ll2)
-        var lp = ll.getLayoutParams()
-        lp.height = 100;
+        // Verifies the state of the dropdown
+        if (lp.height == 0) {
+            lp.height = 650;
+        } else {
+            lp.height = 0;
+        }
 
         ll.setLayoutParams(lp)
     }
