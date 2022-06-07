@@ -362,7 +362,7 @@
                     android:layout_below="@+id/AvaliacoesTXT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Avaliar (Não Mexer)"/>
+                    android:text="Avaliar"/>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
