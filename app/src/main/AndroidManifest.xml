@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BD">
         <activity
+            android:name=".EliminarQuarto"
+            android:exported="false" />
+        <activity
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
@@ -26,13 +29,13 @@
             android:exported="false" />
         <activity
             android:name=".ForgetActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".EditarQuarto"
             android:exported="false" />
         <activity
             android:name=".StudentList"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".CriarQuarto"
             android:exported="false" />
