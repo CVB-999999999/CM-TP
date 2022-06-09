@@ -37,6 +37,9 @@
     <string name="imageSave">Imagem Guardada</string>
     <string name="search_hint">Procurar por quartos</string>
     <string name="search">Pesquisar</string>
+    <string name="avaliar">Avaliar</string>
+    <string name="avaliacaoRegistada">Anúncio registado com sucesso</string>
+    <string name="avaliacaoFail">Não foi possivel registar a sua avaliação</string>
     <string name="passForget">Esqueceu a password?</string>
     <string name="forget_password">Recuperar Palavra Passe</string>
     <string name="colapse">Colapsar</string>

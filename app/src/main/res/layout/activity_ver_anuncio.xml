@@ -362,7 +362,19 @@
                     android:text="Avaliações:"
                     android:textSize="20sp" />
 
+                <Button
+                    android:id="@+id/avaliacoesBtn"
+                    android:layout_below="@+id/AvaliacoesTXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Avaliar"/>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/avaliacoesLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/avaliacoesBtn"
+                    android:layout_marginTop="10dp" />
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
