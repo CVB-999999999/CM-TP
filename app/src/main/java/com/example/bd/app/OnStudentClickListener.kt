@@ -1,12 +1,12 @@
 package com.example.bd.app
 
 
-interface OnStudentClickListener{
+interface OnStudentClickListener {
 
     fun onStudentClickItem(position: Int)
 }
 
-interface OnStudentClickCodListener{
+interface OnStudentClickCodListener {
 
     fun onStudentClickCodItem(codA: String)
 }
