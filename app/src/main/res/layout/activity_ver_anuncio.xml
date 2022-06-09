@@ -294,6 +294,40 @@
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/avaliacoesTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactoTil"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/AvaliacoesTXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Avaliações:"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/avaliacoesBtn"
+                    android:layout_below="@+id/AvaliacoesTXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Avaliar"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/avaliacoesLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/avaliacoesBtn"
+                    android:layout_marginTop="10dp" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
         </LinearLayout>
     </ScrollView>
 
