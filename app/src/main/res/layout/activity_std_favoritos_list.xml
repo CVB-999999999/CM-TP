@@ -6,18 +6,10 @@ android:layout_height="match_parent"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 tools:context=".StdFavoritosList">
 
-<Button
-    android:id="@+id/filterBtn"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:drawableLeft="@drawable/ic_baseline_filter_list_24"
-    android:text="@string/filter" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stdLine"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/filterBtn" />
+        android:layout_height="match_parent"/>
 
 <!-- Menu (tem de estar dentro de um relative layout) -->
     <View
