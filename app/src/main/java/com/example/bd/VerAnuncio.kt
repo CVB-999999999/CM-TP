@@ -12,8 +12,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ViewFlipper
+import androidx.appcompat.app.ActionBar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.bd.adapters.avaliacoesAdapter
+import com.example.bd.adapters.studentListAdapter
 import com.example.bd.databinding.ActivityVerAnuncioBinding
+import com.example.bd.models.avaliacoesModel
 import com.example.bd.models.studentList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -25,6 +31,12 @@ import java.util.*
 import kotlin.collections.HashMap
 
 class VerAnuncio : AppCompatActivity() {
+
+    private lateinit var avaliacoesListAdapter: avaliacoesAdapter
+
+    //arraylist para o holder
+    private lateinit var avaliacoesArrayList: ArrayList<avaliacoesModel>
+
 
     private lateinit var binding: ActivityVerAnuncioBinding
 
@@ -106,6 +118,47 @@ class VerAnuncio : AppCompatActivity() {
                     .setData(Uri.parse("tel:"+binding.contactoTelET.text)))
         }
 
+
+        avaliacoesListAdapter = avaliacoesAdapter(ArrayList())
+        val recyclerView: RecyclerView = binding.avaliacoesLine
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = avaliacoesListAdapter
+        avaliacoesListAdapter.notifyDataSetChanged()
+
+        //carrega os anuncios
+        avaliacoesArrayList = arrayListOf<avaliacoesModel>()
+        avaliacoesListAdapter.rmAll()
+        loadList()
+
+    }
+
+    private fun loadList() {
+        val ref = FirebaseDatabase.getInstance().getReference("Avaliacoes")
+        // Live Update
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    // Vai carregar todos os dados
+                    for (avaliacaoSnap in snapshot.children) {
+                        val visiblidade = "${avaliacaoSnap.child("visiblidade").value}"
+
+                        if (visiblidade.equals("1")) { //verifica se o anuncio está no estado 1
+                            val anuncio = avaliacaoSnap.getValue(avaliacoesModel::class.java)
+                            avaliacoesArrayList.add(anuncio!!)
+
+                        }
+                    }
+                    //carrega para view
+                    avaliacoesArrayList.forEach {
+                        avaliacoesListAdapter.addTodo(it)
+                    }
+                }
+            }
+            //  ERRO
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 
     private fun loadAnuncio(codAnuncio: String) {
