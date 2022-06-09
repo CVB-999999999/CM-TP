@@ -94,9 +94,14 @@ class VerAnuncio : AppCompatActivity() {
         }
 
         binding.avaliacoesBtn.setOnClickListener {
-            val intent = Intent(this, AvaliarActivity::class.java)
-            intent.putExtra("codAnuncio", codAnuncio)
-            startActivity(intent)
+            if (firebaseAuth.currentUser == null){
+                Toast.makeText(this, "Necessita de ter login efetuado!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, PrimeiraActivity::class.java))
+            }else{
+                val intent = Intent(this, AvaliarActivity::class.java)
+                intent.putExtra("codAnuncio", codAnuncio)
+                startActivity(intent)
+            }
         }
 
         //Ativa o modo imersivo
@@ -128,11 +133,11 @@ class VerAnuncio : AppCompatActivity() {
         //carrega os anuncios
         avaliacoesArrayList = arrayListOf<avaliacoesModel>()
         avaliacoesListAdapter.rmAll()
-        loadList()
+        loadList(codAnuncio!!)
 
     }
 
-    private fun loadList() {
+    private fun loadList(codAnuncio: String) {
         val ref = FirebaseDatabase.getInstance().getReference("Avaliacoes")
         // Live Update
         ref.addValueEventListener(object : ValueEventListener {
@@ -141,8 +146,9 @@ class VerAnuncio : AppCompatActivity() {
                     // Vai carregar todos os dados
                     for (avaliacaoSnap in snapshot.children) {
                         val visiblidade = "${avaliacaoSnap.child("visiblidade").value}"
+                        val codA = "${avaliacaoSnap.child("codAnuncio").value}"
 
-                        if (visiblidade.equals("1")) { //verifica se o anuncio está no estado 1
+                        if (visiblidade.equals("1") && codA.equals(codAnuncio!!)) { //verifica se o anuncio está no estado 1
                             val anuncio = avaliacaoSnap.getValue(avaliacoesModel::class.java)
                             avaliacoesArrayList.add(anuncio!!)
 

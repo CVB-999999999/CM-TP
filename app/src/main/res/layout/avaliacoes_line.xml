@@ -25,21 +25,45 @@
 
                 <TextView
                     android:id="@+id/avGeral"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.6"
                     android:text="Avaliacão Geral"
                     android:textStyle="bold"
                     android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/data"
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="Data de Pub"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:layout_weight="0.5">
+
+                    <ImageView
+                        android:id="@+id/avG1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avG2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avG3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avG4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avG5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -49,12 +73,47 @@
 
                 <TextView
                     android:id="@+id/avProp"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Avaliacão Geral"
+                    android:layout_weight="0.2"
+                    android:text="Avaliacão Proprietario"
                     android:textStyle="bold"
                     android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8">
+
+                    <ImageView
+                        android:id="@+id/avP1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avP2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avP3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avP4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+
+                    <ImageView
+                        android:id="@+id/avP5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -64,13 +123,56 @@
 
                 <TextView
                     android:id="@+id/avEsp"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Avaliacão Geral"
+                    android:layout_weight="0.4"
+                    android:text="Avaliacão Espaço"
                     android:textStyle="bold"
                     android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4">
+
+                    <ImageView
+                        android:id="@+id/avE1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avE2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avE3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avE4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+                    <ImageView
+                        android:id="@+id/avE5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_star_24"/>
+
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Data de Pub"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/comentario"
                 android:layout_marginTop="5dp"

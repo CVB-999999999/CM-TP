@@ -60,7 +60,7 @@ class AvaliarActivity : AppCompatActivity() {
         hashMap["dataPublicacao"]=timeStamp
 
 
-        Toast.makeText(this, hashMap.toString(), Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, hashMap.toString(), Toast.LENGTH_SHORT).show()
         //guardar td
         val ref = FirebaseDatabase.getInstance().getReference("Avaliacoes")
         ref.child(codAvaliacao!!)
@@ -68,7 +68,9 @@ class AvaliarActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 //caso de sucesso
                 Toast.makeText(this, R.string.avaliacaoRegistada, Toast.LENGTH_SHORT).show()
-                onBackPressed()
+                val intent = Intent(this, VerAnuncio::class.java)
+                intent.putExtra("codAnuncio", codAnuncio)
+                startActivity(intent)
             }
             .addOnFailureListener {
                 //caso de fail

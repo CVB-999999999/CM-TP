@@ -5,10 +5,10 @@ data class avaliacoesModel(
     var codAvaliacao: String ?= null,
     var comentario: String ?= null,
     val dataPublicacao: Long ?= null,
-    val espaco: Long ?= null,
-    val geral: Long ?= null,
+    val espaco: Double ?= null,
+    val geral: Double ?= null,
     var idUtilizador: String ?= null,
-    val proprietario: Long ?= null,
+    val proprietario: Double ?= null,
     var visiblidade: String ?= null
 ){
 
