@@ -1,103 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditarPerfil"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context=".EditarPerfil">
 
-    <RelativeLayout
-        android:id="@+id/toolBarRl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageButton
-            android:id="@+id/backBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
-    </RelativeLayout>
-
-    <!-- Imagem -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profileIv"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_below="@id/toolBarRl"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/user" />
-
-
-    <!-- Nome -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nomeTil"
-        android:layout_below="@id/profileIv"
-        android:layout_marginBottom="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/nomeEt"
+            <ImageButton
+                android:id="@+id/backBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <!-- Imagem -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/user" />
+
+
+        <!-- Nome -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nomeTil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome"
-            android:inputType="textPersonName"
-            android:background="@android:color/transparent"/>
+            android:layout_below="@id/profileIv"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/nomeEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Nome"
+                android:inputType="textPersonName" />
 
-    <!-- Email -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailTil"
-        android:layout_below="@id/nomeTil"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/emailEt"
+        <!-- Email -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:background="@android:color/transparent"/>
+            android:layout_below="@id/nomeTil"
+            android:layout_marginBottom="10dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/emailEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
 
-    <!-- Telemovel -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/telemovelTil"
-        android:layout_below="@id/emailTil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/telemovelEt"
+        <!-- Telemovel -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/telemovelTil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:background="@android:color/transparent"
-            android:hint="Telemovel"/>
+            android:layout_below="@id/emailTil"
+            android:layout_centerInParent="true">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/telemovelEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Telemovel"
+                android:inputType="numberDecimal" />
 
-    <!-- Btn de update -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/updateBtn"
+        <!-- Btn de update -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:text="Guardar" />
+            android:layout_height="match_parent"
+            android:gravity="bottom">
 
-    </RelativeLayout>
-</RelativeLayout>
+            <Button
+                android:id="@+id/updateBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:text="Guardar" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

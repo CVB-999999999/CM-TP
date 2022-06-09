@@ -7,6 +7,9 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -104,9 +107,34 @@ class VerAnuncio : AppCompatActivity() {
             }
         }
 
-        //Ativa o modo imersivo
-        window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        binding.editarBtn.setOnClickListener{
+            val popupMenu: PopupMenu = PopupMenu(this,binding.editarBtn)
+            popupMenu.menuInflater.inflate(R.menu.menu_editar,popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                when(item.itemId) {
+                    R.id.editar -> {
+                        Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, EditarQuarto::class.java)
+                        intent.putExtra("codAnuncio", codAnuncio)
+                        startActivity(intent)
+                    }
+                    R.id.eliminar -> {
+                        Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show()
+                        removeAnuncio(codAnuncio)
+                        startActivity(Intent(this, StudentList::class.java))
+                        finish()
+                    }
+
+                    R.id.esconder -> {
+                        Toast.makeText(this, "Esconder", Toast.LENGTH_SHORT).show()
+
+                    }
+
+
+                    }
+                true
+            })
+            popupMenu.show()
         }
 
         binding.voltarIMG.setOnClickListener {
@@ -188,7 +216,6 @@ class VerAnuncio : AppCompatActivity() {
                 val reservado = "${snapshot.child("reservado").value}"
                 val telemovel = "${snapshot.child("telemovel").value}"
                 val titulo = "${snapshot.child("titulo").value}"
-
 
                 //coloca os dados
                 binding.titulo.text = titulo
@@ -303,7 +330,6 @@ class VerAnuncio : AppCompatActivity() {
         val hashMap = HashMap<String, Any>()
         hashMap["codAnuncio"] = codAnuncio
         hashMap["timestamp"] = timestamp
-
         //guardar na BD
         val rel = FirebaseDatabase.getInstance().getReference("Utilizadores")
         rel.child(firebaseAuth.uid!!).child("Favoritos").child(codAnuncio)
@@ -360,4 +386,20 @@ class VerAnuncio : AppCompatActivity() {
         viewFlipperCapa.setInAnimation(this, android.R.anim.slide_in_left)
         viewFlipperCapa.setOutAnimation(this, android.R.anim.slide_out_right)
     }
+
+    private fun removeAnuncio(codAnuncio: String){
+
+        val rel = FirebaseDatabase.getInstance().getReference("Anuncios")
+        rel.child(codAnuncio)
+            .removeValue()
+            .addOnSuccessListener {
+                Toast.makeText(this, "Anúncio eliminado", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener{
+                Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+
+
 }

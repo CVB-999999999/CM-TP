@@ -3,13 +3,14 @@ package com.example.bd
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.adapters.studentListAdapter
+import com.example.bd.app.MyApplication
 import com.example.bd.app.OnStudentClickListener
 import com.example.bd.models.studentList
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,6 +27,7 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
     private lateinit var StdListAdapter: studentListAdapter
     private lateinit var anunciosArrayList: ArrayList<studentList>
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +40,55 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
         StdListAdapter.notifyDataSetChanged()
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        //Bottom menu
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        //seleciona o item do menu
+        bottomNavigationView.setSelectedItemId(R.id.search)
+
+        MyApplication.bottomMenu(bottomNavigationView, this)
+
+        // --- Dropdown Stuff   --- //
+        // --- Shared Room
+        var spinner: Spinner = findViewById(R.id.shroom)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.sharedRoom,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+        // --- Accessible ---
+        spinner = findViewById(R.id.acc)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.accessible,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+        // --- Gender ---
+        spinner = findViewById(R.id.gender)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.gender,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
     }
 
     fun pesquisa(view: View) {
@@ -46,6 +97,10 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
 
         val et = findViewById<EditText>(R.id.pesquisa)
         val string = et.text.toString()
+
+        val spinner1 = findViewById<Spinner>(R.id.shroom)
+        val spinner2 = findViewById<Spinner>(R.id.acc)
+        val spinner3 = findViewById<Spinner>(R.id.gender)
 
         // Seleciona a tabela
         val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
@@ -58,11 +113,38 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
                         val visiblidade = "${anuncioSnap.child("visiblidade").value}"
                         val titulo = "${anuncioSnap.child("titulo").value}"
                         val morada = "${anuncioSnap.child("morada").value}"
+                        val g = "${anuncioSnap.child("reservado").value}"
+                        var a = "${anuncioSnap.child("rAcessivel").value}"
+                        val sh = "${anuncioSnap.child("rAcessivel").value}"
 
-                        // Verifica se o anuncio está no estado 1
-                        if (visiblidade.equals("1") && (titulo.contains(string, ignoreCase = true) || morada.contains(string, ignoreCase = true))) {
-                            val anuncio = anuncioSnap.getValue(studentList::class.java)
-                            anunciosArrayList.add(anuncio!!)
+                        // TODO fix lina 120!!!!!
+
+                        // Bool para Int
+                        a = if (a == "true" || a == "1") {
+                            0.toString();
+                        } else {
+                            1.toString();
+                        }
+
+                        // Verifica se o anuncio está no estado 1 e se segue os criterios de pesquisa
+                        if (visiblidade == "1" && (titulo.contains(
+                                string,
+                                ignoreCase = true
+                            ) || morada.contains(
+                                string,
+                                ignoreCase = true
+                            ))
+                        ) {
+                            // Verfica os filtros
+                            if (spinner2.selectedItemId.toString().trim().contains(
+                                    a.trim(),
+                                    ignoreCase = true
+                                ) &&
+                                spinner3.selectedItemId.toString() == g
+                            ) {
+                                val anuncio = anuncioSnap.getValue(studentList::class.java)
+                                anunciosArrayList.add(anuncio!!)
+                            }
                         }
                     }
                     //carrega para view
@@ -88,5 +170,22 @@ class SearchActivity : AppCompatActivity(), OnStudentClickListener {
         val intent = Intent(this, VerAnuncio::class.java)
         intent.putExtra("codAnuncio", codA)
         startActivity(intent)
+    }
+
+    fun resize(view: View) {
+
+        val ll = findViewById<LinearLayout>(R.id.ll2)
+        val lp = ll.getLayoutParams()
+
+//        Toast.makeText(this, lp.height.toString(), Toast.LENGTH_SHORT).show()
+
+        // Verifies the state of the dropdown
+        if (lp.height == 0) {
+            lp.height = 400;
+        } else {
+            lp.height = 0;
+        }
+
+        ll.setLayoutParams(lp)
     }
 }

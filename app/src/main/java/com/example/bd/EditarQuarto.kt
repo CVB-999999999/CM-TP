@@ -4,17 +4,16 @@ import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.util.Patterns
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import com.bumptech.glide.Glide
-import com.example.bd.databinding.ActivityCriarQuartoBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.example.bd.databinding.ActivityEditarQuartoBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -23,12 +22,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
-import kotlin.collections.HashMap
 
-class CriarQuarto : AppCompatActivity() {
+
+class EditarQuarto : AppCompatActivity() {
 
     //view Binding
-    private lateinit var binding: ActivityCriarQuartoBinding
+    private lateinit var binding: ActivityEditarQuartoBinding
 
     //firebase Auth
     private lateinit var firebaseAuth: FirebaseAuth
@@ -42,14 +41,13 @@ class CriarQuarto : AppCompatActivity() {
 
     private var imagem = 0
 
-    private val codAnuncio = UUID.randomUUID().toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityCriarQuartoBinding.inflate(layoutInflater)
+        binding = ActivityEditarQuartoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val codAnuncio = intent.getStringExtra("codAnuncio")
         //progress
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle(R.string.wait)
@@ -58,7 +56,7 @@ class CriarQuarto : AppCompatActivity() {
         //Iniciar o firebase
         firebaseAuth = FirebaseAuth.getInstance()
         carregarUtilizador()
-
+        loadAnuncio(codAnuncio!!)
         //quando clica na imagem de voltar para tras
         //binding.backBtn.setOnClickListener {
         //    onBackPressed()
@@ -68,21 +66,68 @@ class CriarQuarto : AppCompatActivity() {
         //binding.profileIv.setOnClickListener {
         //    showimageMenu()
         //}
+        binding.Guardar.setOnClickListener {
+            Toast.makeText(this, codAnuncio, Toast.LENGTH_SHORT).show()
 
-        //quando clica no btn de escolher imagens
-        binding.addImgBtn.setOnClickListener {
-            //escolhe da galeria
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            galeriaActivity.launch(intent)
+            validarDados(0,codAnuncio)
         }
 
-        //quando clica no btn de guardar
-        binding.publicar.setOnClickListener {
-            validarDados(0) // 0 - Publicar || 1 - Previsualizar
-        }
+
+
     }
+    private fun loadAnuncio(codAnuncio: String) {
+        val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
+        ref.child(codAnuncio!!)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
 
+                    //carrega os dados
+
+                    val descricao = "${snapshot.child("descricao").value}"
+                    val email = "${snapshot.child("email").value}"
+                    val morada = "${snapshot.child("morada").value}"
+                    val preco = "${snapshot.child("preco").value}"
+                    val rAnimais = "${snapshot.child("rAnimais").value}"
+                    val rAcessivel = "${snapshot.child("rAcessivel").value}"
+                    val rFumadores = "${snapshot.child("rFumadores").value}"
+                    val rPreco = "${snapshot.child("rPreco").value}"
+                    val reservado = "${snapshot.child("reservado").value}"
+                    val telemovel = "${snapshot.child("telemovel").value}"
+                    val titulo = "${snapshot.child("titulo").value}"
+
+
+                    //coloca os dados
+                    //binding.titulo.text = titulo
+                    //binding.preco.text = preco + " €"
+                    binding.tituloEtesp.setText(titulo)
+                    binding.precoET.setText(preco)
+                    binding.descricaoEt.setText(descricao)
+                    binding.moradaEt.setText(morada)
+                    binding.check1.setChecked(rFumadores.toBoolean())
+                    binding.check2.setChecked(rAnimais.toBoolean())
+                    binding.check3.setChecked(rAcessivel.toBoolean())
+                    binding.check4.setChecked(rPreco.toBoolean())
+                    binding.partilhadoCheck.setChecked(reservado.toBoolean())
+                    if (reservado.equals("0")) {
+                        binding.masculino.setChecked(true)
+
+                        // Female only
+                    } else if (reservado.equals("1")) {
+                        binding.feminino.setChecked(true)
+
+                        // Both
+                    } else {
+                        binding.indiferente.setChecked(true)
+                    }
+                    Log.d("TAG", reservado)
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+    }
     private var titulo = ""
     private var descricao = ""
     private var email = ""
@@ -96,8 +141,8 @@ class CriarQuarto : AppCompatActivity() {
     private var preco = ""
 
     //valida dos dados antes de publicar
-    private fun validarDados(pub: Int) {
-        titulo = binding.tituloEt.text.toString().trim()
+    private fun validarDados(pub: Int, codAnuncio: String) {
+        titulo = binding.tituloEtesp.text.toString().trim()
         descricao = binding.descricaoEt.text.toString().trim()
         email = binding.emailEt.text.toString().trim()
         telemovel = binding.telemovelEt.text.toString().trim()
@@ -132,7 +177,7 @@ class CriarQuarto : AppCompatActivity() {
             binding.telemovelEt.error = R.string.insertPhoneNumber.toString()
         }else if (TextUtils.isEmpty(titulo)){
             //sem titulo
-            binding.tituloEt.error = R.string.insertTitle.toString()
+            binding.tituloEtesp.error = R.string.insertTitle.toString()
         }else if (TextUtils.isEmpty(descricao)){
             //sem descricao
             binding.descricaoEt.error = R.string.insertDescription.toString()
@@ -143,14 +188,15 @@ class CriarQuarto : AppCompatActivity() {
             binding.indiferente.error = R.string.selectOp.toString()
         }else{
             if (pub==0){  //submter os dados para a bd
-                guardaInfo()
+
+                guardaInfo(codAnuncio)
             }else{  //pre visulaizar o anuncio
                 //para já nao faz nada
             }
         }
     }
 
-    private fun guardaInfo() {
+    private fun guardaInfo(codAnuncio: String) {
         //guarda os dados no real time database
         progressDialog.setMessage(R.string.save.toString())
 
@@ -176,17 +222,20 @@ class CriarQuarto : AppCompatActivity() {
         hashMap["preco"]=preco
 
         //guardar td
-        val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
-        ref.child(codAnuncio!!)
-            .setValue(hashMap)
-            .addOnSuccessListener {
+        val ref = FirebaseDatabase.getInstance().getReference("Anuncios").child(codAnuncio!!)
+        //ref.child(codAnuncio!!)
+            //.setValue(hashMap)
+        //val ref = FirebaseDatabase.getInstance().reference.child("Anuncios").child(codAnuncio)
+            ref.setValue(hashMap).addOnSuccessListener {
                 //caso de sucesso
+                Toast.makeText(this, codAnuncio, Toast.LENGTH_SHORT).show()
                 progressDialog.dismiss()
                 Toast.makeText(this, R.string.anuncioRegistado, Toast.LENGTH_SHORT).show()
 
+
                 //volta para a pagina inicial, neste momento vai para o perfil novamente
-                startActivity(Intent(this, Profile::class.java))
-                finish()
+                startActivity(Intent(this, StudentList::class.java))
+                //finish()
             }
             .addOnFailureListener {
                 //caso de fail
@@ -269,7 +318,7 @@ class CriarQuarto : AppCompatActivity() {
         //envia informação para a BD
         val hashMap: HashMap<String, Any> = HashMap()
         hashMap["codImagem"] = codImagem
-        hashMap["codAnuncio"] = codAnuncio
+        //hashMap["codAnuncio"] = codAnuncio
         hashMap["imagemURL"] = imageUrl
 
 

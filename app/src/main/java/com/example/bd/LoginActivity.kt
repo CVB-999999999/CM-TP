@@ -62,9 +62,8 @@ class LoginActivity : AppCompatActivity() {
             validateData()
         }
 
-        //Ativa o modo imersivo
-        window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        binding.passForgetTv.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, ForgetActivity::class.java))
         }
     }
 

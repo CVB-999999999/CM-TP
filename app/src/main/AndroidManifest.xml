@@ -31,14 +31,11 @@
             android:name=".ForgetActivity"
             android:exported="false" />
         <activity
+            android:name=".EditarQuarto"
+            android:exported="false" />
+        <activity
             android:name=".StudentList"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CriarQuarto"
             android:exported="false" />
@@ -46,7 +43,7 @@
             android:name=".LandlordList"
             android:exported="false" />
         <activity
-            android:name=".PrimeiraActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".EditarPerfil"
@@ -58,8 +55,14 @@
             android:name=".SignUp"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
+            android:name=".PrimeiraActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
