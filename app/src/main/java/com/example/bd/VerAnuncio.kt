@@ -48,13 +48,13 @@ class VerAnuncio : AppCompatActivity() {
 
         val codAnuncio = intent.getStringExtra("codAnuncio")
 
-        viewFlipper = binding.vFlipper
+//        viewFlipper = binding.vFlipper
         viewFlipperCapa = binding.imagemA
 
         carregaImgCapa(codAnuncio!!)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        if (firebaseAuth.currentUser != null){
+        if (firebaseAuth.currentUser != null) {
             checkFav(codAnuncio!!)
         }
 
@@ -62,14 +62,14 @@ class VerAnuncio : AppCompatActivity() {
 
         //Favoritos
         binding.favorite.setOnClickListener {
-            if (firebaseAuth.currentUser == null){
+            if (firebaseAuth.currentUser == null) {
                 Toast.makeText(this, "Necessita de ter login efetuado!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, PrimeiraActivity::class.java))
-            }else{
-                if (isInMyFavorite){
+            } else {
+                if (isInMyFavorite) {
                     //remove
                     removeFromFav(codAnuncio)
-                }else{
+                } else {
                     //adiciona
                     addFavorite(codAnuncio)
                 }
@@ -82,11 +82,11 @@ class VerAnuncio : AppCompatActivity() {
         }
 
 
-        binding.editarBtn.setOnClickListener{
-            val popupMenu: PopupMenu = PopupMenu(this,binding.editarBtn)
-            popupMenu.menuInflater.inflate(R.menu.menu_editar,popupMenu.menu)
+        binding.editarBtn.setOnClickListener {
+            val popupMenu: PopupMenu = PopupMenu(this, binding.editarBtn)
+            popupMenu.menuInflater.inflate(R.menu.menu_editar, popupMenu.menu)
             popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
-                when(item.itemId) {
+                when (item.itemId) {
                     R.id.editar -> {
                         Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, EditarQuarto::class.java)
@@ -99,31 +99,25 @@ class VerAnuncio : AppCompatActivity() {
                         startActivity(Intent(this, StudentList::class.java))
                         finish()
                     }
-
-                    R.id.esconder -> {
-                        Toast.makeText(this, "Esconder", Toast.LENGTH_SHORT).show()
-
-                    }
-
-
-                    }
+                }
                 true
             })
             popupMenu.show()
         }
 
-        binding.voltarIMG.setOnClickListener {
-            viewFlipper.showPrevious()
-        }
-
-        binding.proximaIMG.setOnClickListener {
-            viewFlipper.showNext()
-        }
+//        binding.voltarIMG.setOnClickListener {
+//            viewFlipper.showPrevious()
+//        }
+//
+//        binding.proximaIMG.setOnClickListener {
+//            viewFlipper.showNext()
+//        }
 
         binding.ligarBt.setOnClickListener {
             startActivity(
                 Intent(Intent.ACTION_DIAL)
-                    .setData(Uri.parse("tel:"+binding.contactoTelET.text)))
+                    .setData(Uri.parse("tel:" + binding.contactoTelET.text))
+            )
         }
 
     }
@@ -132,95 +126,96 @@ class VerAnuncio : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
         ref.child(codAnuncio!!)
             .addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
+                override fun onDataChange(snapshot: DataSnapshot) {
 
-                //carrega os dados
-                val dataAtualizacao = "${snapshot.child("dataAtualizacao").value}"
-                val dataCriacao = "${snapshot.child("dataCriacao").value}"
-                val descricao = "${snapshot.child("descricao").value}"
-                val email = "${snapshot.child("email").value}"
-                val idUtilizador = "${snapshot.child("idUtilizador").value}"
-                val morada = "${snapshot.child("morada").value}"
-                val preco = "${snapshot.child("preco").value}"
-                val rAnimais = "${snapshot.child("rAnimais").value}"
-                val rAcessivel = "${snapshot.child("rAcessivel").value}"
-                val rFumadores = "${snapshot.child("rFumadores").value}"
-                val rPreco = "${snapshot.child("rPreco").value}"
-                val reservado = "${snapshot.child("reservado").value}"
-                val telemovel = "${snapshot.child("telemovel").value}"
-                val titulo = "${snapshot.child("titulo").value}"
+                    //carrega os dados
+                    val dataAtualizacao = "${snapshot.child("dataAtualizacao").value}"
+                    val dataCriacao = "${snapshot.child("dataCriacao").value}"
+                    val descricao = "${snapshot.child("descricao").value}"
+                    val email = "${snapshot.child("email").value}"
+                    val idUtilizador = "${snapshot.child("idUtilizador").value}"
+                    val morada = "${snapshot.child("morada").value}"
+                    val preco = "${snapshot.child("preco").value}"
+                    val rAnimais = "${snapshot.child("rAnimais").value}"
+                    val rAcessivel = "${snapshot.child("rAcessivel").value}"
+                    val rFumadores = "${snapshot.child("rFumadores").value}"
+                    val rPreco = "${snapshot.child("rPreco").value}"
+                    val reservado = "${snapshot.child("reservado").value}"
+                    val telemovel = "${snapshot.child("telemovel").value}"
+                    val titulo = "${snapshot.child("titulo").value}"
 
-                //coloca os dados
-                binding.titulo.text = titulo
-                binding.localizacao.text = morada
-                binding.preco.text = preco + " €"
-                binding.descricaoEt.text = descricao
-                binding.contactoEmailET.text = "Email: " + email
-                binding.contactoTelET.text = "Telemóvel: " + telemovel
+                    //coloca os dados
+                    binding.titulo.text = titulo
+                    binding.localizacao.text = morada
+                    binding.preco.text = preco + " €"
+                    binding.descricaoEt.text = descricao
+                    binding.contactoEmailET.text = "Email: " + email
+                    binding.contactoTelET.text = "Telemóvel: " + telemovel
 
-                //coloca as regras
-                if (rAnimais.equals(true)) {
-                    binding.pet.setImageResource(R.drawable.ic_baseline_people_24)
+                    //coloca as regras
+                    if (rAnimais.equals(true)) {
+                        binding.pet.setImageResource(R.drawable.ic_baseline_people_24)
+                    }
+
+                    if (rFumadores.equals(true)) {
+                        binding.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
+                    } else {
+                        binding.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
+                    }
+                    if (rAcessivel.equals(true)) {
+                        binding.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
+                    } else {
+                        binding.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
+                    }
+                    if (rPreco.equals(true)) {
+                        binding.negociavel.setImageResource(R.drawable.ic_baseline_attach_money_24)
+                    } else {
+                        binding.negociavel.setImageResource(R.drawable.ic_baseline_money_off_24)
+                    }
+
+                    // Male only
+                    if (reservado.equals("0")) {
+                        binding.male.setImageResource(R.drawable.ic_baseline_male_24)
+
+                        // Female only
+                    } else if (reservado.equals("1")) {
+                        binding.male.setImageResource(R.drawable.ic_baseline_male_24)
+
+                        // Both
+                    } else {
+                        binding.male.setImageResource(R.drawable.ic_baseline_male_24)
+                        binding.female.setImageResource(R.drawable.ic_baseline_female_24)
+                    }
+
+                    //carregaImagemCapa(codAnuncio)
+
                 }
 
-                if (rFumadores.equals(true)) {
-                    binding.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
-                } else {
-                    binding.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
+                override fun onCancelled(error: DatabaseError) {
+
                 }
-                if (rAcessivel.equals(true)) {
-                    binding.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
-                } else {
-                    binding.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
-                }
-                if (rPreco.equals(true)) {
-                    binding.negociavel.setImageResource(R.drawable.ic_baseline_attach_money_24)
-                } else {
-                    binding.negociavel.setImageResource(R.drawable.ic_baseline_money_off_24)
-                }
-
-                // Male only
-                if (reservado.equals("0")) {
-                    binding.male.setImageResource(R.drawable.ic_baseline_male_24)
-
-                // Female only
-                } else if (reservado.equals("1")) {
-                    binding.male.setImageResource(R.drawable.ic_baseline_male_24)
-
-                // Both
-                } else {
-                    binding.male.setImageResource(R.drawable.ic_baseline_male_24)
-                    binding.female.setImageResource(R.drawable.ic_baseline_female_24)
-                }
-
-                //carregaImagemCapa(codAnuncio)
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        })
+            })
     }
 
-    private fun carregaImgCapa(codAnuncio: String){
+    private fun carregaImgCapa(codAnuncio: String) {
         val ref = FirebaseDatabase.getInstance().getReference("ImagensAnuncios")
-        ref.addValueEventListener(object : ValueEventListener{
+        ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     var conta = 0
                     for (anuncioSnap in snapshot.children) {
                         val codA = "${anuncioSnap.child("codAnuncio").value}"
-                        if (codA.equals(codAnuncio)){
+                        if (codA.equals(codAnuncio)) {
                             val imagem = "${anuncioSnap.child("imagemURL").value}"
                             //Picasso.get().load(imagem).into(imageView)
                             flipperImage(imagem)
                             flipperImageCapa(imagem)
-                            conta=conta+1
+                            conta = conta + 1
                         }
                     }
-                    if (conta==0){
-                        val imagem = "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2F0c31a1fea169f62723961552742988b3a97e8e12.jpg?alt=media&token=ee27cce2-f4be-4801-aa1a-b7ce98516852"
+                    if (conta == 0) {
+                        val imagem =
+                            "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2F0c31a1fea169f62723961552742988b3a97e8e12.jpg?alt=media&token=ee27cce2-f4be-4801-aa1a-b7ce98516852"
                         flipperImage(imagem)
                         flipperImageCapa(imagem)
                     }
@@ -233,19 +228,29 @@ class VerAnuncio : AppCompatActivity() {
         })
     }
 
-    private fun checkFav(codAnuncio: String){
+    private fun checkFav(codAnuncio: String) {
 
         val rel = FirebaseDatabase.getInstance().getReference("Utilizadores")
         rel.child(firebaseAuth.uid!!).child("Favoritos").child(codAnuncio)
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     isInMyFavorite = snapshot.exists()
 
-                    if (isInMyFavorite){
+                    if (isInMyFavorite) {
                         //já existia
-                        binding.favorite.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.ic_baseline_favorite_24, 0,0)
-                    }else{
-                        binding.favorite.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.ic_outline_favorite_border_24, 0,0)
+                        binding.favorite.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_baseline_favorite_24,
+                            0,
+                            0
+                        )
+                    } else {
+                        binding.favorite.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_outline_favorite_border_24,
+                            0,
+                            0
+                        )
                     }
                 }
 
@@ -256,7 +261,7 @@ class VerAnuncio : AppCompatActivity() {
             })
     }
 
-    private fun addFavorite(codAnuncio: String){
+    private fun addFavorite(codAnuncio: String) {
 
         val timestamp = System.currentTimeMillis()
 
@@ -270,12 +275,12 @@ class VerAnuncio : AppCompatActivity() {
             .addOnSuccessListener {
                 Toast.makeText(this, "Anuncio adicionado aos favoritos", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun removeFromFav(codAnuncio: String){
+    private fun removeFromFav(codAnuncio: String) {
 
         val rel = FirebaseDatabase.getInstance().getReference("Utilizadores")
         rel.child(firebaseAuth.uid!!).child("Favoritos").child(codAnuncio)
@@ -283,13 +288,13 @@ class VerAnuncio : AppCompatActivity() {
             .addOnSuccessListener {
                 Toast.makeText(this, "Anuncio removido dos favoritos", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
             }
 
     }
 
-    private fun flipperImage(imagem: String){
+    private fun flipperImage(imagem: String) {
 
         imageView = ImageView(this)
         Picasso.get().load(imagem).into(imageView)
@@ -305,7 +310,7 @@ class VerAnuncio : AppCompatActivity() {
         viewFlipper.setOutAnimation(this, android.R.anim.slide_out_right)
     }
 
-    private fun flipperImageCapa(imagem: String){
+    private fun flipperImageCapa(imagem: String) {
 
         imageVC = ImageView(this)
         Picasso.get().load(imagem).into(imageVC)
@@ -320,7 +325,7 @@ class VerAnuncio : AppCompatActivity() {
         viewFlipperCapa.setOutAnimation(this, android.R.anim.slide_out_right)
     }
 
-    private fun removeAnuncio(codAnuncio: String){
+    private fun removeAnuncio(codAnuncio: String) {
 
         val rel = FirebaseDatabase.getInstance().getReference("Anuncios")
         rel.child(codAnuncio)
@@ -328,7 +333,7 @@ class VerAnuncio : AppCompatActivity() {
             .addOnSuccessListener {
                 Toast.makeText(this, "Anúncio eliminado", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
             }
 

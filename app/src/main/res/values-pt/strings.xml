@@ -71,4 +71,10 @@
     <string name="log_out">Terminar Sessão</string>
     <string name="delete">Apagar</string>
     <string name="edit">Editar</string>
+    <string name="call">Ligar</string>
+    <string name="message">Mensagem</string>
+    <string name="title">Titulo</string>
+    <string name="location">Localização</string>
+    <string name="description">Descrição</string>
+    <string name="contact">Contacto</string>
 </resources>
