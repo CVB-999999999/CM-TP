@@ -56,4 +56,7 @@
     <string name="gender">Gênero</string>
     <string name="accessible">Acessível</string>
     <string name="shared_room">Quarto Partilhado</string>
+    <string name="favourites">Favoritos</string>
+    <string name="home">Inicio</string>
+    <string name="profile">Perfil</string>
 </resources>

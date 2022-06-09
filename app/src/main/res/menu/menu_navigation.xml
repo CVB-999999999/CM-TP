@@ -4,20 +4,20 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home"
-        android:title="Home" />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/favourite"
         android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="Favoritos" />
+        android:title="@string/favourites" />
 
     <item
         android:id="@+id/search"
         android:icon="@drawable/ic_baseline_search"
-        android:title="Pesquisar" />
+        android:title="@string/search" />
 
     <item
         android:id="@+id/dashboard"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Perfil" />
+        android:title="@string/profile" />
 </menu>

@@ -46,6 +46,9 @@
     <string name="gender">Gender</string>
     <string name="accessible">Accessible</string>
     <string name="shared_room">Shared Room</string>
+    <string name="home">Home</string>
+    <string name="favourites">Favourites</string>
+    <string name="profile">Profile</string>
     <string-array name="sharedRoom">
         <item>Shared</item>
         <item>Not Shared</item>
