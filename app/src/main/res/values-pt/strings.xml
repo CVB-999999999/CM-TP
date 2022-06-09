@@ -69,4 +69,6 @@
     <string name="privacy_policy">Politica de Privacidade</string>
     <string name="help">Ajuda</string>
     <string name="log_out">Terminar Sessão</string>
+    <string name="delete">Apagar</string>
+    <string name="edit">Editar</string>
 </resources>
