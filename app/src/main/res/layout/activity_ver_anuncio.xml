@@ -244,7 +244,6 @@
                 android:id="@+id/imagemTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="150dp"
                 android:orientation="horizontal"
                 android:padding="8dp">
 
@@ -300,6 +299,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/contactoTil"
                 android:orientation="horizontal"
+                android:layout_marginBottom="100dp"
                 android:padding="8dp">
 
                 <TextView
@@ -325,9 +325,6 @@
                     android:layout_below="@id/avaliacoesBtn"
                     android:layout_marginTop="10dp" />
             </RelativeLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"/>
         </LinearLayout>
     </ScrollView>
 
