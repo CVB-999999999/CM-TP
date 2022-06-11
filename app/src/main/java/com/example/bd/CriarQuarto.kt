@@ -182,6 +182,7 @@ class CriarQuarto : AppCompatActivity() {
         hashMap["dataCriacao"]=timeStamp
         hashMap["dataAtualizacao"]=timeStamp
         hashMap["preco"]=preco
+        hashMap["partilhado"]=partilhado
 
         //guardar td
         val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
