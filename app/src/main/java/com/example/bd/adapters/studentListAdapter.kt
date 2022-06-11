@@ -48,10 +48,15 @@ class studentListAdapter(
         //    holder.rooms.text = currentList.rooms.toString() + " Quartos"
         //}
 
-        if (currentList.rAnimais) {
+        if (currentList.partilhado) {
             holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
         } else {
             holder.shared.setImageResource(R.drawable.ic_baseline_person_24)
+        }
+        if (currentList.rAnimais) {
+            holder.pets.setImageResource(R.drawable.ic_baseline_pets_24)
+        } else {
+            holder.pets.setImageResource(R.drawable.ic_baseline_pets_24)
         }
 
         if (currentList.rFumadores) {
@@ -132,6 +137,7 @@ class StudentListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
     val address: TextView = itemView.findViewById(R.id.address)
     val rent: TextView = itemView.findViewById(R.id.price)
     val shared: ImageView = itemView.findViewById(R.id.shared)
+    val pets: ImageView = itemView.findViewById(R.id.pets)
     val smoke: ImageView = itemView.findViewById(R.id.smoke)
     val accessible: ImageView = itemView.findViewById(R.id.accessible)
     val male: ImageView = itemView.findViewById(R.id.male)

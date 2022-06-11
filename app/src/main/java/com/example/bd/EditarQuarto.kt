@@ -94,6 +94,7 @@ class EditarQuarto : AppCompatActivity() {
                     val reservado = "${snapshot.child("reservado").value}"
                     val telemovel = "${snapshot.child("telemovel").value}"
                     val titulo = "${snapshot.child("titulo").value}"
+                    val partilhado = "${snapshot.child("partilhado").value}"
 
 
                     //coloca os dados
@@ -107,7 +108,7 @@ class EditarQuarto : AppCompatActivity() {
                     binding.check2.setChecked(rAnimais.toBoolean())
                     binding.check3.setChecked(rAcessivel.toBoolean())
                     binding.check4.setChecked(rPreco.toBoolean())
-                    binding.partilhadoCheck.setChecked(reservado.toBoolean())
+                    binding.partilhadoCheck.setChecked(partilhado.toBoolean())
                     if (reservado.equals("0")) {
                         binding.masculino.setChecked(true)
 
@@ -139,6 +140,7 @@ class EditarQuarto : AppCompatActivity() {
     private var reservado = ""
     private var morada = ""
     private var preco = ""
+    private var partilhado = false
 
     //valida dos dados antes de publicar
     private fun validarDados(pub: Int, codAnuncio: String) {
@@ -152,6 +154,7 @@ class EditarQuarto : AppCompatActivity() {
         rPreco = binding.check4.isChecked
         morada = binding.moradaEt.text.toString().trim()
         preco = binding.precoET.text.toString().trim()
+        partilhado = binding.partilhadoCheck.isChecked
 
         //Define se o quarto é especifico para algum tipo de sexo
         //0 - Masculino

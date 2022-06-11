@@ -207,6 +207,7 @@ class VerAnuncio : AppCompatActivity() {
                     val reservado = "${snapshot.child("reservado").value}"
                     val telemovel = "${snapshot.child("telemovel").value}"
                     val titulo = "${snapshot.child("titulo").value}"
+                    val partilhado = "${snapshot.child("partilhado").value}"
 
                     //coloca os dados
                     binding.titulo.text = titulo
@@ -217,21 +218,28 @@ class VerAnuncio : AppCompatActivity() {
                     binding.contactoTelET.text = "Telemóvel: " + telemovel
 
                     //coloca as regras
-                    if (rAnimais.equals(true)) {
-                        binding.pet.setImageResource(R.drawable.ic_baseline_people_24)
+                    if(partilhado.equals("true")){
+                        binding.partilhado.setImageResource(R.drawable.ic_baseline_people_24)
+                    } else {
+                        binding.partilhado.setImageResource(R.drawable.ic_baseline_person_24)
+                    }
+                    if (rAnimais.equals("true")) {
+                        binding.pet.setImageResource(R.drawable.ic_baseline_pets_24)
+                    } else {
+                        binding.pet.setImageResource(R.drawable.ic_baseline_pets_24)
                     }
 
-                    if (rFumadores.equals(true)) {
+                    if (rFumadores.equals("true")) {
                         binding.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
                     } else {
                         binding.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
                     }
-                    if (rAcessivel.equals(true)) {
+                    if (rAcessivel.equals("true")) {
                         binding.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
                     } else {
                         binding.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
                     }
-                    if (rPreco.equals(true)) {
+                    if (rPreco.equals("true")) {
                         binding.negociavel.setImageResource(R.drawable.ic_baseline_attach_money_24)
                     } else {
                         binding.negociavel.setImageResource(R.drawable.ic_baseline_money_off_24)
