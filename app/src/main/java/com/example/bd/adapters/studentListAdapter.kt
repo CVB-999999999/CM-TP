@@ -48,11 +48,17 @@ class studentListAdapter(
         //    holder.rooms.text = currentList.rooms.toString() + " Quartos"
         //}
 
-        if (currentList.rAnimais) {
+        if (currentList.partilhado) {
             holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
         } else {
             holder.shared.setImageResource(R.drawable.ic_baseline_person_24)
         }
+        if (currentList.rAnimais) {
+            holder.shared.setImageResource(R.drawable.ic_baseline_pets_24)
+        } else {
+            holder.shared.setImageResource(R.drawable.ic_baseline_pets_24)
+        }
+
 
         if (currentList.rFumadores) {
             holder.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)

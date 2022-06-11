@@ -195,7 +195,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+<<<<<<< Updated upstream
                         android:layout_weight="1"/>
+=======
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/partilhado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1" />
+>>>>>>> Stashed changes
 
                 </LinearLayout>
             </LinearLayout>

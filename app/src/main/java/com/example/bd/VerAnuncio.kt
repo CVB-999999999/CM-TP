@@ -129,6 +129,7 @@ class VerAnuncio : AppCompatActivity() {
             .addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
+<<<<<<< Updated upstream
                 //carrega os dados
                 val dataAtualizacao = "${snapshot.child("dataAtualizacao").value}"
                 val dataCriacao = "${snapshot.child("dataCriacao").value}"
@@ -174,6 +175,62 @@ class VerAnuncio : AppCompatActivity() {
                 } else {
                     binding.negociavel.setImageResource(R.drawable.ic_baseline_money_off_24)
                 }
+=======
+                    //carrega os dados
+                    val dataAtualizacao = "${snapshot.child("dataAtualizacao").value}"
+                    val dataCriacao = "${snapshot.child("dataCriacao").value}"
+                    val descricao = "${snapshot.child("descricao").value}"
+                    val email = "${snapshot.child("email").value}"
+                    val idUtilizador = "${snapshot.child("idUtilizador").value}"
+                    val morada = "${snapshot.child("morada").value}"
+                    val preco = "${snapshot.child("preco").value}"
+                    val rAnimais = "${snapshot.child("rAnimais").value}"
+                    val rAcessivel = "${snapshot.child("rAcessivel").value}"
+                    val rFumadores = "${snapshot.child("rFumadores").value}"
+                    val rPreco = "${snapshot.child("rPreco").value}"
+                    val reservado = "${snapshot.child("reservado").value}"
+                    val telemovel = "${snapshot.child("telemovel").value}"
+                    val titulo = "${snapshot.child("titulo").value}"
+                    val partilhado = "${snapshot.child("partilhado").value}"
+
+                    //coloca os dados
+                    binding.titulo.text = titulo
+                    binding.localizacao.text = morada
+                    binding.preco.text = preco + " €"
+                    binding.descricaoEt.text = descricao
+                    binding.contactoEmailET.text = "Email: " + email
+                    binding.contactoTelET.text = "Telemóvel: " + telemovel
+
+                    //coloca as regras
+                    if (rAnimais.equals("true")) {
+                        binding.pet.setImageResource(R.drawable.ic_baseline_pets_24)
+                    } else {
+                        binding.pet.setImageResource(R.drawable.ic_baseline_pets_24)
+                    }
+                    Log.d("TAG",partilhado)
+                    if(partilhado.equals("true")){
+                        binding.partilhado.setImageResource(R.drawable.ic_baseline_people_24)
+
+                    } else {
+                        binding.partilhado.setImageResource(R.drawable.ic_baseline_person_24)
+                        Log.d("TAG",partilhado)
+                    }
+                    if (rFumadores.equals("true")) {
+                        binding.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
+                    } else {
+                        binding.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
+                    }
+                    if (rAcessivel.equals("true")) {
+                        binding.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
+                    } else {
+                        binding.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
+                    }
+                    if (rPreco.equals("true")) {
+                        binding.negociavel.setImageResource(R.drawable.ic_baseline_attach_money_24)
+                    } else {
+                        binding.negociavel.setImageResource(R.drawable.ic_baseline_money_off_24)
+                    }
+>>>>>>> Stashed changes
 
                 // Male only
                 if (reservado.equals("0")) {

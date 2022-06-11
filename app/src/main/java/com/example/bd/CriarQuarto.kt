@@ -99,6 +99,7 @@ class CriarQuarto : AppCompatActivity() {
     private var reservado = ""
     private var morada = ""
     private var preco = ""
+    private var partilhado = false
 
     //valida dos dados antes de publicar
     private fun validarDados(pub: Int) {
@@ -112,6 +113,7 @@ class CriarQuarto : AppCompatActivity() {
         rPreco = binding.check4.isChecked
         morada = binding.moradaEt.text.toString().trim()
         preco = binding.precoET.text.toString().trim()
+        partilhado = binding.partilhadoCheck.isChecked
 
         //Define se o quarto é especifico para algum tipo de sexo
         //0 - Masculino
@@ -174,6 +176,7 @@ class CriarQuarto : AppCompatActivity() {
         hashMap["rAcessivel"]=rAcessivel
         hashMap["rPreco"]=rPreco
         hashMap["reservado"]=reservado
+        hashMap["partilhado"]=partilhado
         hashMap["morada"]=morada
         hashMap["visiblidade"]="1" // visiblidade do anuncio 0-oculto || 1-visivel
         hashMap["dataCriacao"]=timeStamp

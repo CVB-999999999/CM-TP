@@ -75,6 +75,36 @@
                         android:hint="Preço"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Descrição:"
+                        android:textSize="18sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/descricaoTil"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:layout_below="@+id/desc"
+                        android:layout_marginBottom="8dp">
+
+                        <EditText
+                            android:id="@+id/descricaoEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Descrição"
+                            android:inputType="textPersonName" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
             </RelativeLayout>
 
             <!-- Imagens -->
@@ -113,35 +143,6 @@
             </RelativeLayout>
 
             <!-- Descrição -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <TextView
-                    android:id="@+id/desc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Descrição:"
-                    android:textSize="18sp" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/descricaoTil"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_below="@+id/desc"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/descricaoEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Descrição"
-                        android:inputType="textPersonName" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </RelativeLayout>
 
             <!-- Quarto -->
             <LinearLayout

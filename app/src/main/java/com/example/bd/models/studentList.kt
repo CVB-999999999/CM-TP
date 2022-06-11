@@ -26,7 +26,8 @@ data class studentList(
     val telemovel: String ?= null,
     var titulo: String ?= null,
     val visiblidade: String ?= null,
-    var favorito: Boolean = false
+    var favorito: Boolean = false,
+    var partilhado: Boolean = false
 ){
 
 }
