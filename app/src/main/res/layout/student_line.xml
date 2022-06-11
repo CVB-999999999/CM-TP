@@ -90,6 +90,14 @@
 <<<<<<< Updated upstream
 
 
+=======
+                <ImageView
+                    android:id="@+id/pets"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_people_24" />
+>>>>>>> Stashed changes
                 <ImageView
                     android:id="@+id/smoke"
                     android:layout_width="wrap_content"

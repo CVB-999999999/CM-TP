@@ -202,6 +202,14 @@ class VerAnuncio : AppCompatActivity() {
                     binding.contactoTelET.text = "Telemóvel: " + telemovel
 
                     //coloca as regras
+<<<<<<< Updated upstream
+=======
+                    if(partilhado.equals("true")){
+                        binding.partilhado.setImageResource(R.drawable.ic_baseline_people_24)
+                    } else {
+                        binding.partilhado.setImageResource(R.drawable.ic_baseline_person_24)
+                    }
+>>>>>>> Stashed changes
                     if (rAnimais.equals("true")) {
                         binding.pet.setImageResource(R.drawable.ic_baseline_pets_24)
                     } else {
@@ -211,10 +219,13 @@ class VerAnuncio : AppCompatActivity() {
                     if(partilhado.equals("true")){
                         binding.partilhado.setImageResource(R.drawable.ic_baseline_people_24)
 
+<<<<<<< Updated upstream
                     } else {
                         binding.partilhado.setImageResource(R.drawable.ic_baseline_person_24)
                         Log.d("TAG",partilhado)
                     }
+=======
+>>>>>>> Stashed changes
                     if (rFumadores.equals("true")) {
                         binding.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
                     } else {
