@@ -251,6 +251,15 @@ class VerAnuncio : AppCompatActivity() {
                         binding.female.setImageResource(R.drawable.ic_baseline_female_24)
                     }
 
+                    if(idUtilizador.equals(firebaseAuth.uid)){
+                        binding.editarBtn.setVisibility(View.VISIBLE)
+                        binding.ligarBt.setVisibility(View.INVISIBLE)
+                        binding.avaliacoesBtn.setVisibility(View.INVISIBLE)
+                    }else{
+                        binding.editarBtn.setVisibility(View.INVISIBLE)
+                        binding.ligarBt.setVisibility(View.VISIBLE)
+                        binding.avaliacoesBtn.setVisibility(View.VISIBLE)
+                    }
                     //carregaImagemCapa(codAnuncio)
 
                 }
