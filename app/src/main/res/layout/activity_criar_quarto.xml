@@ -41,6 +41,7 @@
                         android:id="@+id/tituloEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Titulo"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -72,6 +73,7 @@
                         android:id="@+id/precoET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Preço"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -138,6 +140,7 @@
                         android:id="@+id/descricaoEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Descrição"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -314,6 +317,7 @@
                         android:id="@+id/emailEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Email"
                         android:inputType="textPersonName"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -328,6 +332,7 @@
                         android:id="@+id/telemovelEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Telémovel"
                         android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -368,6 +373,7 @@
                         android:id="@+id/moradaEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Morada"
                         android:inputType="text"/>
                 </com.google.android.material.textfield.TextInputLayout>
