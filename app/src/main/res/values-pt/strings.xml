@@ -84,5 +84,6 @@
     <string name="location">Localização</string>
     <string name="description">Descrição</string>
     <string name="contact">Contacto</string>
+    <string name="verAnuncio">Ver os seus anúncios</string>
 
 </resources>

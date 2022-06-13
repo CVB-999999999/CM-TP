@@ -70,7 +70,7 @@
     <string name="location">Location</string>
     <string name="description">Description</string>
     <string name="contact">Contact</string>
-    <string name="verAnuncio">verAnuncio</string>
+    <string name="verAnuncio">Ver os seus anúncios</string>
     <string-array name="sharedRoom">
         <item>Shared</item>
         <item>Not Shared</item>
