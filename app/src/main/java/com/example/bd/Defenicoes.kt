@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
 import com.example.bd.app.MyApplication
@@ -140,6 +141,7 @@ class Defenicoes : AppCompatActivity() {
 
         }else{
             //user logout
+            Toast.makeText(this, R.string.loginNeed, Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, PrimeiraActivity::class.java))
             finish()
         }

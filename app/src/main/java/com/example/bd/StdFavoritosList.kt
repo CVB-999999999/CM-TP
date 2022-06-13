@@ -94,7 +94,9 @@ class StdFavoritosList : AppCompatActivity(), OnStudentClickCodListener {
                                     //anunciosArrayList.add(anuncio!!)
                                     Log.d(TAG, "onDataChange: entra" + anunciosArrayList.size)
 
-                                    StdListAdapter.addTodo(anuncio!!)
+                                    if(anuncio!=null) {
+                                        StdListAdapter.addTodo(anuncio!!)
+                                    }
                                 }
 
                                 override fun onCancelled(error: DatabaseError) {

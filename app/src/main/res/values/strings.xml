@@ -83,4 +83,5 @@
         <item>Male Only</item>
         <item>Female Only</item>
     </string-array>
+    <string name="loginNeed">"You need to have login enabled! "</string>
 </resources>
