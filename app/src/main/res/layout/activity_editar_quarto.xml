@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="Titulo apelativo"
+                    android:text="Titulo "
                     android:textSize="18sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +41,7 @@
                         android:id="@+id/tituloEtesp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="..."
+                        android:background="@android:color/transparent"
                         android:hint="Titulo"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="Preço apelativo"
+                    android:text="Preço"
                     android:textSize="18sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -73,6 +73,7 @@
                         android:id="@+id/precoET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Preço"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -139,6 +140,7 @@
                         android:id="@+id/descricaoEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Descrição"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -301,7 +303,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="Dados de contacto:"
+                    android:text="Informações do contacto:"
                     android:textSize="18sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -315,6 +317,7 @@
                         android:id="@+id/emailEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Email"
                         android:inputType="textPersonName"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -329,6 +332,7 @@
                         android:id="@+id/telemovelEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Telémovel"
                         android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -369,6 +373,7 @@
                         android:id="@+id/moradaEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="Morada"
                         android:inputType="text"/>
                 </com.google.android.material.textfield.TextInputLayout>

@@ -100,12 +100,6 @@ class VerAnuncio : AppCompatActivity() {
                         finish()
                     }
 
-                    R.id.esconder -> {
-                        Toast.makeText(this, "Esconder", Toast.LENGTH_SHORT).show()
-
-                    }
-
-
                     }
                 true
             })

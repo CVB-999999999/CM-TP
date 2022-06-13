@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BD">
         <activity
-            android:name=".EliminarQuarto"
-            android:exported="false" />
-        <activity
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
