@@ -125,7 +125,7 @@ class LandlordList : AppCompatActivity(), OnStudentClickListener {
         val anuncioNome = anunciosArrayList[position].titulo
         val codA = anunciosArrayList[position].codAnuncio
 
-        Toast.makeText(this, "Anúncio: " + anuncioNome, Toast.LENGTH_LONG).show()
+//        Toast.makeText(this, "Anúncio: " + anuncioNome, Toast.LENGTH_LONG).show()
 
         val intent = Intent(this, VerAnuncio::class.java)
         intent.putExtra("codAnuncio", codA)

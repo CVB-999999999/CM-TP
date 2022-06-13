@@ -189,7 +189,7 @@ class CriarQuarto : AppCompatActivity() {
                 Toast.makeText(this, R.string.anuncioRegistado, Toast.LENGTH_SHORT).show()
 
                 //volta para a pagina inicial, neste momento vai para o perfil novamente
-                startActivity(Intent(this, Profile::class.java))
+                startActivity(Intent(this, LandlordList::class.java))
                 finish()
             }
             .addOnFailureListener {
