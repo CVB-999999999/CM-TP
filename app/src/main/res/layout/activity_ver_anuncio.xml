@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".VerAnuncio">
 
@@ -16,18 +16,21 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Card de cima com a imagem principal -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/inicio"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                app:strokeColor="?android:windowBackground"
-                android:background="@android:color/transparent">
+                android:background="@android:color/transparent"
+                app:strokeColor="?android:windowBackground">
+
                 <ImageButton
                     android:id="@+id/backBtn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_baseline_arrow_back_24" />
+
                 <ImageButton
                     android:id="@+id/editarBtn"
                     android:layout_width="50dp"
@@ -35,6 +38,7 @@
                     android:layout_gravity="right"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_baseline_filter_list_24" />
+
                 <ViewFlipper
                     android:id="@+id/imagemA"
                     android:layout_width="match_parent"
@@ -48,7 +52,7 @@
                     android:layout_gravity="bottom"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="90dp"
-                    android:text="Titulo"
+                    android:text="@string/title"
                     android:textColor="@color/grey"
                     android:textSize="40sp" />
 
@@ -59,79 +63,47 @@
                     android:layout_gravity="bottom"
                     android:layout_marginStart="20sp"
                     android:layout_marginBottom="65dp"
-                    android:text="Localização"
+                    android:text="@string/location"
                     android:textSize="20sp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_gravity="bottom"
-                    android:background="@drawable/rentangulo"/>
+                    android:background="@drawable/rentangulo" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="bottom"
-                    android:gravity="right">
+                    android:gravity="end">
 
                     <Button
                         android:id="@+id/favorite"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="30dp"
                         android:layout_gravity="center"
-                        android:drawableTop="@drawable/ic_outline_favorite_border_24"
-                        android:background="@drawable/btn_redondo" />
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/btn_redondo"
+                        android:drawableTop="@drawable/ic_outline_favorite_border_24" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 1º linha de detalhe -
             <LinearLayout
-                android:id="@+id/detalhes1"
+                android:id="@+id/myRectangleView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/inicio"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:padding="8dp">
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/rentangulo">
 
                 <Button
                     android:id="@+id/preco"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="8dp"
                     android:text="200€" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="right">
-
-                    <Button
-                        android:id="@+id/favorite"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:layout_gravity="center"
-                        android:drawableTop="@drawable/ic_outline_favorite_border_24"
-                        android:background="@drawable/btn_redondo" />
-                </LinearLayout>
-            </LinearLayout-->
-
-            <LinearLayout
-                    android:id="@+id/myRectangleView"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/rentangulo">
-
-                    <Button
-                        android:id="@+id/preco"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="200€" />
-                </LinearLayout>
+            </LinearLayout>
 
             <!-- 2º linha de detalhe -->
             <LinearLayout
@@ -159,13 +131,13 @@
                         android:id="@+id/male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center" />
 
                     <ImageView
                         android:id="@+id/female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center" />
 
                     <ImageView
                         android:id="@+id/negociavel"
@@ -195,7 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -215,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Descrição"
+                    android:text="@string/description"
                     android:textSize="20sp" />
 
                 <LinearLayout
@@ -228,51 +200,35 @@
                         android:id="@+id/descricaoEt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Uma pequena descrição de como são os quartos e isso.
-        Também falar quantas pessoas podem ser por quarto, etc..."
+                        android:text="@string/lorem"
                         android:textSize="15sp" />
                 </LinearLayout>
             </RelativeLayout>
 
-            <!-- Imagem -->
-
             <!-- Contacto -->
-            <RelativeLayout
-            android:id="@+id/contactoTil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imagemTil"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <TextView
-                android:id="@+id/contactoTXT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="8dp"
-                android:text="Contacto:"
-                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/contactoEmailTil"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/contactoTXT"
-                android:layout_marginTop="15dp">
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/contactoTXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/contact"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/contactoEmailET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="email@email.com."
+                    android:text="email@email.com"
                     android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/contactoEmailTil">
 
                 <TextView
                     android:id="@+id/contactoTelET"
@@ -281,14 +237,13 @@
                     android:text="999999999"
                     android:textSize="15sp" />
             </LinearLayout>
-        </RelativeLayout>
 
-            <!-- Avaliacoes -->
+
+            <!-- Galeria -->
             <RelativeLayout
                 android:id="@+id/imagemTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/descricaoTil"
                 android:orientation="horizontal"
                 android:padding="8dp">
 
@@ -298,7 +253,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Galeria"
+                    android:text="@string/galeria"
                     android:textSize="20sp" />
 
                 <LinearLayout
@@ -308,12 +263,6 @@
                     android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
-                    <!--ImageView
-                        android:id="@+id/imagemG"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_home_azul" /-->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -344,13 +293,13 @@
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
             </RelativeLayout>
-
             <RelativeLayout
                 android:id="@+id/avaliacoesTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/contactoTil"
                 android:orientation="horizontal"
+                android:layout_marginBottom="100dp"
                 android:padding="8dp">
 
                 <TextView
@@ -376,54 +325,53 @@
                     android:layout_below="@id/avaliacoesBtn"
                     android:layout_marginTop="10dp" />
             </RelativeLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"/>
         </LinearLayout>
     </ScrollView>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_gravity="bottom">
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/ligarBt"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                style="?android:attr/borderlessButtonStyle"
                 android:layout_gravity="bottom"
-                android:text="Ligar"
-                android:textColor="@color/white"
-                android:drawableLeft="@drawable/ic_baseline_phone_24"
-                android:drawableTint="@color/white"
+                android:layout_weight="0.5"
                 android:background="@color/green"
+                android:drawableStart="@drawable/ic_baseline_phone_24"
                 android:drawablePadding="2dip"
-                android:paddingLeft="30dip"
-                android:paddingRight="26dip"
-                android:singleLine="true"
+                android:drawableTint="@color/white"
                 android:gravity="center"
-                android:layout_weight="0.5"/>
+                android:paddingHorizontal="30dip"
+                android:singleLine="true"
+                android:text="@string/call"
+                android:textColor="@color/white"
+                tools:ignore="UnusedAttribute" />
+
             <Button
                 android:id="@+id/mensagemBt"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                style="?android:attr/borderlessButtonStyle"
                 android:layout_gravity="bottom"
-                android:text="Mensagem"
-                android:drawableLeft="@drawable/ic_baseline_message_24"
-                android:drawableTint="@color/white"
+                android:layout_weight="0.5"
                 android:background="#4CAF50"
+                android:drawableStart="@drawable/ic_baseline_message_24"
                 android:drawablePadding="2dip"
-                android:paddingLeft="30dip"
-                android:paddingRight="26dip"
-                android:singleLine="true"
+                android:drawableTint="@color/white"
                 android:gravity="center"
-                android:layout_weight="0.5"/>
+                android:paddingHorizontal="30dip"
+                android:singleLine="true"
+                android:text="@string/message"
+                tools:ignore="UnusedAttribute" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

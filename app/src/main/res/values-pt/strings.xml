@@ -59,5 +59,30 @@
     <string name="gender">Gênero</string>
     <string name="accessible">Acessível</string>
     <string name="shared_room">Quarto Partilhado</string>
+
     <string name="loginNeed">Necessita de ter login efetuado!</string>
+
+
+    <string name="favourites">Favoritos</string>
+    <string name="home">Inicio</string>
+    <string name="profile">Perfil</string>
+    <string name="create_ad">Criar Anuncio</string>
+    <string name="account">Conta</string>
+    <string name="preferences">Preferências</string>
+    <string name="edit_profile">Editar Prefil</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="other">Outros</string>
+    <string name="terms_and_conditions">Termos e Condições</string>
+    <string name="privacy_policy">Politica de Privacidade</string>
+    <string name="help">Ajuda</string>
+    <string name="log_out">Terminar Sessão</string>
+    <string name="delete">Apagar</string>
+    <string name="edit">Editar</string>
+    <string name="call">Ligar</string>
+    <string name="message">Mensagem</string>
+    <string name="title">Titulo</string>
+    <string name="location">Localização</string>
+    <string name="description">Descrição</string>
+    <string name="contact">Contacto</string>
+
 </resources>
