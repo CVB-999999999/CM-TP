@@ -60,7 +60,7 @@ class VerAnuncio : AppCompatActivity() {
 
         val codAnuncio = intent.getStringExtra("codAnuncio")
 
-//        viewFlipper = binding.vFlipper
+        viewFlipper = binding.vFlipper
         viewFlipperCapa = binding.imagemA
 
         carregaImgCapa(codAnuncio!!)
