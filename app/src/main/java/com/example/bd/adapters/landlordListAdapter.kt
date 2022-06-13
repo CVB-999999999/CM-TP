@@ -20,7 +20,9 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
 class LandlordListAdapter(
-    private val studentL: ArrayList<studentList> ) :
+    private val studentL: ArrayList<studentList>,
+    private val onStudentClickListener: OnStudentClickListener
+    ) :
     RecyclerView.Adapter<LandLordListViewHolder>() {
 
 
@@ -102,6 +104,10 @@ class LandlordListAdapter(
 
             }
         })
+
+        holder.itemView.setOnClickListener {
+            onStudentClickListener.onStudentClickItem(position)
+        }
 
     }
 

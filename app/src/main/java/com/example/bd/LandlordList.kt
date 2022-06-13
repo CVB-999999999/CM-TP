@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class LandlordList : AppCompatActivity(){
+class LandlordList : AppCompatActivity(), OnStudentClickListener {
 
     private lateinit var StdListAdapter: LandlordListAdapter
     private lateinit var actionBar: ActionBar
@@ -49,7 +49,7 @@ class LandlordList : AppCompatActivity(){
         //recyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        StdListAdapter = LandlordListAdapter(ArrayList())
+        StdListAdapter = LandlordListAdapter(ArrayList(), this)
         val recyclerView: RecyclerView = findViewById(R.id.stdLine)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = StdListAdapter
@@ -119,5 +119,16 @@ class LandlordList : AppCompatActivity(){
                 finish()
             }
         })
+    }
+
+    override fun onStudentClickItem(position: Int) {
+        val anuncioNome = anunciosArrayList[position].titulo
+        val codA = anunciosArrayList[position].codAnuncio
+
+        Toast.makeText(this, "Anúncio: " + anuncioNome, Toast.LENGTH_LONG).show()
+
+        val intent = Intent(this, VerAnuncio::class.java)
+        intent.putExtra("codAnuncio", codA)
+        startActivity(intent)
     }
 }
