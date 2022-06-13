@@ -127,13 +127,13 @@ class VerAnuncio : AppCompatActivity() {
             popupMenu.show()
         }
 
-//        binding.voltarIMG.setOnClickListener {
-//            viewFlipper.showPrevious()
-//        }
-//
-//        binding.proximaIMG.setOnClickListener {
-//            viewFlipper.showNext()
-//        }
+        binding.voltarIMG.setOnClickListener {
+            viewFlipper.showPrevious()
+        }
+
+        binding.proximaIMG.setOnClickListener {
+            viewFlipper.showNext()
+        }
 
         binding.ligarBt.setOnClickListener {
             startActivity(
