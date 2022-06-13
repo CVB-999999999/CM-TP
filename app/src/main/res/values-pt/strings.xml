@@ -59,4 +59,5 @@
     <string name="gender">Gênero</string>
     <string name="accessible">Acessível</string>
     <string name="shared_room">Quarto Partilhado</string>
+    <string name="loginNeed">Necessita de ter login efetuado!</string>
 </resources>

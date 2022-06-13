@@ -25,6 +25,10 @@ class AvaliarActivity : AppCompatActivity() {
         val codAnuncio = intent.getStringExtra("codAnuncio")
 
         firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser == null){
+            Toast.makeText(this, R.string.loginNeed, Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, PrimeiraActivity::class.java))
+        }
 
         binding.backBtn.setOnClickListener {
             onBackPressed()

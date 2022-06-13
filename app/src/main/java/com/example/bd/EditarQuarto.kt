@@ -55,6 +55,10 @@ class EditarQuarto : AppCompatActivity() {
 
         //Iniciar o firebase
         firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser == null){
+            Toast.makeText(this, R.string.loginNeed, Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, PrimeiraActivity::class.java))
+        }
         carregarUtilizador()
         loadAnuncio(codAnuncio!!)
         //quando clica na imagem de voltar para tras
