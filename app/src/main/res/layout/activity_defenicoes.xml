@@ -117,12 +117,50 @@
 
             </LinearLayout>
 
+            <!-- Ver anuncios -->
+            <LinearLayout
+                android:id="@+id/verAnuncioLL"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/editContaLL"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_house_24" />
+
+                <TextView
+                    android:id="@+id/verAnuncio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="0.8"
+                    android:text="@string/verAnuncio"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="0.1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+            </LinearLayout>
+
             <!-- Preferencias -->
             <TextView
                 android:id="@+id/prefTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editContaLL"
+                android:layout_below="@id/verAnuncioLL"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"

@@ -1,69 +1,108 @@
 package com.example.bd.adapters
 
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bd.R
+import com.example.bd.StudentList
+import com.example.bd.VerAnuncio
+import com.example.bd.app.OnStudentClickListener
 import com.example.bd.models.studentList
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 
-/*class landlordListAdapter(
-    private val studentL: ArrayList<studentList>
-) : RecyclerView.Adapter<StudentListViewHolder>() {
+class LandlordListAdapter(
+    private val studentL: ArrayList<studentList> ) :
+    RecyclerView.Adapter<LandLordListViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentListViewHolder {
-        return StudentListViewHolder(
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LandLordListViewHolder {
+        return LandLordListViewHolder(
             LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.landlord_line, parent, false)
+                .inflate(R.layout.student_line, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: StudentListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LandLordListViewHolder, position: Int) {
+        //array com a listagem
         val currentList = studentL[position]
 
-       // holder.title.text = currentList.title
-       // holder.address.text = currentList.address
-       // holder.rent.text = currentList.rent.toString() + "€/mês"
-//
-       // if (currentList.rooms == 1) {
-       //     holder.rooms.text = currentList.rooms.toString() + " Quarto"
-       // } else {
-       //     holder.rooms.text = currentList.rooms.toString() + " Quartos"
-       // }
-//
-       // if (currentList.shared) {
-       //     holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
-       // } else {
-       //     holder.shared.setImageResource(R.drawable.ic_baseline_person_24)
-       // }
-//
-       // if (currentList.smoke) {
-       //     holder.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
-       // } else {
-       //     holder.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
-       // }
-//
-       // if (currentList.accessible) {
-       //     holder.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
-       // } else {
-       //     holder.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
-       // }
-//
-       // // Both
-       // if (currentList.sex == 0) {
-       //     holder.male.setImageResource(R.drawable.ic_baseline_male_24)
-       //     holder.female.setImageResource(R.drawable.ic_baseline_female_24)
-       //     // Male only
-       // } else if (currentList.sex == 1) {
-       //     holder.male.setImageResource(R.drawable.ic_baseline_male_24)
-       //     // Female only
-       // } else {
-       //     holder.female.setImageResource(R.drawable.ic_baseline_female_24)
-       // }
+        holder.title.text = currentList.titulo
+        holder.address.text = currentList.morada
+        holder.rent.text = currentList.preco.toString() + "€/mês"
+
+        //if (currentList.rooms == 1) {
+        //    holder.rooms.text = currentList.rooms.toString() + " Quarto"
+        //} else {
+        //    holder.rooms.text = currentList.rooms.toString() + " Quartos"
+        //}
+
+        if (currentList.rAnimais) {
+            holder.shared.setImageResource(R.drawable.ic_baseline_people_24)
+        } else {
+            holder.shared.setImageResource(R.drawable.ic_baseline_person_24)
+        }
+
+        if (currentList.rFumadores) {
+            holder.smoke.setImageResource(R.drawable.ic_baseline_smoking_rooms_24)
+        } else {
+            holder.smoke.setImageResource(R.drawable.ic_baseline_smoke_free_24)
+        }
+
+        if (currentList.rAcessivel) {
+            holder.accessible.setImageResource(R.drawable.ic_baseline_accessible_24)
+        } else {
+            holder.accessible.setImageResource(R.drawable.ic_baseline_not_accessible_24)
+        }
+
+        // Both
+        if (currentList.reservado.equals("0")) {
+            holder.male.setImageResource(R.drawable.ic_baseline_male_24)
+            holder.female.setImageResource(R.drawable.ic_baseline_female_24)
+            // Male only
+        } else if (currentList.reservado.equals("1")) {
+            holder.male.setImageResource(R.drawable.ic_baseline_male_24)
+            // Female only
+        } else {
+            holder.female.setImageResource(R.drawable.ic_baseline_female_24)
+        }
+
+        //atraves do codigo do anuncio vou buscar uma imagem a BD
+        val ref = FirebaseDatabase.getInstance().getReference("ImagensAnuncios")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    var conta = 0
+                    for (anuncioSnap in snapshot.children) {
+                        val codA = "${anuncioSnap.child("codAnuncio").value}"
+                        if (codA.equals(currentList.codAnuncio)) {
+                            val imagem = "${anuncioSnap.child("imagemURL").value}"
+                            Picasso.get().load(imagem).into(holder.imagemA)
+                            conta = conta + 1
+                        }
+                    }
+                    if (conta == 0) {
+                        val imagem =
+                            "https://firebasestorage.googleapis.com/v0/b/rentalstudent-47413.appspot.com/o/imagensAnuncios%2F0c31a1fea169f62723961552742988b3a97e8e12.jpg?alt=media&token=ee27cce2-f4be-4801-aa1a-b7ce98516852"
+                        Picasso.get().load(imagem).into(holder.imagemA)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+
     }
 
     override fun getItemCount(): Int {
@@ -74,9 +113,14 @@ import com.example.bd.models.studentList
         studentL.add(sl)
         notifyDataSetChanged()
     }
+
+    fun rmAll() {
+        studentL.clear()
+        notifyDataSetChanged()
+    }
 }
 
-class LandlordListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class LandLordListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val title: TextView = itemView.findViewById(R.id.title)
     val address: TextView = itemView.findViewById(R.id.address)
@@ -87,5 +131,6 @@ class LandlordListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     val male: ImageView = itemView.findViewById(R.id.male)
     val female: ImageView = itemView.findViewById(R.id.female)
     val rooms: TextView = itemView.findViewById(R.id.roooms)
+    val imagemA: ImageView = itemView.findViewById(R.id.imagemA)
 
-}*/
+}

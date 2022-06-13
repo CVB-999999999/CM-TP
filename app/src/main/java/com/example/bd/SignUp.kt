@@ -155,8 +155,12 @@ class SignUp : AppCompatActivity() {
 
                 Toast.makeText(this, R.string.registeredAccount, Toast.LENGTH_SHORT).show()
 
-                ////abre o perfil
-                startActivity(Intent(this, StudentList::class.java))
+                ////muda de perfil
+                if(tipoUtilizador.equals(0)) {
+                    startActivity(Intent(this, StudentList::class.java))
+                }else{
+                    startActivity(Intent(this, LandlordList::class.java))
+                }
                 finish()
             }
             .addOnFailureListener {
