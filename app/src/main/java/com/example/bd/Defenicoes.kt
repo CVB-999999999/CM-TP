@@ -5,7 +5,9 @@ import android.content.SharedPreferences
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
 import com.example.bd.app.MyApplication
@@ -53,8 +55,27 @@ class Defenicoes : AppCompatActivity() {
 
         MyApplication.bottomMenu(bottomNavigationView, this)
 
+        /*if(valor==0){
+            binding.criarAnuncio.setVisibility(View.INVISIBLE)
+            binding.verAnuncioLL.setVisibility(View.INVISIBLE)
+        }else{
+            binding.criarAnuncio.setVisibility(View.VISIBLE)
+            binding.verAnuncioLL.setVisibility(View.VISIBLE)
+
+            binding.criarAnuncio.setOnClickListener {
+                startActivity(Intent(this, CriarQuarto::class.java))
+            }
+
+            binding.verAnuncioLL.setOnClickListener {
+                startActivity(Intent(this, LandlordList::class.java))
+            }
+        }*/
         binding.criarAnuncio.setOnClickListener {
             startActivity(Intent(this, CriarQuarto::class.java))
+        }
+
+        binding.verAnuncioLL.setOnClickListener {
+            startActivity(Intent(this, LandlordList::class.java))
         }
 
         binding.editContaLL.setOnClickListener {
@@ -117,6 +138,20 @@ class Defenicoes : AppCompatActivity() {
                         val email = "${snapshot.child("email").value}"
                         val nome = "${snapshot.child("nome").value}"
                         val fotoPerfil = "${snapshot.child("fotoPerfil").value}"
+                        val tipo = "${snapshot.child("tipoUtilizador").value}"
+
+
+                        Log.d("tipo", "tipo: " + tipo)
+
+
+                        if(tipo.equals("0")){
+                            binding.criarAnuncio.setVisibility(View.INVISIBLE)
+                            binding.verAnuncioLL.setVisibility(View.INVISIBLE)
+                        }else{
+                            binding.criarAnuncio.setVisibility(View.VISIBLE)
+                            binding.verAnuncioLL.setVisibility(View.VISIBLE)
+                        }
+
 
                         //Coloca a data nos campos
                         binding.emailUtilizadorTV.setText(email)
@@ -140,6 +175,7 @@ class Defenicoes : AppCompatActivity() {
 
         }else{
             //user logout
+            Toast.makeText(this, R.string.loginNeed, Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, PrimeiraActivity::class.java))
             finish()
         }

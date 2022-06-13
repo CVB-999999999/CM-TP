@@ -4,18 +4,15 @@ import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import com.bumptech.glide.Glide
-import com.example.bd.databinding.ActivityCriarQuartoBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.bd.databinding.ActivityEditarQuartoBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -25,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
-import kotlin.collections.HashMap
+
 
 class EditarQuarto : AppCompatActivity() {
 
@@ -44,7 +41,6 @@ class EditarQuarto : AppCompatActivity() {
 
     private var imagem = 0
 
-    private val codAnuncio = UUID.randomUUID().toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +55,10 @@ class EditarQuarto : AppCompatActivity() {
 
         //Iniciar o firebase
         firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser == null){
+            Toast.makeText(this, R.string.loginNeed, Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, PrimeiraActivity::class.java))
+        }
         carregarUtilizador()
         loadAnuncio(codAnuncio!!)
         //quando clica na imagem de voltar para tras
@@ -71,7 +71,9 @@ class EditarQuarto : AppCompatActivity() {
         //    showimageMenu()
         //}
         binding.Guardar.setOnClickListener {
-            validarDados(0)
+            Toast.makeText(this, codAnuncio, Toast.LENGTH_SHORT).show()
+
+            validarDados(0,codAnuncio)
         }
 
 
@@ -143,7 +145,7 @@ class EditarQuarto : AppCompatActivity() {
     private var preco = ""
 
     //valida dos dados antes de publicar
-    private fun validarDados(pub: Int) {
+    private fun validarDados(pub: Int, codAnuncio: String) {
         titulo = binding.tituloEtesp.text.toString().trim()
         descricao = binding.descricaoEt.text.toString().trim()
         email = binding.emailEt.text.toString().trim()
@@ -190,14 +192,15 @@ class EditarQuarto : AppCompatActivity() {
             binding.indiferente.error = R.string.selectOp.toString()
         }else{
             if (pub==0){  //submter os dados para a bd
-                guardaInfo()
+
+                guardaInfo(codAnuncio)
             }else{  //pre visulaizar o anuncio
                 //para já nao faz nada
             }
         }
     }
 
-    private fun guardaInfo() {
+    private fun guardaInfo(codAnuncio: String) {
         //guarda os dados no real time database
         progressDialog.setMessage(R.string.save.toString())
 
@@ -223,17 +226,20 @@ class EditarQuarto : AppCompatActivity() {
         hashMap["preco"]=preco
 
         //guardar td
-        val ref = FirebaseDatabase.getInstance().getReference("Anuncios")
-        ref.child(codAnuncio!!)
-            .updateChildren(hashMap)
-            .addOnSuccessListener {
+        val ref = FirebaseDatabase.getInstance().getReference("Anuncios").child(codAnuncio!!)
+        //ref.child(codAnuncio!!)
+            //.setValue(hashMap)
+        //val ref = FirebaseDatabase.getInstance().reference.child("Anuncios").child(codAnuncio)
+            ref.setValue(hashMap).addOnSuccessListener {
                 //caso de sucesso
+                Toast.makeText(this, codAnuncio, Toast.LENGTH_SHORT).show()
                 progressDialog.dismiss()
                 Toast.makeText(this, R.string.anuncioRegistado, Toast.LENGTH_SHORT).show()
 
+
                 //volta para a pagina inicial, neste momento vai para o perfil novamente
-                startActivity(Intent(this, Profile::class.java))
-                finish()
+                startActivity(Intent(this, StudentList::class.java))
+                //finish()
             }
             .addOnFailureListener {
                 //caso de fail
@@ -316,7 +322,7 @@ class EditarQuarto : AppCompatActivity() {
         //envia informação para a BD
         val hashMap: HashMap<String, Any> = HashMap()
         hashMap["codImagem"] = codImagem
-        hashMap["codAnuncio"] = codAnuncio
+        //hashMap["codAnuncio"] = codAnuncio
         hashMap["imagemURL"] = imageUrl
 
 

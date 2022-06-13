@@ -10,12 +10,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <!-- Dados inciais -->
         <RelativeLayout
             android:id="@+id/dadosInciais"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:orientation="vertical">
 
             <!-- Imagem -->
@@ -24,7 +24,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:src="@drawable/user" />
 
             <TextView
@@ -61,10 +61,10 @@
                 android:id="@+id/criarAnuncio"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
                 android:layout_below="@id/linha"
                 android:layout_centerHorizontal="true"
-                android:text="Criar Anúncio" />
+                android:layout_marginTop="20dp"
+                android:text="@string/create_ad" />
 
             <!-- Conta -->
             <TextView
@@ -72,10 +72,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/criarAnuncio"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:text="Conta"
+                android:text="@string/account"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -101,11 +101,10 @@
                     android:id="@+id/contaEditaPerfil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/linha"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
-                    android:text="Editar Perfil"
+                    android:text="@string/edit_profile"
                     android:textSize="15sp" />
 
                 <ImageView
@@ -118,9 +117,9 @@
 
             </LinearLayout>
 
-            <!-- Localização -->
+            <!-- Ver anuncios -->
             <LinearLayout
-                android:id="@+id/locLL"
+                android:id="@+id/verAnuncioLL"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_below="@+id/editContaLL"
@@ -134,16 +133,16 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
-                    android:src="@drawable/ic_baseline_edit_location_24" />
+                    android:src="@drawable/ic_baseline_house_24" />
 
                 <TextView
-                    android:id="@+id/contaLoc"
+                    android:id="@+id/verAnuncio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
-                    android:text="Localização"
+                    android:text="@string/verAnuncio"
                     android:textSize="15sp" />
 
                 <ImageView
@@ -153,43 +152,6 @@
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
                     android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
-
-            </LinearLayout>
-
-            <!-- Notificações -->
-            <LinearLayout
-                android:id="@+id/notLL"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/locLL"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.1"
-                    android:backgroundTint="@android:color/transparent"
-                    android:src="@drawable/ic_baseline_notifications_24" />
-
-                <TextView
-                    android:id="@+id/contaNot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="0.6"
-                    android:text="Notificações"
-                    android:textSize="15sp" />
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="0.3"
-                    android:checked="true" />
 
             </LinearLayout>
 
@@ -198,58 +160,20 @@
                 android:id="@+id/prefTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/notLL"
-                android:layout_alignParentLeft="true"
+                android:layout_below="@id/verAnuncioLL"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:text="Preferências"
+                android:text="@string/preferences"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <!-- Lingua -->
-            <LinearLayout
-                android:id="@+id/linguaLL"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_below="@+id/prefTXT"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.1"
-                    android:backgroundTint="@android:color/transparent"
-                    android:src="@drawable/ic_baseline_language_24" />
-
-                <TextView
-                    android:id="@+id/lingua"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="0.8"
-                    android:text="Linguagem"
-                    android:textSize="15sp" />
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="0.1"
-                    android:backgroundTint="@android:color/transparent"
-                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
-
-            </LinearLayout>
 
             <!-- Darkmode -->
             <LinearLayout
                 android:id="@+id/darkLL"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/linguaLL"
+                android:layout_below="@id/prefTXT"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
@@ -269,7 +193,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.6"
-                    android:text="Modo Escuro"
+                    android:text="@string/dark_mode"
                     android:textSize="15sp" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -287,10 +211,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/darkLL"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:text="Outros"
+                android:text="@string/other"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -319,7 +243,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
-                    android:text="Termos e Condições"
+                    android:text="@string/terms_and_conditions"
                     android:textSize="15sp" />
 
                 <ImageView
@@ -357,7 +281,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
-                    android:text="Politica de Privacidade"
+                    android:text="@string/privacy_policy"
                     android:textSize="15sp" />
 
                 <ImageView
@@ -383,7 +307,6 @@
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="20dp"
-                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
@@ -396,14 +319,13 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.8"
-                    android:text="Apoio"
+                    android:text="@string/help"
                     android:textSize="15sp" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="right"
-                    android:layout_centerHorizontal="true"
                     android:layout_weight="0.1"
                     android:backgroundTint="@android:color/transparent"
                     android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
@@ -417,7 +339,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/apoioLL"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="150dp">
 
                 <TextView
                     android:id="@+id/sair"
@@ -425,30 +348,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    android:text="Sair"
+                    android:text="@string/log_out"
                     android:textSize="20sp"
                     android:textStyle="bold|italic" />
             </RelativeLayout>
-
-            <!-- Encher -->
-            <LinearLayout
-                android:id="@+id/encherLL"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_below="@+id/apoioLL"
-                android:layout_marginTop="150dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/encher"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:text="  "
-                    android:textSize="20sp" />
-            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
     <!-- Menu -->
@@ -459,6 +362,7 @@
         android:layout_above="@id/bottom_navigation"
         android:layout_marginTop="15dp"
         android:background="#A8A1A1" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
